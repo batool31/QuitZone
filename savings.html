@@ -28,7 +28,7 @@
       <p>Every day you stay smoke-free, your wallet gets fatter and your future gets brighter.</p>
 
       <div class="savings-visual">
-        <img src="images/savingsjar.png" alt="Savings Jar" class="savings-jar" />
+        <img src="saving-1.png" alt="Savings Jar" class="savings-jar" />
 
 
       </div>
@@ -89,7 +89,17 @@
 
       document.getElementById("total-saved").textContent = `$${totalSaved.toFixed(2)}`;
       document.getElementById("points").textContent = points;
+      
     });
+    document.addEventListener("DOMContentLoaded", function() {
+            let title = document.querySelector("h1");
+            let colors = ["#ff4d4d", "#4CAF50", "#3498db", "#ff9800"];
+            let index = 0;
+            setInterval(() => {
+                title.style.color = colors[index];
+                index = (index + 1) % colors.length;
+            }, 1000);
+        });
   </script>
 </body>
 </html>
