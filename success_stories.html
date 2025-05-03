@@ -58,9 +58,81 @@
             </div> 
         </div>
     </div>
+    <section class="help-others-section">
+        <h2>Help Others Quit 🚭</h2>
+        <p>You can be a source of inspiration! Here are a few ways to support others on their journey to quit smoking:</p>
+        <ul>
+          <li>Share your own success story.</li>
+          <li>Check in regularly with friends or family who are trying to quit.</li>
+          <li>Encourage them to use support tools like this chatbot.</li>
+          <li>Celebrate their milestones—no matter how small.</li>
+          <li>Be patient and understanding during their journey.</li>
+        </ul>
+      </section>
+     
+      <section class="support-friends-section">
+        <h2>Support Your Friends 🤝</h2>
+        <p>Enter your friend's name and send them a motivational message to support their journey to quit smoking.</p>
+      
+        <div class="support-form">
+          <input type="text" id="friend-name" placeholder="Friend's Name" />
+          <input type="text" id="support-message" placeholder="Write a supportive message..." />
+          <button onclick="sendSupport()">Send</button>
+        </div>
+      
+        <div id="support-messages" class="messages-box">
+            <button onclick="clearSupportMessages()" class="clear-btn">Clear Messages</button>
+
+          <!-- Messages will appear here -->
+        </div>
+      </section>
+    <script>
+// استدعاء الرسائل عند تحميل الصفحة
+window.addEventListener('load', loadSupportMessages);
+
+function sendSupport() {
+  const name = document.getElementById("friend-name").value.trim();
+  const message = document.getElementById("support-message").value.trim();
+  if (!name || !message) {
+    alert("Please enter your friend's name and a message.");
+    return;
+  }
+
+  const newMessage = { name, message };
+  const messages = getStoredMessages();
+  messages.push(newMessage);
+  localStorage.setItem('supportMessages', JSON.stringify(messages));
+
+  appendSupportMessage(newMessage);
+
+  // Clear inputs
+  document.getElementById("friend-name").value = '';
+  document.getElementById("support-message").value = '';
+}
+
+function appendSupportMessage(msg) {
+  const box = document.getElementById("support-messages");
+  const msgDiv = document.createElement("div");
+  msgDiv.className = "support-msg";
+  msgDiv.innerHTML = `<strong>${msg.name}:</strong> ${msg.message}`;
+  box.appendChild(msgDiv);
+  box.scrollTop = box.scrollHeight;
+}
+
+function loadSupportMessages() {
+  const messages = getStoredMessages();
+  messages.forEach(msg => appendSupportMessage(msg));
+}
+
+function getStoredMessages() {
+  const stored = localStorage.getItem('supportMessages');
+  return stored ? JSON.parse(stored) : [];
+}
+
+      </script>
 
     <footer>
-        <p>© 2025 QuitZone - All Rights Reserved</p>
+        <p>© 2025 QuitZone - All Rightshfdhh Reserved</p>
     </footer>
 </body>
 </html>
