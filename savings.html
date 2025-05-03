@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuitZone - Savings</title>
+  <link rel="stylesheet" href="grad.css">
+</head>
+<body>
+  <header>
+    <a href="home.html" class="logo">QuitZone 🚭</a>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="challenges.html">Challenges</a></li>
+        <li><a href="savings.html" class="active">Savings</a></li>
+        <li><a href="success_stories.html">Success Stories</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+        <li><a href="login.php" class="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="savings-section">
+      <h1>Your Smoke-Free Bank</h1>
+      <p>Every day you stay smoke-free, your wallet gets fatter and your future gets brighter.</p>
+
+      <div class="savings-visual">
+        <img src="images/savingsjar.png" alt="Savings Jar" class="savings-jar" />
+
+
+      </div>
+
+      <!-- Moved Overlay Here -->
+      <div class="savings-overlay">
+        <h2><span id="total-saved">$0.00</span></h2>
+        <p><span id="points">0</span> Points Collected</p>
+      </div>
+
+      <div class="savings-input">
+        <h3>Calculate Your Savings</h3>
+        <label for="daily-expense">How much did you spend per day on smoking?</label>
+        <input type="number" id="daily-expense" placeholder="$ / day" />
+        <label for="days-quit">How many days smoke-free?</label>
+        <input type="number" id="days-quit" placeholder="Days" />
+        <br />
+        <button id="calculate-savings">💰 Calculate</button>
+      </div>
+
+      <div class="rewards-section">
+        <h3>🎁 Rewards Vault</h3>
+        <p>Trade in your smoke-free points for amazing rewards!</p>
+        <div class="reward-cards">
+          <div class="card">
+            <h4>💳 $5 Gift Card</h4>
+            <p>100 Points</p>
+          </div>
+          <div class="card">
+            <h4>🎉 $10 Gift Card</h4>
+            <p>200 Points</p>
+          </div>
+          <div class="card">
+            <h4>📱 Health App Subscription</h4>
+            <p>500 Points</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 QuitZone. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("calculate-savings").addEventListener("click", function () {
+      const dailyExpense = parseFloat(document.getElementById("daily-expense").value);
+      const daysQuit = parseInt(document.getElementById("days-quit").value);
+
+      if (isNaN(dailyExpense) || isNaN(daysQuit) || dailyExpense <= 0 || daysQuit <= 0) {
+        alert("Please enter valid numbers for both fields.");
+        return;
+      }
+
+      const totalSaved = dailyExpense * daysQuit;
+      const points = Math.floor(totalSaved);
+
+      document.getElementById("total-saved").textContent = `$${totalSaved.toFixed(2)}`;
+      document.getElementById("points").textContent = points;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuitZone - Chatbot</title>
+  <link rel="stylesheet" href="grad.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- لعمل استدعاء API -->
+</head>
+<body>
+  <header>
+    <a href="home.html" class="logo">QuitZone 🚭</a>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="challenges.html">Challenges</a></li>
+        <li><a href="savings.html">Savings</a></li>
+        <li><a href="success_stories.html">Success Stories</a></li>
+        <li><a href="chatbot.html" class="active">Chatbot</a></li>
+        <li><a href="login.php" class="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="chatbot-section">
+      <h1>Talk to our Chatbot</h1>
+      <div id="chat-box" class="chat-box">
+        <!-- سيتم عرض الرسائل هنا -->
+      </div>
+      <!-- Updated input field with chat-input class for better styling -->
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Share your thoughts or ask me anything!" />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 QuitZone. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const API_KEY = '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'; // تأكد من إدخال المفتاح الصحيح
+
+    async function sendMessage() {
+      const userMessage = document.getElementById("user-input").value;
+      if (!userMessage) return;
+
+      appendMessage('You: ' + userMessage);
+
+      try {
+        const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+          model: "gpt-3.5-turbo", // تأكد من أن الموديل متاح لديك
+          messages: [{ role: "user", content: userMessage }]
+        }, {
+          headers: {
+            'Authorization': `Bearer ${API_KEY}`,
+            'Content-Type': 'application/json',
+          }
+        });
+
+        // إذا كنت تحصل على خطأ، حاول طباعة الاستجابة في وحدة التحكم
+        console.log(response.data);
+
+        const botMessage = response.data.choices[0].message.content;
+        appendMessage('Chatbot: ' + botMessage);
+      } catch (error) {
+        console.error("Error communicating with OpenAI:", error);
+        appendMessage('Chatbot: Sorry, something went wrong.');
+      }
+
+      // مسح المدخلات
+      document.getElementById("user-input").value = '';
+    }
+
+    function appendMessage(message) {
+      const chatBox = document.getElementById("chat-box");
+      const messageElement = document.createElement("div");
+      messageElement.textContent = message;
+      chatBox.appendChild(messageElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>

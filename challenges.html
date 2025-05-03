@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuitZone - Challenges</title>
+  <link rel="stylesheet" href="grad.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <a href="home.html" class="logo">QuitZone 🚭</a>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li> 
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="challenges.html" class="active">Challenges</a></li>
+        <li><a href="savings.html">Savings</a></li>
+        <li><a href="success_stories.html">Success Stories</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+        <li><a href="login.php" class="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container challenge-container">
+    <h1 class="challenge-title">🚀 Take On the QuitZone Challenges</h1>
+    <p class="challenge-subtitle">Test your willpower, track your wins, and collect rewards as you go smoke-free! 🌟</p>
+
+    <section class="challenge-card" onclick="toggleDetails('challenge1')">
+      <h2>⏳ 24-Hour Kickstart Challenge</h2>
+      <div class="details" id="challenge1">
+        <p>Go smoke-free for 24 hours! Reset your cravings and start strong. 💪</p>
+        <button class="start-btn" onclick="startChallenge('challenge1', 2025)">Start 24-Hour Timer</button>
+        <p class="timer">⏱ Time Left: <span id="challenge1-timer">24h 0m</span></p>
+
+        <div class="activity-section">
+          <h3>🧘‍♂️ Positive Distractions:</h3>
+          <div class="btn-group">
+            <button onclick="logActivity('Hydrated with water', 'challenge1')">Drink Water</button>
+            <button onclick="logActivity('Took a walk', 'challenge1')">Go for a Walk</button>
+            <button onclick="logActivity('Read a book', 'challenge1')">Read</button>
+            <button onclick="logActivity('Breathed deeply', 'challenge1')">Breathing</button>
+            <button onclick="logActivity('Listened to music', 'challenge1')">Music</button>
+          </div>
+        </div>
+
+        <div class="exercise-section">
+          <h3>🏋️ Add Your Own Exercise</h3>
+          <button class="custom-btn" onclick="chooseExercise('challenge1')">+ Add Exercise</button>
+        </div>
+
+        <div class="activities-log">
+          <h4>✅ Completed Activities:</h4>
+          <ul id="challenge1-activities"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="challenge-card" onclick="toggleDetails('challenge2')">
+      <h2>📅 7-Day Power Challenge</h2>
+      <div class="details" id="challenge2">
+        <p>Stay smoke-free for a full week and begin rewiring your habits. 🔄</p>
+        <button class="start-btn" onclick="startChallenge('challenge2', 10080)">Start 7-Day Timer</button>
+        <p class="timer">⏱ Time Left: <span id="challenge2-timer">7d 0h</span></p>
+
+        <div class="activity-section">
+          <h3>🎯 Weekly Goals:</h3>
+          <div class="btn-group">
+            <button onclick="logActivity('Joined fitness group', 'challenge2')">Fitness Group</button>
+            <button onclick="logActivity('Wrote a journal entry', 'challenge2')">Journal</button>
+            <button onclick="logActivity('Took a relaxing bath', 'challenge2')">Bath</button>
+            <button onclick="logActivity('Practiced mindfulness', 'challenge2')">Mindfulness</button>
+            <button onclick="logActivity('Spent time with family', 'challenge2')">Family Time</button>
+          </div>
+        </div>
+
+        <div class="exercise-section">
+          <h3>🏋️ Add Your Own Exercise</h3>
+          <button class="custom-btn" onclick="chooseExercise('challenge2')">+ Add Exercise</button>
+        </div>
+
+        <div class="activities-log">
+          <h4>✅ Completed Activities:</h4>
+          <ul id="challenge2-activities"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="log-section">
+      <h2>📜 Full Activity Log</h2>
+      <ul id="activity-log"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 QuitZone - All Rights Reserved</p>
+  </footer>
+</body>
+</html>

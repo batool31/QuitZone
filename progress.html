@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuitZone - Progress</title>
+    <link rel="stylesheet" href="grad.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <a href="home.html" class="logo">QuitZone 🚭</a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li> 
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="savings.html">Savings</a></li>
+                <li><a href="success_stories.html">Success Stories</a></li>
+                <li><a href="chatbot.html">Chatbot</a></li>
+                <li><a href="login.php" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Health Improvement After Quitting Smoking</h1>
+    <div class="chart-container">
+        <canvas id="healthChart"></canvas>
+    </div>
+
+    <div class="benefits">
+        <h2>Health Benefits Over Time</h2>
+        <ul>
+            <li><strong>⏳ 20 minutes:</strong> Heart rate and blood pressure drop.</li>
+            <li><strong>🕛 12 hours:</strong> Carbon monoxide level in blood returns to normal.</li>
+            <li><strong>📆 24 hours:</strong> Risk of heart attack starts to decrease.</li>
+            <li><strong>🌬 1 week:</strong> Breathing improves.</li>
+            <li><strong>💨 1 month:</strong> Lung function improves significantly.</li>
+            <li><strong>❤ 1 year:</strong> Risk of heart disease drops by half.</li>
+        </ul>
+    </div>
+
+    <div class="feedback">
+        <h2>Did You Feel Any Benefits?</h2>
+        <form id="feedbackForm">
+            <label><input type="checkbox" name="benefit" value="Heart rate and blood pressure drop"> Heart rate and blood pressure drop</label>
+            <label><input type="checkbox" name="benefit" value="Carbon monoxide level returns to normal"> Carbon monoxide level returns to normal</label>
+            <label><input type="checkbox" name="benefit" value="Risk of heart attack decreased"> Risk of heart attack decreased</label>
+            <label><input type="checkbox" name="benefit" value="Breathing improved"> Breathing improved</label>
+            <label><input type="checkbox" name="benefit" value="Lung function improved"> Lung function improved</label>
+            <label><input type="checkbox" name="benefit" value="Lower risk of heart disease"> Lower risk of heart disease</label>
+            <button type="button" class="submit-btn" onclick="submitBenefitsFeedback()">Submit Benefits</button>
+        </form>
+    </div>
+
+    <div id="benefitsResult" style="display:none; margin-top:20px;">
+        <h3>Selected Benefits:</h3>
+        <ul id="benefitsList"></ul>
+    </div>
+
+    <div class="feedback-container">
+        <h2>What did you feel after quitting smoking?</h2>
+        <label for="dayFeelings">⏳ Day 1:</label>
+        <textarea id="dayFeelings" placeholder="Share how you felt after the first day of quitting..."></textarea>
+
+        <label for="weekFeelings">🕛 1 Week:</label>
+        <textarea id="weekFeelings" placeholder="Share how you felt after the first week of quitting..."></textarea>
+
+        <label for="monthFeelings">📆 1 Month:</label>
+        <textarea id="monthFeelings" placeholder="Share how you felt after the first month of quitting..."></textarea>
+
+        <label for="yearFeelings">❤ 1 Year:</label>
+        <textarea id="yearFeelings" placeholder="Share how you felt after 1 year of quitting..."></textarea>
+
+        <button type="button" class="submit-btn" onclick="submitFeelingsFeedback()">Submit Feelings</button>
+    </div>
+
+    <div id="feelingsResult" style="display: none; margin-top: 20px;">
+        <h3>Your Feelings Summary:</h3>
+        <ul id="feelingsList"></ul>
+    </div>
+
+    <!-- 📈 Chart Script -->
+    <script>
+        const ctx = document.getElementById('healthChart').getContext('2d');
+        const healthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['1 Day', '1 Week', '1 Month', '6 Months', '1 Year', '5 Years', '10 Years'],
+                datasets: [{
+                    label: 'Health Improvement %',
+                    data: [5, 15, 30, 50, 70, 90, 100],
+                    borderColor: 'green',
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Feedback Scripts -->
+    <script>
+        function submitBenefitsFeedback() {
+            const checkboxes = document.querySelectorAll('input[name="benefit"]:checked');
+            let selectedBenefits = [];
+            checkboxes.forEach((checkbox) => selectedBenefits.push(checkbox.value));
+
+            const benefitsResultDiv = document.getElementById("benefitsResult");
+            const benefitsList = document.getElementById("benefitsList");
+            benefitsList.innerHTML = "";
+
+            if (selectedBenefits.length > 0) {
+                selectedBenefits.forEach((benefit) => {
+                    let li = document.createElement("li");
+                    li.textContent = benefit;
+                    benefitsList.appendChild(li);
+                });
+                benefitsResultDiv.style.display = "block";
+            } else {
+                benefitsResultDiv.style.display = "none";
+                alert("Please select at least one benefit before submitting.");
+                
+            }
+        }
+
+        function submitFeelingsFeedback() {
+            const dayFeelings = document.getElementById("dayFeelings").value.trim();
+            const weekFeelings = document.getElementById("weekFeelings").value.trim();
+            const monthFeelings = document.getElementById("monthFeelings").value.trim();
+            const yearFeelings = document.getElementById("yearFeelings").value.trim();
+
+            if (!dayFeelings && !weekFeelings && !monthFeelings && !yearFeelings) {
+                alert("Please enter your feelings in at least one field.");
+                return;
+            }
+
+            const feelingsResultDiv = document.getElementById("feelingsResult");
+            const feelingsList = document.getElementById("feelingsList");
+            feelingsList.innerHTML = "";
+
+            if (dayFeelings) feelingsList.innerHTML += `<li><strong>Day 1:</strong> ${dayFeelings}</li>`;
+            if (weekFeelings) feelingsList.innerHTML += `<li><strong>Week 1:</strong> ${weekFeelings}</li>`;
+            if (monthFeelings) feelingsList.innerHTML += `<li><strong>Month 1:</strong> ${monthFeelings}</li>`;
+            if (yearFeelings) feelingsList.innerHTML += `<li><strong>Year 1:</strong> ${yearFeelings}</li>`;
+
+            feelingsResultDiv.style.display = "block";
+            
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            let title = document.querySelector("h1");
+            let colors = ["#ff4d4d", "#4CAF50", "#3498db", "#ff9800"];
+            let index = 0;
+            setInterval(() => {
+                title.style.color = colors[index];
+                index = (index + 1) % colors.length;
+            }, 1000);
+        });
+    </script>
+
+    <footer>
+        <p>© 2025 QuitZone - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
