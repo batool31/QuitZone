@@ -95,7 +95,7 @@
 
     <div class="challenges-wrapper">
       <section class="challenge-card active" data-aos="fade-up" data-aos-delay="400">
-        <div class="challenge-header" onclick="toggleDetails('challenge1')">
+        <div class="challenge-header" onclick="toggleDetails('challenge1')" data-id="challenge1">
           <div class="challenge-info">
             <span class="challenge-badge">Active</span>
             <h2><i class="fas fa-hourglass-half"></i> 24-Hour Kickstart Challenge</h2>
@@ -182,7 +182,7 @@
       </section>
 
       <section class="challenge-card" data-aos="fade-up" data-aos-delay="500">
-        <div class="challenge-header" onclick="toggleDetails('challenge2')">
+        <div class="challenge-header" onclick="toggleDetails('challenge2')" data-id="challenge2">
           <div class="challenge-info">
             <span class="challenge-badge upcoming">Upcoming</span>
             <h2><i class="fas fa-calendar-week"></i> 7-Day Power Challenge</h2>
@@ -264,7 +264,7 @@
       </section>
       
       <section class="challenge-card" data-aos="fade-up" data-aos-delay="600">
-        <div class="challenge-header" onclick="toggleDetails('challenge3')">
+        <div class="challenge-header" onclick="toggleDetails('challenge3')" data-id="challenge3">
           <div class="challenge-info">
             <span class="challenge-badge upcoming">Upcoming</span>
             <h2><i class="fas fa-calendar-alt"></i> 30-Day Transformation</h2>
@@ -419,8 +419,9 @@
     </div>
   </footer>
 
-  <!-- AOS Animation Library -->
+  <!-- Animation Libraries -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   
   <script>
     // Initialize AOS animation library
@@ -475,15 +476,6 @@
         }
       });
       
-      // Toggle details for challenge cards
-      const challengeHeaders = document.querySelectorAll('.challenge-header');
-      challengeHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-          const detailsId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
-          toggleDetails(detailsId);
-        });
-      });
-      
       // Filter activity log
       const filterBtns = document.querySelectorAll('.filter-btn');
       filterBtns.forEach(btn => {
@@ -501,6 +493,22 @@
       
       // Check for empty log and show/hide message
       updateEmptyLogMessage();
+      
+      // Fix for challenge card toggles - prevent double event firing
+      const challengeHeaders = document.querySelectorAll('.challenge-header');
+      challengeHeaders.forEach(header => {
+        // Remove the onclick attribute to prevent double firing
+        const challengeId = header.getAttribute('data-id');
+        if (challengeId) {
+          // Remove the inline onclick to avoid double triggering
+          header.removeAttribute('onclick');
+          
+          // Add click event listener
+          header.addEventListener('click', function() {
+            toggleDetails(challengeId);
+          });
+        }
+      });
     });
 
     let activeTimers = {};
@@ -1004,12 +1012,17 @@
     .challenge-details {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease;
+      transition: all 0.5s ease;
+      opacity: 0;
+      visibility: hidden;
+      padding: 0 1.5rem;
     }
     
     .challenge-details.open {
       max-height: 2000px;
-      padding: 0 1.5rem 1.5rem;
+      opacity: 1;
+      visibility: visible;
+      padding: 1.5rem;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
     
