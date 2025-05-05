@@ -5,96 +5,1547 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>QuitZone - Challenges</title>
   <link rel="stylesheet" href="grad.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Confetti effect -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-  <header>
-    <a href="home.html" class="logo">QuitZone 🚭</a>
-    <nav>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container">
+      <a href="home.html" class="logo">
+        <span>QuitZone</span>
+        <span class="emoji">🚭</span>
+      </a>
+      
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Navigation Links for Desktop -->
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="home.html" class="nav-link">Home</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="challenges.html" class="nav-link active">Challenges</a></li>
+          <li><a href="savings.html" class="nav-link">Savings</a></li>
+          <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
+          <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
+          <li><a href="login.php" class="login-btn">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
       <ul>
-        <li><a href="home.html">Home</a></li> 
+        <li><a href="home.html">Home</a></li>
         <li><a href="progress.html">Progress</a></li>
-        <li><a href="challenges.html" class="active">Challenges</a></li>
+        <li><a href="challenges.html">Challenges</a></li>
         <li><a href="savings.html">Savings</a></li>
         <li><a href="success_stories.html">Success Stories</a></li>
         <li><a href="chatbot.html">Chatbot</a></li>
-        <li><a href="login.php" class="login-btn">Login</a></li>
+        <li><a href="login.php" class="mobile-login-btn">Login</a></li>
       </ul>
-    </nav>
+    </div>
+    
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
   </header>
 
   <main class="container challenge-container">
-    <h1 class="challenge-title">🚀 Take On the QuitZone Challenges</h1>
-    <p class="challenge-subtitle">Test your willpower, track your wins, and collect rewards as you go smoke-free! 🌟</p>
+    <h1 class="challenge-title" data-aos="fade-up">🚀 Take On the QuitZone Challenges</h1>
+    <p class="challenge-subtitle" data-aos="fade-up" data-aos-delay="200">Test your willpower, track your wins, and collect rewards as you go smoke-free! 🌟</p>
 
-    <section class="challenge-card" onclick="toggleDetails('challenge1')">
-      <h2>⏳ 24-Hour Kickstart Challenge</h2>
-      <div class="details" id="challenge1">
-        <p>Go smoke-free for 24 hours! Reset your cravings and start strong. 💪</p>
-        <button class="start-btn" onclick="startChallenge('challenge1', 2025)">Start 24-Hour Timer</button>
-        <p class="timer">⏱ Time Left: <span id="challenge1-timer">24h 0m</span></p>
-
-        <div class="activity-section">
-          <h3>🧘‍♂️ Positive Distractions:</h3>
-          <div class="btn-group">
-            <button onclick="logActivity('Hydrated with water', 'challenge1')">Drink Water</button>
-            <button onclick="logActivity('Took a walk', 'challenge1')">Go for a Walk</button>
-            <button onclick="logActivity('Read a book', 'challenge1')">Read</button>
-            <button onclick="logActivity('Breathed deeply', 'challenge1')">Breathing</button>
-            <button onclick="logActivity('Listened to music', 'challenge1')">Music</button>
-          </div>
+    <div class="challenge-stats" data-aos="fade-up" data-aos-delay="300">
+      <div class="stat-item">
+        <div class="stat-icon">
+          <i class="fas fa-medal"></i>
         </div>
-
-        <div class="exercise-section">
-          <h3>🏋️ Add Your Own Exercise</h3>
-          <button class="custom-btn" onclick="chooseExercise('challenge1')">+ Add Exercise</button>
-        </div>
-
-        <div class="activities-log">
-          <h4>✅ Completed Activities:</h4>
-          <ul id="challenge1-activities"></ul>
+        <div class="stat-info">
+          <span class="stat-number" id="completedChallenges">4</span>
+          <span class="stat-label">Challenges Completed</span>
         </div>
       </div>
-    </section>
-
-    <section class="challenge-card" onclick="toggleDetails('challenge2')">
-      <h2>📅 7-Day Power Challenge</h2>
-      <div class="details" id="challenge2">
-        <p>Stay smoke-free for a full week and begin rewiring your habits. 🔄</p>
-        <button class="start-btn" onclick="startChallenge('challenge2', 10080)">Start 7-Day Timer</button>
-        <p class="timer">⏱ Time Left: <span id="challenge2-timer">7d 0h</span></p>
-
-        <div class="activity-section">
-          <h3>🎯 Weekly Goals:</h3>
-          <div class="btn-group">
-            <button onclick="logActivity('Joined fitness group', 'challenge2')">Fitness Group</button>
-            <button onclick="logActivity('Wrote a journal entry', 'challenge2')">Journal</button>
-            <button onclick="logActivity('Took a relaxing bath', 'challenge2')">Bath</button>
-            <button onclick="logActivity('Practiced mindfulness', 'challenge2')">Mindfulness</button>
-            <button onclick="logActivity('Spent time with family', 'challenge2')">Family Time</button>
-          </div>
+      
+      <div class="stat-item">
+        <div class="stat-icon">
+          <i class="fas fa-star"></i>
         </div>
-
-        <div class="exercise-section">
-          <h3>🏋️ Add Your Own Exercise</h3>
-          <button class="custom-btn" onclick="chooseExercise('challenge2')">+ Add Exercise</button>
-        </div>
-
-        <div class="activities-log">
-          <h4>✅ Completed Activities:</h4>
-          <ul id="challenge2-activities"></ul>
+        <div class="stat-info">
+          <span class="stat-number" id="earnedPoints">250</span>
+          <span class="stat-label">Points Earned</span>
         </div>
       </div>
-    </section>
+      
+      <div class="stat-item">
+        <div class="stat-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-number" id="userRank">12</span>
+          <span class="stat-label">Your Community Rank</span>
+        </div>
+      </div>
+    </div>
 
-    <section class="log-section">
-      <h2>📜 Full Activity Log</h2>
-      <ul id="activity-log"></ul>
+    <div class="challenges-wrapper">
+      <section class="challenge-card active" data-aos="fade-up" data-aos-delay="400">
+        <div class="challenge-header" onclick="toggleDetails('challenge1')">
+          <div class="challenge-info">
+            <span class="challenge-badge">Active</span>
+            <h2><i class="fas fa-hourglass-half"></i> 24-Hour Kickstart Challenge</h2>
+            <p class="challenge-excerpt">Go smoke-free for 24 hours! Reset your cravings and start strong. 💪</p>
+          </div>
+          <div class="challenge-expand">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+        
+        <div class="challenge-details" id="challenge1">
+          <div class="challenge-description">
+            <p>The first 24 hours can be the hardest part of quitting smoking, but it's also the most crucial. During this challenge, you'll learn techniques to handle cravings and begin your journey to a smoke-free life.</p>
+            
+            <div class="challenge-benefits">
+              <h3>Benefits You'll Experience:</h3>
+              <ul>
+                <li><i class="fas fa-check-circle"></i> Blood oxygen levels start to normalize</li>
+                <li><i class="fas fa-check-circle"></i> Carbon monoxide levels drop</li>
+                <li><i class="fas fa-check-circle"></i> Heart rate begins to decrease</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="challenge-progress">
+            <div class="progress-header">
+              <h3>Challenge Progress:</h3>
+              <div class="timer-container">
+                <i class="fas fa-clock"></i>
+                <span id="challenge1-timer">24h 0m</span>
+              </div>
+            </div>
+            
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="challenge1-progress" style="width: 0%"></div>
+            </div>
+            
+            <div class="challenge-actions">
+              <button class="start-btn pulse" onclick="startChallenge('challenge1', 2025)">
+                <i class="fas fa-play"></i> Start 24-Hour Timer
+              </button>
+              <button class="reset-btn" onclick="resetChallenge('challenge1')">
+                <i class="fas fa-redo"></i> Reset
+              </button>
+            </div>
+          </div>
+
+          <div class="activity-section">
+            <h3><i class="fas fa-running"></i> Positive Distractions:</h3>
+            <div class="btn-group">
+              <button onclick="logActivity('Hydrated with water', 'challenge1')">
+                <i class="fas fa-tint"></i> Drink Water
+              </button>
+              <button onclick="logActivity('Took a walk', 'challenge1')">
+                <i class="fas fa-walking"></i> Go for a Walk
+              </button>
+              <button onclick="logActivity('Read a book', 'challenge1')">
+                <i class="fas fa-book"></i> Read
+              </button>
+              <button onclick="logActivity('Breathed deeply', 'challenge1')">
+                <i class="fas fa-wind"></i> Breathing
+              </button>
+              <button onclick="logActivity('Listened to music', 'challenge1')">
+                <i class="fas fa-music"></i> Music
+              </button>
+            </div>
+          </div>
+
+          <div class="exercise-section">
+            <h3><i class="fas fa-dumbbell"></i> Add Your Own Exercise</h3>
+            <div class="custom-exercise-form">
+              <input type="text" id="custom-exercise-challenge1" placeholder="Enter your exercise...">
+              <button class="custom-btn" onclick="addCustomExercise('challenge1')">
+                <i class="fas fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+
+          <div class="activities-log">
+            <h4><i class="fas fa-clipboard-check"></i> Completed Activities:</h4>
+            <ul id="challenge1-activities" class="activities-list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="challenge-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="challenge-header" onclick="toggleDetails('challenge2')">
+          <div class="challenge-info">
+            <span class="challenge-badge upcoming">Upcoming</span>
+            <h2><i class="fas fa-calendar-week"></i> 7-Day Power Challenge</h2>
+            <p class="challenge-excerpt">Stay smoke-free for a full week and begin rewiring your habits. 🔄</p>
+          </div>
+          <div class="challenge-expand">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+        
+        <div class="challenge-details" id="challenge2">
+          <div class="challenge-description">
+            <p>After your first 24 hours, take on the full week challenge! During these 7 days, your body begins to heal significantly, and your brain starts to break the nicotine addiction cycle.</p>
+            
+            <div class="challenge-benefits">
+              <h3>Benefits You'll Experience:</h3>
+              <ul>
+                <li><i class="fas fa-check-circle"></i> Taste and smell senses improve</li>
+                <li><i class="fas fa-check-circle"></i> Breathing becomes easier</li>
+                <li><i class="fas fa-check-circle"></i> Energy levels increase</li>
+                <li><i class="fas fa-check-circle"></i> Circulation improves</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="challenge-progress">
+            <div class="progress-header">
+              <h3>Challenge Progress:</h3>
+              <div class="timer-container">
+                <i class="fas fa-clock"></i>
+                <span id="challenge2-timer">7d 0h</span>
+              </div>
+            </div>
+            
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="challenge2-progress" style="width: 0%"></div>
+            </div>
+            
+            <div class="challenge-actions">
+              <button class="start-btn" onclick="startChallenge('challenge2', 10080)" disabled>
+                <i class="fas fa-play"></i> Start 7-Day Timer
+              </button>
+              <button class="reset-btn" onclick="resetChallenge('challenge2')" disabled>
+                <i class="fas fa-redo"></i> Reset
+              </button>
+            </div>
+            
+            <p class="unlock-message">
+              <i class="fas fa-lock"></i> Complete the 24-Hour Challenge to unlock this challenge!
+            </p>
+          </div>
+
+          <div class="activity-section">
+            <h3><i class="fas fa-tasks"></i> Weekly Goals:</h3>
+            <div class="btn-group">
+              <button onclick="logActivity('Joined fitness group', 'challenge2')" disabled>
+                <i class="fas fa-users"></i> Fitness Group
+              </button>
+              <button onclick="logActivity('Wrote a journal entry', 'challenge2')" disabled>
+                <i class="fas fa-pen-fancy"></i> Journal
+              </button>
+              <button onclick="logActivity('Took a relaxing bath', 'challenge2')" disabled>
+                <i class="fas fa-bath"></i> Bath
+              </button>
+              <button onclick="logActivity('Practiced mindfulness', 'challenge2')" disabled>
+                <i class="fas fa-brain"></i> Mindfulness
+              </button>
+              <button onclick="logActivity('Spent time with family', 'challenge2')" disabled>
+                <i class="fas fa-home"></i> Family Time
+              </button>
+            </div>
+          </div>
+
+          <div class="activities-log">
+            <h4><i class="fas fa-clipboard-check"></i> Completed Activities:</h4>
+            <ul id="challenge2-activities" class="activities-list"></ul>
+          </div>
+        </div>
+      </section>
+      
+      <section class="challenge-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="challenge-header" onclick="toggleDetails('challenge3')">
+          <div class="challenge-info">
+            <span class="challenge-badge upcoming">Upcoming</span>
+            <h2><i class="fas fa-calendar-alt"></i> 30-Day Transformation</h2>
+            <p class="challenge-excerpt">Complete a month smoke-free and celebrate major health improvements! 🎉</p>
+          </div>
+          <div class="challenge-expand">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+        
+        <div class="challenge-details" id="challenge3">
+          <div class="challenge-description">
+            <p>Reaching 30 days smoke-free is a monumental achievement! By this point, your body has made significant repairs, and your risk of heart attack has already started to drop.</p>
+            
+            <div class="challenge-benefits">
+              <h3>Benefits You'll Experience:</h3>
+              <ul>
+                <li><i class="fas fa-check-circle"></i> Lung function improves up to 30%</li>
+                <li><i class="fas fa-check-circle"></i> Circulation continues to improve</li>
+                <li><i class="fas fa-check-circle"></i> Skin appearance improves</li>
+                <li><i class="fas fa-check-circle"></i> Immune system strengthens</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="challenge-progress">
+            <div class="progress-header">
+              <h3>Challenge Progress:</h3>
+              <div class="timer-container">
+                <i class="fas fa-clock"></i>
+                <span id="challenge3-timer">30d 0h</span>
+              </div>
+            </div>
+            
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="challenge3-progress" style="width: 0%"></div>
+            </div>
+            
+            <div class="challenge-actions">
+              <button class="start-btn" onclick="startChallenge('challenge3', 43200)" disabled>
+                <i class="fas fa-play"></i> Start 30-Day Timer
+              </button>
+              <button class="reset-btn" onclick="resetChallenge('challenge3')" disabled>
+                <i class="fas fa-redo"></i> Reset
+              </button>
+            </div>
+            
+            <p class="unlock-message">
+              <i class="fas fa-lock"></i> Complete the 7-Day Challenge to unlock this challenge!
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="log-section" data-aos="fade-up" data-aos-delay="700">
+      <h2><i class="fas fa-history"></i> Activity Journal</h2>
+      <div class="log-filter">
+        <button class="filter-btn active" data-filter="all">All Activities</button>
+        <button class="filter-btn" data-filter="challenge1">24-Hour Challenge</button>
+        <button class="filter-btn" data-filter="challenge2">7-Day Challenge</button>
+        <button class="filter-btn" data-filter="challenge3">30-Day Challenge</button>
+      </div>
+      <ul id="activity-log" class="activity-journal"></ul>
+      <div class="empty-log">
+        <i class="fas fa-clipboard"></i>
+        <p>No activities logged yet. Start a challenge to begin tracking!</p>
+      </div>
+    </section>
+    
+    <section class="achievements-section" data-aos="fade-up" data-aos-delay="800">
+      <h2><i class="fas fa-award"></i> Your Achievements</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card unlocked">
+          <div class="achievement-icon">
+            <i class="fas fa-flag-checkered"></i>
+          </div>
+          <h3>First Step</h3>
+          <p>Completed your first activity</p>
+          <span class="achievement-date">Earned: May 1, 2025</span>
+        </div>
+        
+        <div class="achievement-card unlocked">
+          <div class="achievement-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>24 Hours Free</h3>
+          <p>Completed the 24-Hour Challenge</p>
+          <span class="achievement-date">Earned: May 2, 2025</span>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon locked">
+            <i class="fas fa-calendar-week"></i>
+          </div>
+          <h3>Week Champion</h3>
+          <p>Complete the 7-Day Challenge</p>
+          <span class="achievement-progress">0%</span>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon locked">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3>Month Milestone</h3>
+          <p>Complete the 30-Day Challenge</p>
+          <span class="achievement-progress">0%</span>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 QuitZone - All Rights Reserved</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <svg class="footer-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#ffe1e1" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="home.html">
+            <span>QuitZone</span>
+            <span class="emoji">🚭</span>
+          </a>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        
+        <div class="footer-nav">
+          <a href="home.html">Home</a>
+          <a href="progress.html">Progress</a>
+          <a href="challenges.html">Challenges</a>
+          <a href="savings.html">Savings</a>
+          <a href="success_stories.html">Success Stories</a>
+          <a href="chatbot.html">Chatbot</a>
+        </div>
+        
+        <div class="copyright">
+          <p>© 2025 QuitZone - All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script>
+    // Initialize AOS animation library
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const menuOverlay = document.querySelector('.menu-overlay');
+      
+      if (mobileMenuBtn && mobileMenu && menuOverlay) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('open');
+          menuOverlay.classList.toggle('open');
+          
+          const icon = mobileMenuBtn.querySelector('i');
+          if (icon) {
+            if (icon.classList.contains('fa-bars')) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            } else {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+        
+        menuOverlay.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          menuOverlay.classList.remove('open');
+          
+          const icon = mobileMenuBtn.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      }
+      
+      // Navbar scroll effect
+      const navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+      
+      // Toggle details for challenge cards
+      const challengeHeaders = document.querySelectorAll('.challenge-header');
+      challengeHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+          const detailsId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+          toggleDetails(detailsId);
+        });
+      });
+      
+      // Filter activity log
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Filter activities
+          filterActivities(filter);
+        });
+      });
+      
+      // Check for empty log and show/hide message
+      updateEmptyLogMessage();
+    });
+
+    let activeTimers = {};
+    let activityLog = [];
+    
+    function toggleDetails(id) {
+      const details = document.getElementById(id);
+      const header = details.previousElementSibling;
+      const expandIcon = header.querySelector('.challenge-expand i');
+      
+      if (details.classList.contains('open')) {
+        details.classList.remove('open');
+        expandIcon.classList.remove('fa-chevron-up');
+        expandIcon.classList.add('fa-chevron-down');
+      } else {
+        details.classList.add('open');
+        expandIcon.classList.remove('fa-chevron-down');
+        expandIcon.classList.add('fa-chevron-up');
+      }
+    }
+
+    function startChallenge(challengeId, duration) {
+      if (activeTimers[challengeId]) {
+        alert("The challenge timer is already running!");
+        return;
+      }
+
+      // Change button state
+      const startBtn = document.querySelector(`#${challengeId} .start-btn`);
+      const resetBtn = document.querySelector(`#${challengeId} .reset-btn`);
+      
+      if (startBtn) {
+        startBtn.disabled = true;
+        startBtn.innerHTML = '<i class="fas fa-play"></i> In Progress...';
+      }
+      
+      if (resetBtn) {
+        resetBtn.disabled = false;
+      }
+      
+      // Start confetti for beginning the challenge
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      let timer = duration * 60; // duration in minutes
+      const totalTime = timer;
+      const display = document.getElementById(`${challengeId}-timer`);
+      const progressBar = document.getElementById(`${challengeId}-progress`);
+      
+      // Reset activity list
+      const activityList = document.getElementById(`${challengeId}-activities`);
+      if (activityList) activityList.innerHTML = "";
+      
+      // Format and display initial time
+      updateTimerDisplay(display, timer);
+      
+      activeTimers[challengeId] = setInterval(() => {
+        timer--;
+        
+        // Update timer display
+        updateTimerDisplay(display, timer);
+        
+        // Update progress bar
+        const progressPercent = 100 - (timer / totalTime * 100);
+        if (progressBar) progressBar.style.width = `${progressPercent}%`;
+
+        if (timer <= 0) {
+          clearInterval(activeTimers[challengeId]);
+          delete activeTimers[challengeId];
+          
+          // Challenge completed
+          if (startBtn) {
+            startBtn.disabled = false;
+            startBtn.innerHTML = '<i class="fas fa-check"></i> Completed!';
+            startBtn.classList.add('completed');
+          }
+          
+          // Celebrate completion
+          celebrateChallengeComplete(challengeId);
+          
+          // Unlock next challenge
+          unlockNextChallenge(challengeId);
+        }
+      }, 1000);
+    }
+    
+    function updateTimerDisplay(display, timer) {
+      if (!display) return;
+      
+      const days = Math.floor(timer / (60 * 60 * 24));
+      const hours = Math.floor((timer % (60 * 60 * 24)) / (60 * 60));
+      const minutes = Math.floor((timer % (60 * 60)) / 60);
+      const seconds = timer % 60;
+      
+      let displayText = '';
+      
+      if (days > 0) {
+        displayText += `${days}d `;
+      }
+      
+      if (hours > 0 || days > 0) {
+        displayText += `${hours}h `;
+      }
+      
+      if (minutes > 0 || hours > 0 || days > 0) {
+        displayText += `${minutes}m `;
+      }
+      
+      displayText += `${seconds}s`;
+      
+      display.textContent = displayText;
+    }
+    
+    function resetChallenge(challengeId) {
+      if (!activeTimers[challengeId]) {
+        return;
+      }
+      
+      // Ask for confirmation
+      if (!confirm("Are you sure you want to reset this challenge? Your progress will be lost.")) {
+        return;
+      }
+      
+      // Clear timer
+      clearInterval(activeTimers[challengeId]);
+      delete activeTimers[challengeId];
+      
+      // Reset display
+      const display = document.getElementById(`${challengeId}-timer`);
+      const progressBar = document.getElementById(`${challengeId}-progress`);
+      const activityList = document.getElementById(`${challengeId}-activities`);
+      const startBtn = document.querySelector(`#${challengeId} .start-btn`);
+      const resetBtn = document.querySelector(`#${challengeId} .reset-btn`);
+      
+      if (display) {
+        if (challengeId === 'challenge1') {
+          display.textContent = '24h 0m';
+        } else if (challengeId === 'challenge2') {
+          display.textContent = '7d 0h';
+        } else if (challengeId === 'challenge3') {
+          display.textContent = '30d 0h';
+        }
+      }
+      
+      if (progressBar) progressBar.style.width = '0%';
+      if (activityList) activityList.innerHTML = '';
+      
+      if (startBtn) {
+        startBtn.disabled = false;
+        startBtn.innerHTML = '<i class="fas fa-play"></i> Start Timer';
+        startBtn.classList.remove('completed');
+      }
+      
+      if (resetBtn) {
+        resetBtn.disabled = true;
+      }
+      
+      // Remove activities for this challenge from log
+      activityLog = activityLog.filter(activity => activity.challenge !== challengeId);
+      updateActivityLog();
+      updateEmptyLogMessage();
+    }
+
+    function logActivity(activity, challengeId) {
+      if (!activeTimers[challengeId]) {
+        alert("Please start the challenge timer first!");
+        return;
+      }
+      
+      const timestamp = new Date().toLocaleTimeString();
+      const newActivity = {
+        activity,
+        challenge: challengeId,
+        timestamp,
+        date: new Date().toLocaleDateString()
+      };
+      
+      // Add to activities log array
+      activityLog.push(newActivity);
+      
+      // Add to challenge activity list
+      const activityList = document.getElementById(`${challengeId}-activities`);
+      if (activityList) {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="activity-name">${activity}</span><span class="activity-time">${timestamp}</span>`;
+        activityList.appendChild(li);
+      }
+      
+      // Update main activity log
+      updateActivityLog();
+      updateEmptyLogMessage();
+    }
+    
+    function addCustomExercise(challengeId) {
+      const inputField = document.getElementById(`custom-exercise-${challengeId}`);
+      if (!inputField || !inputField.value.trim()) {
+        alert("Please enter an exercise!");
+        return;
+      }
+      
+      const exercise = `Did ${inputField.value.trim()}`;
+      logActivity(exercise, challengeId);
+      
+      // Clear input field
+      inputField.value = '';
+    }
+    
+    function updateActivityLog() {
+      const log = document.getElementById('activity-log');
+      if (!log) return;
+      
+      // Sort activities by timestamp (newest first)
+      const sortedActivities = [...activityLog].reverse();
+      log.innerHTML = '';
+      
+      let currentDate = '';
+      
+      sortedActivities.forEach(item => {
+        // Check if this is a new date
+        if (currentDate !== item.date) {
+          currentDate = item.date;
+          
+          // Add date header
+          const dateHeader = document.createElement('li');
+          dateHeader.className = 'activity-date';
+          dateHeader.textContent = currentDate;
+          log.appendChild(dateHeader);
+        }
+        
+        // Add activity item
+        const li = document.createElement('li');
+        li.className = `activity-item ${item.challenge}`;
+        li.innerHTML = `
+          <div class="activity-time-col">
+            <span class="activity-timestamp">${item.timestamp}</span>
+          </div>
+          <div class="activity-challenge-col">
+            <span class="activity-tag ${item.challenge}">
+              ${getChallengeTitle(item.challenge)}
+            </span>
+          </div>
+          <div class="activity-text-col">
+            <span class="activity-text">${item.activity}</span>
+          </div>
+        `;
+        log.appendChild(li);
+      });
+    }
+    
+    function getChallengeTitle(challengeId) {
+      switch (challengeId) {
+        case 'challenge1': return '24-Hour';
+        case 'challenge2': return '7-Day';
+        case 'challenge3': return '30-Day';
+        default: return 'Challenge';
+      }
+    }
+    
+    function filterActivities(filter) {
+      const activities = document.querySelectorAll('.activity-item');
+      if (!activities.length) return;
+      
+      activities.forEach(item => {
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+    
+    function updateEmptyLogMessage() {
+      const emptyLog = document.querySelector('.empty-log');
+      const activityLog = document.getElementById('activity-log');
+      
+      if (emptyLog && activityLog) {
+        if (activityLog.children.length === 0) {
+          emptyLog.style.display = 'flex';
+        } else {
+          emptyLog.style.display = 'none';
+        }
+      }
+    }
+    
+    function celebrateChallengeComplete(challengeId) {
+      // Play celebration animation
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+      
+      // Show achievement message
+      let challengeName = '';
+      let points = 0;
+      
+      switch (challengeId) {
+        case 'challenge1':
+          challengeName = '24-Hour Kickstart';
+          points = 50;
+          break;
+        case 'challenge2':
+          challengeName = '7-Day Power';
+          points = 100;
+          break;
+        case 'challenge3':
+          challengeName = '30-Day Transformation';
+          points = 200;
+          break;
+      }
+      
+      // Update points in the stats
+      const pointsDisplay = document.getElementById('earnedPoints');
+      if (pointsDisplay) {
+        const currentPoints = parseInt(pointsDisplay.textContent);
+        pointsDisplay.textContent = currentPoints + points;
+      }
+      
+      // Update completed challenges count
+      const completedDisplay = document.getElementById('completedChallenges');
+      if (completedDisplay) {
+        const currentCompleted = parseInt(completedDisplay.textContent);
+        completedDisplay.textContent = currentCompleted + 1;
+      }
+      
+      setTimeout(() => {
+        alert(`🎉 Congratulations! You've completed the ${challengeName} Challenge and earned ${points} points!`);
+      }, 1000);
+    }
+    
+    function unlockNextChallenge(challengeId) {
+      if (challengeId === 'challenge1') {
+        // Unlock 7-day challenge
+        const nextChallenge = document.querySelector('#challenge2');
+        if (nextChallenge) {
+          nextChallenge.closest('.challenge-card').classList.add('active');
+          
+          const startBtn = nextChallenge.querySelector('.start-btn');
+          const resetBtn = nextChallenge.querySelector('.reset-btn');
+          const unlockMsg = nextChallenge.querySelector('.unlock-message');
+          const activityBtns = nextChallenge.querySelectorAll('.btn-group button');
+          
+          if (startBtn) startBtn.disabled = false;
+          if (resetBtn) resetBtn.disabled = false;
+          if (unlockMsg) unlockMsg.style.display = 'none';
+          
+          activityBtns.forEach(btn => btn.disabled = false);
+        }
+      } else if (challengeId === 'challenge2') {
+        // Unlock 30-day challenge
+        const nextChallenge = document.querySelector('#challenge3');
+        if (nextChallenge) {
+          nextChallenge.closest('.challenge-card').classList.add('active');
+          
+          const startBtn = nextChallenge.querySelector('.start-btn');
+          const resetBtn = nextChallenge.querySelector('.reset-btn');
+          const unlockMsg = nextChallenge.querySelector('.unlock-message');
+          
+          if (startBtn) startBtn.disabled = false;
+          if (resetBtn) resetBtn.disabled = false;
+          if (unlockMsg) unlockMsg.style.display = 'none';
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Additional Styles for Challenges Page */
+    .challenge-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    
+    .stat-item {
+      flex: 1 1 250px;
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border-radius: var(--border-radius-sm);
+      padding: 1.5rem;
+      margin: 0.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .stat-icon {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      font-size: 1.25rem;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+    
+    .stat-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .challenges-wrapper {
+      margin: 2rem 0;
+    }
+    
+    .challenge-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      border-left: 4px solid #ccc;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .challenge-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .challenge-card.active {
+      border-left: 4px solid var(--primary);
+    }
+    
+    .challenge-header {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .challenge-header:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+    
+    .challenge-info {
+      flex: 1;
+    }
+    
+    .challenge-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .challenge-badge.upcoming {
+      background-color: #a0a0a0;
+    }
+    
+    .challenge-expand {
+      padding: 0.5rem;
+      font-size: 1.25rem;
+      color: var(--text-light);
+      transition: transform 0.3s;
+    }
+    
+    .challenge-header h2 {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .challenge-excerpt {
+      color: var(--text-light);
+      margin-bottom: 0;
+    }
+    
+    .challenge-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    
+    .challenge-details.open {
+      max-height: 2000px;
+      padding: 0 1.5rem 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .challenge-description {
+      margin-bottom: 2rem;
+    }
+    
+    .challenge-description p {
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    .challenge-benefits {
+      background-color: rgba(255, 225, 225, 0.3);
+      border-radius: var(--border-radius-sm);
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    
+    .challenge-benefits h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .challenge-benefits ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .challenge-benefits li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .challenge-benefits li i {
+      color: var(--primary);
+    }
+    
+    .challenge-progress {
+      background-color: rgba(224, 234, 252, 0.3);
+      border-radius: var(--border-radius-sm);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .progress-header h3 {
+      margin-bottom: 0;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    
+    .timer-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .progress-bar-container {
+      height: 1rem;
+      background-color: rgba(0, 0, 0, 0.05);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    
+    #challenge1-progress, #challenge2-progress, #challenge3-progress {
+      transition: width 1s;
+    }
+    
+    .challenge-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .start-btn, .reset-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+    }
+    
+    .start-btn {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      flex: 2;
+      justify-content: center;
+    }
+    
+    .reset-btn {
+      background-color: #f1f1f1;
+      color: var(--text);
+      flex: 1;
+      justify-content: center;
+    }
+    
+    .start-btn:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(244, 107, 142, 0.3);
+    }
+    
+    .reset-btn:hover:not(:disabled) {
+      background-color: #e0e0e0;
+    }
+    
+    .start-btn:disabled, .reset-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    
+    .start-btn.completed {
+      background: linear-gradient(to right, #4CAF50, #8BC34A);
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    .unlock-message {
+      text-align: center;
+      margin-top: 1rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+    
+    .activity-section, .exercise-section {
+      background-color: white;
+      border-radius: var(--border-radius-sm);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .activity-section h3, .exercise-section h3 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    
+    .btn-group button {
+      background-color: white;
+      border: 1px solid var(--primary-light);
+      border-radius: 50px;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+    }
+    
+    .btn-group button:hover:not(:disabled) {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(244, 107, 142, 0.2);
+    }
+    
+    .btn-group button:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    
+    .custom-exercise-form {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .custom-exercise-form input {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--primary-light);
+      border-radius: 50px;
+      transition: border-color 0.3s;
+    }
+    
+    .custom-exercise-form input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    
+    .custom-btn {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    
+    .custom-btn:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(244, 107, 142, 0.2);
+    }
+    
+    .activities-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .activities-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .activities-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .activity-name {
+      color: var(--text);
+    }
+    
+    .activity-time {
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+    
+    .activities-log h4 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    
+    .log-section {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .log-section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .log-filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .filter-btn {
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 50px;
+      padding: 0.5rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    
+    .filter-btn:hover {
+      border-color: var(--primary);
+    }
+    
+    .filter-btn.active {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .activity-journal {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .activity-date {
+      font-weight: 600;
+      padding: 0.75rem 0;
+      margin-top: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--accent);
+    }
+    
+    .activity-item {
+      display: grid;
+      grid-template-columns: 80px 100px 1fr;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s;
+    }
+    
+    .activity-item:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+    
+    .activity-timestamp {
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+    
+    .activity-tag {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+    
+    .activity-tag.challenge1 {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+    
+    .activity-tag.challenge2 {
+      background-color: rgba(255, 177, 153, 0.2);
+      color: var(--secondary);
+    }
+    
+    .activity-tag.challenge3 {
+      background-color: rgba(244, 107, 142, 0.2);
+      color: var(--accent);
+    }
+    
+    .empty-log {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+    
+    .empty-log i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+    
+    /* Achievements Section */
+    .achievements-section {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .achievements-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .achievement-card {
+      background-color: #f9f9f9;
+      border-radius: var(--border-radius-sm);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .achievement-card.unlocked {
+      background: linear-gradient(135deg, rgba(255, 126, 145, 0.1), rgba(255, 177, 153, 0.1));
+    }
+    
+    .achievement-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .achievement-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      font-size: 1.75rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 6px 15px rgba(244, 107, 142, 0.2);
+    }
+    
+    .achievement-icon.locked {
+      background: linear-gradient(135deg, #a0a0a0, #d0d0d0);
+      box-shadow: none;
+    }
+    
+    .achievement-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    .achievement-card p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .achievement-date {
+      display: inline-block;
+      padding: 0.3rem 0.75rem;
+      background-color: rgba(255, 126, 145, 0.2);
+      color: var(--primary);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .achievement-progress {
+      display: inline-block;
+      padding: 0.3rem 0.75rem;
+      background-color: rgba(0, 0, 0, 0.05);
+      color: var(--text-light);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 768px) {
+      .challenge-stats {
+        justify-content: center;
+      }
+      
+      .stat-item {
+        flex: 0 0 calc(50% - 1rem);
+      }
+      
+      .activity-section, .exercise-section {
+        padding: 1rem;
+      }
+      
+      .btn-group {
+        gap: 0.5rem;
+      }
+      
+      .btn-group button {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+      }
+      
+      .log-filter {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+      
+      .activity-item {
+        grid-template-columns: 1fr;
+        padding: 1rem 0;
+      }
+      
+      .activity-time-col, .activity-challenge-col, .activity-text-col {
+        margin-bottom: 0.5rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .stat-item {
+        flex: 0 0 100%;
+      }
+      
+      .challenge-actions {
+        flex-direction: column;
+      }
+      
+      .custom-exercise-form {
+        flex-direction: column;
+      }
+      
+      .log-filter {
+        grid-template-columns: 1fr;
+      }
+      
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </body>
 </html>

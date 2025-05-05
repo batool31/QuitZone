@@ -1,88 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>QuitZone - Home</title>
-    <link rel="stylesheet" href="grad.css" />
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>QuitZone - Start Your Smoke-Free Journey</title>
+  <link rel="stylesheet" href="grad.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <a href="home.html" class="logo">QuitZone 🚭</a>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="progress.html">Progress</a></li>
-                <li><a href="challenges.html">Challenges</a></li>
-                <li><a href="savings.html">Savings</a></li>
-                <li><a href="success_stories.html">Success Stories</a></li>
-                <li><a href="chatbot.html">Chatbot</a></li>
-                <li><a href="login.php" class="login-btn">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container">
+      <a href="home.html" class="logo">
+        <span>QuitZone</span>
+        <span class="emoji">🚭</span>
+      </a>
+      
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Navigation Links for Desktop -->
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="home.html" class="nav-link active">Home</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="challenges.html" class="nav-link">Challenges</a></li>
+          <li><a href="savings.html" class="nav-link">Savings</a></li>
+          <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
+          <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
+          <li><a href="login.php" class="login-btn">Login</a></li>
+        </ul>
+      </nav>
+    </div>
     
-    <section class="hero">
-        <h2 class="welcome-text">Welcome to <span>QuitZone 👋</span></h2>
-        <h1>Start Your Journey to a Smoke-Free Life 🚭</h1>
-        <a href="login.php" class="btn">Get Started</a>
-        <p class="quote">"Every cigarette you don’t smoke is a step towards a healthier life!"</p>
-    </section>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="challenges.html">Challenges</a></li>
+        <li><a href="savings.html">Savings</a></li>
+        <li><a href="success_stories.html">Success Stories</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+        <li><a href="login.php" class="mobile-login-btn">Login</a></li>
+      </ul>
+    </div>
     
-    <section class="stats">
-        <h2>Your Smoke-Free Progress</h2>
-        <div class="progress-box">
-            <p><strong>📅 Quit Date:</strong> <span id="quit-date" class="highlight">-</span></p>
-            <p><strong>⏳ Time Smoke-Free:</strong> <span id="days-free" class="counter">0</span> days</p>
-            <p><strong>💰 Money Saved:</strong> $<span id="money-saved" class="counter">0</span></p>
-            <p><strong>❤️ Health Improved:</strong> <span id="health-benefit" class="highlight">N/A</span></p>
-        </div>
-    </section>
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
+  </header>
 
-    <section class="testimonial">
-        <h2>Success Story</h2>
-        <div class="testimonial-slider">
-            <blockquote>
-                “I never thought quitting was possible, but QuitZone changed my life! I feel healthier, happier, and stronger than ever!”  
-                <br> - <strong>Mark, 1 Year Smoke-Free</strong>
-            </blockquote>
-            <blockquote>
-                “Thanks to QuitZone, I’ve saved so much money and my health has improved dramatically. Highly recommend!”  
-                <br> - <strong>Jane, 6 Months Smoke-Free</strong>
-            </blockquote>
-        </div>
-    </section>
-    <section class="intro">
-        <h2>Your Journey to a Smoke-Free Life Starts Here</h2>
-        <p>QuitZone is more than just an app—it's your dedicated partner in breaking free from smoking. 🌱 We provide <strong>motivational tools, exciting challenges, savings tracking, and real-life success stories</strong> to keep you inspired every step of the way.</p>
-        
-        <div class="intro-features">
-            <div class="feature">
-                <h3>📊 Track Your Progress</h3>
-                <p>Monitor your progress—see how much money you've saved and track your health improvements.</p>
-            </div>
-            <div class="feature">
-                <h3>🎯 Join Exciting Challenges</h3>
-                <p>Push yourself with fun challenges, earn rewards, and celebrate every victory.</p>
-            </div>
-            <div class="feature">
-                <h3>🗣️ Chat with Our Support Bot</h3>
-                <p>Get personalized advice and encouragement whenever cravings strike.</p>
-            </div>
-            <div class="feature">
-                <h3>🌟 Success Stories</h3>
-                <p>Read inspiring stories of people just like you who’ve conquered smoking.</p>
-            </div>
-        </div>
-        
-        <p class="cta-text">✨ You’re not alone—QuitZone is with you all the way! Ready to begin?</p>
-        
-    </section>
-
-    <footer>
-        <p>© 2025 QuitZone - All Rights Reserved</p>
-    </footer>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="bg-elements">
+      <div class="bg-circle circle-1"></div>
+      <div class="bg-circle circle-2"></div>
+      <div class="bg-circle circle-3"></div>
+    </div>
     
+    <div class="hero-content">
+      <h2 class="subtitle" data-aos="fade-down" data-aos-delay="100">
+        Welcome to <span class="highlight">QuitZone <span class="wave">👋</span></span>
+      </h2>
+      
+      <h1 class="title" data-aos="fade-up" data-aos-delay="300">
+        Start Your Journey to a Smoke-Free Life 🚭
+      </h1>
+      
+      <a href="login.php" class="cta-button" data-aos="zoom-in" data-aos-delay="500">
+        <span class="btn-bg"></span>
+        <span class="btn-text">Get Started</span>
+      </a>
+      
+      <p class="quote" data-aos="fade-up" data-aos-delay="700">
+        "Every cigarette you don't smoke is a step towards a healthier life!"
+      </p>
+    </div>
+    
+    <div class="hero-gradient"></div>
+  </section>
+
+  <!-- Progress Stats Section -->
+  <section class="progress-stats">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Your Smoke-Free Progress</h2>
+      
+      <div class="stats-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="stats-grid">
+          <!-- Progress stats -->
+          <div class="stat-box" data-aos="fade-right" data-aos-delay="400">
+            <div class="decoration-circle"></div>
+            <p class="stat-label"><i class="fas fa-calendar"></i> Quit Date:</p>
+            <p id="quit-date" class="stat-value">January 1, 2025</p>
+            
+            <p class="stat-label"><i class="fas fa-hourglass-half"></i> Time Smoke-Free:</p>
+            <p class="stat-value">
+              <span id="days-free" class="counter">124</span>
+              <span class="time-unit">d </span>
+              <span class="time-unit">12h </span>
+              <span class="time-unit">45m </span>
+              <span class="time-unit">30s</span>
+            </p>
+          </div>
+          
+          <!-- Saved money and health -->
+          <div class="stat-box" data-aos="fade-left" data-aos-delay="600">
+            <div class="decoration-circle circle-alt"></div>
+            <p class="stat-label"><i class="fas fa-coins"></i> Money Saved:</p>
+            <p class="stat-value">$<span id="money-saved" class="counter">1245.50</span></p>
+            
+            <p class="stat-label"><i class="fas fa-heartbeat"></i> Health Improved:</p>
+            <p id="health-benefit" class="stat-value">Lung function improved 🫁</p>
+          </div>
+        </div>
+        
+        <!-- Progress bar -->
+        <div class="progress-section" data-aos="fade-up" data-aos-delay="800">
+          <p class="stat-label">Your Milestones:</p>
+          <div class="progress-bar-container">
+            <div id="progress-bar" class="progress-bar" style="width: 50%">
+            </div>
+            
+            <!-- Milestone markers -->
+            <div class="milestone-markers">
+              <span class="milestone" style="left: 10%">1d</span>
+              <span class="milestone" style="left: 30%">1w</span>
+              <span class="milestone" style="left: 50%">1m</span>
+              <span class="milestone" style="left: 70%">3m</span>
+              <span class="milestone" style="left: 90%">1y</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="testimonials">
+    <div class="testimonial-bg"></div>
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Success Stories</h2>
+      <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+        Read inspiring stories from people who successfully quit smoking
+      </p>
+      
+      <div class="testimonial-slider">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="testimonial-content">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">
+              After 15 years of smoking, I finally quit thanks to QuitZone's support system.
+              The progress tracking kept me motivated through the toughest cravings.
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="author-image">
+            <div class="author-info">
+              <h4 class="author-name">Sarah J.</h4>
+              <p class="author-detail">Smoke-free for 2 years</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="testimonial-content">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">
+              The financial calculator was eye-opening. I've saved over $7,000 since quitting!
+              Now I'm using that money for my dream vacation.
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T." class="author-image">
+            <div class="author-info">
+              <h4 class="author-name">Michael T.</h4>
+              <p class="author-detail">Smoke-free for 1.5 years</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="testimonial-content">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">
+              The community challenges kept me accountable. I never thought I could make it 
+              a full year, but here I am, healthier than I've been in decades!
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa M." class="author-image">
+            <div class="author-info">
+              <h4 class="author-name">Lisa M.</h4>
+              <p class="author-detail">Smoke-free for 1 year</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Why Choose QuitZone?</h2>
+      <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+        Tools and support to help you quit smoking for good
+      </p>
+      
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="feature-title">Progress Tracking</h3>
+          <p class="feature-description">
+            Monitor your journey with real-time stats on health improvements and money saved.
+          </p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3 class="feature-title">Challenges</h3>
+          <p class="feature-description">
+            Stay motivated with daily and weekly challenges to build smoke-free habits.
+          </p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="feature-icon">
+            <i class="fas fa-piggy-bank"></i>
+          </div>
+          <h3 class="feature-title">Savings Calculator</h3>
+          <p class="feature-description">
+            See how much money you're saving and plan for your smoke-free future.
+          </p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="feature-title">Community Support</h3>
+          <p class="feature-description">
+            Connect with others on the same journey and share your success stories.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <svg class="footer-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#ffe1e1" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="home.html">
+            <span>QuitZone</span>
+            <span class="emoji">🚭</span>
+          </a>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        
+        <div class="footer-nav">
+          <a href="home.html">Home</a>
+          <a href="progress.html">Progress</a>
+          <a href="challenges.html">Challenges</a>
+          <a href="savings.html">Savings</a>
+          <a href="success_stories.html">Success Stories</a>
+          <a href="chatbot.html">Chatbot</a>
+        </div>
+        
+        <div class="copyright">
+          <p>© 2025 QuitZone - All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script>
+    // Initialize AOS animation library
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+  
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const menuOverlay = document.querySelector('.menu-overlay');
+      
+      if (mobileMenuBtn && mobileMenu && menuOverlay) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('open');
+          menuOverlay.classList.toggle('open');
+          
+          const icon = mobileMenuBtn.querySelector('i');
+          if (icon) {
+            if (icon.classList.contains('fa-bars')) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            } else {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+        
+        menuOverlay.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          menuOverlay.classList.remove('open');
+          
+          const icon = mobileMenuBtn.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      }
+      
+      // Navbar scroll effect
+      const navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+      
+      // Animate progress bar on scroll
+      const progressBar = document.getElementById('progress-bar');
+      if (progressBar) {
+        const progressObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                progressBar.style.width = '50%';
+              }, 500);
+              progressObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        progressObserver.observe(progressBar.parentElement);
+      }
+      
+      // Animate counters
+      function animateCounter(element, target, duration = 2000) {
+        if (!element) return;
+        
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+        const format = element.id === 'money-saved' ? true : false;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            element.textContent = format ? target.toFixed(2) : target;
+            clearInterval(timer);
+          } else {
+            element.textContent = format ? current.toFixed(2) : Math.floor(current);
+          }
+        }, 16);
+      }
+      
+      // Animate counters when they come into view
+      const counters = document.querySelectorAll('.counter');
+      counters.forEach(counter => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const target = entry.target.id === 'days-free' ? 124 : 1245.50;
+              animateCounter(entry.target, target);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        observer.observe(counter);
+      });
+    });
+  </script>
 </body>
 </html>

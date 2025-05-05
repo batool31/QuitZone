@@ -5,11 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>QuitZone - Success Stories</title>
   <link rel="stylesheet" href="grad.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <a href="home.html" class="logo">QuitZone 🚭</a>
-    <nav>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container">
+      <a href="home.html" class="logo">
+        <span>QuitZone</span>
+        <span class="emoji">🚭</span>
+      </a>
+      
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Navigation Links for Desktop -->
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="home.html" class="nav-link">Home</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="challenges.html" class="nav-link">Challenges</a></li>
+          <li><a href="savings.html" class="nav-link">Savings</a></li>
+          <li><a href="success_stories.html" class="nav-link active">Success Stories</a></li>
+          <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
+          <li><a href="login.php" class="login-btn">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
       <ul>
         <li><a href="home.html">Home</a></li>
         <li><a href="progress.html">Progress</a></li>
@@ -17,82 +47,606 @@
         <li><a href="savings.html">Savings</a></li>
         <li><a href="success_stories.html">Success Stories</a></li>
         <li><a href="chatbot.html">Chatbot</a></li>
-        <li><a href="login.php" class="login-btn">Login</a></li>
+        <li><a href="login.php" class="mobile-login-btn">Login</a></li>
       </ul>
-    </nav>
+    </div>
+    
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
   </header>
 
-  <div class="container">
-    <h1>Success Stories in Quitting Smoking</h1>
-    <div class="stories">
-      <div class="story">
-        <img src="Mohammed Ahmed.jpg" alt="Mohammed Ahmed">
-        <h2>Mohammed Ahmed</h2>
-        <p>"I had been smoking for 10 years, but after several failed attempts, I decided to quit for good. Today, I feel healthier and more alive than ever."</p>
+  <div class="success-banner">
+    <div class="container">
+      <h1 data-aos="fade-up">Success Stories in Quitting Smoking</h1>
+      <p data-aos="fade-up" data-aos-delay="200">Real people, real journeys, real transformations.</p>
+      
+      <div class="success-stats" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">1,240+</span>
+            <span class="stat-label">Success Stories</span>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">150,000+</span>
+            <span class="stat-label">Smoke-Free Days</span>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-smile"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Happier Lives</span>
+          </div>
+        </div>
       </div>
-      <div class="story">
-        <img src="Sarah Khalid.jpg" alt="Sarah Khalid">
-        <h2>Sarah Khalid</h2>
-        <p>"Quitting smoking was the biggest challenge of my life, but it was the best decision I made for my health and my family."</p>
+    </div>
+    
+    <div class="banner-gradient"></div>
+  </div>
+
+  <div class="container success-container">
+    <div class="filter-tabs" data-aos="fade-up">
+      <button class="filter-btn active" data-filter="all">All Stories</button>
+      <button class="filter-btn" data-filter="recent">Recent Success</button>
+      <button class="filter-btn" data-filter="longtime">Long-Term Quitters</button>
+      <button class="filter-btn" data-filter="inspiring">Most Inspiring</button>
+    </div>
+    
+    <div class="stories" data-aos="fade-up" data-aos-delay="200">
+      <div class="story-card" data-category="recent inspiring">
+        <div class="story-image">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Mohammed Ahmed">
+          <div class="story-badge">3 months smoke-free</div>
+        </div>
+        <div class="story-content">
+          <h2>Mohammed Ahmed</h2>
+          <div class="story-meta">
+            <span><i class="fas fa-map-marker-alt"></i> Dubai, UAE</span>
+            <span><i class="fas fa-smoking-ban"></i> Was 10-year smoker</span>
+          </div>
+          <p>"I had been smoking for 10 years, but after several failed attempts, I decided to quit for good. Today, I feel healthier and more alive than ever. The QuitZone app's daily challenges kept me accountable."</p>
+          <div class="story-achievements">
+            <span class="achievement"><i class="fas fa-lungs"></i> Improved breathing</span>
+            <span class="achievement"><i class="fas fa-heartbeat"></i> Normal heart rate</span>
+            <span class="achievement"><i class="fas fa-dollar-sign"></i> Saved $1,200</span>
+          </div>
+          <button class="read-more-btn" onclick="openStoryModal('mohammed')">Read Full Story</button>
+        </div>
       </div>
-      <div class="story">
-        <img src="James Miller.jpg" alt="James Miller">
-        <h2>James Miller</h2>
-        <p>"My journey to quitting smoking was tough, but with support from my friends and family, I made it through. Now, I enjoy a smoke-free life full of energy and happiness."</p>
+      
+      <div class="story-card" data-category="longtime inspiring">
+        <div class="story-image">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Khalid">
+          <div class="story-badge">2 years smoke-free</div>
+        </div>
+        <div class="story-content">
+          <h2>Sarah Khalid</h2>
+          <div class="story-meta">
+            <span><i class="fas fa-map-marker-alt"></i> Riyadh, KSA</span>
+            <span><i class="fas fa-smoking-ban"></i> Was 8-year smoker</span>
+          </div>
+          <p>"Quitting smoking was the biggest challenge of my life, but it was the best decision I made for my health and my family. Now I enjoy morning runs with my children, something I couldn't do before."</p>
+          <div class="story-achievements">
+            <span class="achievement"><i class="fas fa-running"></i> Runs 5K weekly</span>
+            <span class="achievement"><i class="fas fa-heart"></i> Heart health improved</span>
+            <span class="achievement"><i class="fas fa-dollar-sign"></i> Saved $4,500</span>
+          </div>
+          <button class="read-more-btn" onclick="openStoryModal('sarah')">Read Full Story</button>
+        </div>
       </div>
-      <div class="story">
-        <img src="Emily Johnson.jpg" alt="Emily Johnson">
-        <h2>Emily Johnson</h2>
-        <p>"I quit smoking for my kids. I wanted to be a better role model and live a longer, healthier life with them. It was the best decision ever!"</p>
+      
+      <div class="story-card" data-category="longtime">
+        <div class="story-image">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Miller">
+          <div class="story-badge">5 years smoke-free</div>
+        </div>
+        <div class="story-content">
+          <h2>James Miller</h2>
+          <div class="story-meta">
+            <span><i class="fas fa-map-marker-alt"></i> Chicago, USA</span>
+            <span><i class="fas fa-smoking-ban"></i> Was 15-year smoker</span>
+          </div>
+          <p>"My journey to quitting smoking was tough, but with support from my friends and family, I made it through. Now, I enjoy a smoke-free life full of energy and happiness. I can't believe I waited so long to quit."</p>
+          <div class="story-achievements">
+            <span class="achievement"><i class="fas fa-mountain"></i> Climbed Mt. Rainier</span>
+            <span class="achievement"><i class="fas fa-lungs"></i> 95% lung function</span>
+            <span class="achievement"><i class="fas fa-dollar-sign"></i> Saved $12,775</span>
+          </div>
+          <button class="read-more-btn" onclick="openStoryModal('james')">Read Full Story</button>
+        </div>
       </div>
-      <div class="story">
-        <img src="John Doe.jpg" alt="John Doe">
-        <h2>John Doe</h2>
-        <p>"After many years of addiction, I finally decided to quit. It wasn't easy, but the change in my health and mood made every sacrifice worth it."</p>
+      
+      <div class="story-card" data-category="recent">
+        <div class="story-image">
+          <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Emily Johnson">
+          <div class="story-badge">6 months smoke-free</div>
+        </div>
+        <div class="story-content">
+          <h2>Emily Johnson</h2>
+          <div class="story-meta">
+            <span><i class="fas fa-map-marker-alt"></i> Sydney, Australia</span>
+            <span><i class="fas fa-smoking-ban"></i> Was 12-year smoker</span>
+          </div>
+          <p>"I quit smoking for my kids. I wanted to be a better role model and live a longer, healthier life with them. It was the best decision ever! My energy levels have skyrocketed, and I sleep better."</p>
+          <div class="story-achievements">
+            <span class="achievement"><i class="fas fa-child"></i> More active with kids</span>
+            <span class="achievement"><i class="fas fa-bed"></i> Better sleep quality</span>
+            <span class="achievement"><i class="fas fa-dollar-sign"></i> Saved $2,340</span>
+          </div>
+          <button class="read-more-btn" onclick="openStoryModal('emily')">Read Full Story</button>
+        </div>
       </div>
-      <div class="story">
-        <img src="Linda Smith.jpg" alt="Linda Smith">
-        <h2>Linda Smith</h2>
-        <p>"I had been smoking for almost 15 years. Quitting was challenging, but now I am proud of my decision. I feel more energetic and focused every day."</p>
+      
+      <div class="story-card" data-category="inspiring">
+        <div class="story-image">
+          <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="John Doe">
+          <div class="story-badge">1 year smoke-free</div>
+        </div>
+        <div class="story-content">
+          <h2>John Doe</h2>
+          <div class="story-meta">
+            <span><i class="fas fa-map-marker-alt"></i> London, UK</span>
+            <span><i class="fas fa-smoking-ban"></i> Was 20-year smoker</span>
+          </div>
+          <p>"After many years of addiction, I finally decided to quit. It wasn't easy, but the change in my health and mood made every sacrifice worth it. I've reclaimed my life and my health."</p>
+          <div class="story-achievements">
+            <span class="achievement"><i class="fas fa-bicycle"></i> Cycles 50 miles weekly</span>
+            <span class="achievement"><i class="fas fa-smile"></i> No more morning cough</span>
+            <span class="achievement"><i class="fas fa-dollar-sign"></i> Saved $4,380</span>
+          </div>
+          <button class="read-more-btn" onclick="openStoryModal('john')">Read Full Story</button>
+        </div>
+      </div>
+      
+      <div class="story-card" data-category="longtime">
+        <div class="story-image">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Linda Smith">
+          <div class="story-badge">3 years smoke-free</div>
+        </div>
+        <div class="story-content">
+          <h2>Linda Smith</h2>
+          <div class="story-meta">
+            <span><i class="fas fa-map-marker-alt"></i> Toronto, Canada</span>
+            <span><i class="fas fa-smoking-ban"></i> Was 15-year smoker</span>
+          </div>
+          <p>"I had been smoking for almost 15 years. Quitting was challenging, but now I am proud of my decision. I feel more energetic and focused every day. My skin has improved tremendously too!"</p>
+          <div class="story-achievements">
+            <span class="achievement"><i class="fas fa-dumbbell"></i> Regular gym-goer</span>
+            <span class="achievement"><i class="fas fa-brain"></i> Improved focus</span>
+            <span class="achievement"><i class="fas fa-dollar-sign"></i> Saved $8,760</span>
+          </div>
+          <button class="read-more-btn" onclick="openStoryModal('linda')">Read Full Story</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="load-more-container" data-aos="fade-up">
+      <button class="load-more-btn">
+        <i class="fas fa-plus-circle"></i> Load More Stories
+      </button>
+    </div>
+  </div>
+
+  <section class="help-others-section" data-aos="fade-up">
+    <div class="container">
+      <h2><i class="fas fa-hands-helping"></i> Help Others Quit 🚭</h2>
+      <p>You can be a source of inspiration! Here are a few ways to support others on their journey to quit smoking:</p>
+      
+      <div class="help-methods">
+        <div class="help-card">
+          <div class="help-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3>Share Your Story</h3>
+          <p>Your journey can inspire and motivate someone else to take their first step.</p>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Regular Check-ins</h3>
+          <p>Check in regularly with friends or family who are trying to quit.</p>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>Recommend Tools</h3>
+          <p>Encourage them to use support tools like QuitZone's chatbot.</p>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">
+            <i class="fas fa-glass-cheers"></i>
+          </div>
+          <h3>Celebrate Milestones</h3>
+          <p>Celebrate their milestones—no matter how small they might seem.</p>
+        </div>
+        
+        <div class="help-card">
+          <div class="help-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Be Patient</h3>
+          <p>Be patient and understanding during their journey. Quitting is tough!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="support-friends-section" data-aos="fade-up">
+    <div class="container">
+      <h2><i class="fas fa-hands-helping"></i> Support Your Friends 🤝</h2>
+      <p>Send a motivational message to support someone on their journey to quit smoking.</p>
+      
+      <form class="support-form" onsubmit="event.preventDefault(); sendSupport();">
+        <div class="form-group">
+          <label for="friend-name">
+            <i class="fas fa-user"></i> Friend's Name
+          </label>
+          <input type="text" id="friend-name" placeholder="Enter your friend's name" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="support-message">
+            <i class="fas fa-comment-alt"></i> Your Supportive Message
+          </label>
+          <textarea id="support-message" placeholder="Write a supportive message..." required></textarea>
+        </div>
+        
+        <button type="submit" class="send-support-btn">
+          <i class="fas fa-paper-plane"></i> Send Support
+        </button>
+      </form>
+
+      <div class="message-board">
+        <h3><i class="fas fa-comments"></i> Support Messages</h3>
+        <div id="support-messages" class="messages-box"></div>
+        <button onclick="clearSupportMessages()" class="clear-btn">
+          <i class="fas fa-trash-alt"></i> Clear Messages
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="story-modal" id="story-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeStoryModal()">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="modal-body" id="modal-content">
+        <!-- Modal content will be inserted here -->
       </div>
     </div>
   </div>
 
-  <section class="help-others-section">
-    <h2>Help Others Quit 🚭</h2>
-    <p>You can be a source of inspiration! Here are a few ways to support others on their journey to quit smoking:</p>
-    <ul>
-      <li>📖 Share your own success story</li>
-      <li>👥 Check in regularly with friends or family who are trying to quit</li>
-      <li>🤖 Encourage them to use support tools like this chatbot</li>
-      <li>🎉 Celebrate their milestones—no matter how small</li>
-      <li>💖 Be patient and understanding during their journey</li>
-    </ul>
-  </section>
-  
-
-  <section class="support-friends-section">
-    <h2>Support Your Friends 🤝</h2>
-    <p>Send a motivational message to support someone on their journey to quit smoking.</p>
-    
-    <form class="support-form" onsubmit="event.preventDefault(); sendSupport();">
-      <input type="text" id="friend-name" placeholder="Friend's Name" required />
-      <input type="text" id="support-message" placeholder="Write a supportive message..." required />
-      <button type="submit">Send</button>
-    </form>
-
-    <div id="support-messages" class="messages-box"></div>
-    <button onclick="clearSupportMessages()" class="clear-btn">Clear Messages</button>
-  </section>
-
-  <footer>
-    <p>© 2025 QuitZone - All Rights Reserved</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <svg class="footer-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#ffe1e1" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="home.html">
+            <span>QuitZone</span>
+            <span class="emoji">🚭</span>
+          </a>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        
+        <div class="footer-nav">
+          <a href="home.html">Home</a>
+          <a href="progress.html">Progress</a>
+          <a href="challenges.html">Challenges</a>
+          <a href="savings.html">Savings</a>
+          <a href="success_stories.html">Success Stories</a>
+          <a href="chatbot.html">Chatbot</a>
+        </div>
+        
+        <div class="copyright">
+          <p>© 2025 QuitZone - All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
   <script>
-    // Load messages on page load
-    window.addEventListener('load', loadSupportMessages);
+    // Initialize AOS animation library
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const menuOverlay = document.querySelector('.menu-overlay');
+      
+      if (mobileMenuBtn && mobileMenu && menuOverlay) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('open');
+          menuOverlay.classList.toggle('open');
+          
+          const icon = mobileMenuBtn.querySelector('i');
+          if (icon) {
+            if (icon.classList.contains('fa-bars')) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            } else {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+        
+        menuOverlay.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          menuOverlay.classList.remove('open');
+          
+          const icon = mobileMenuBtn.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      }
+      
+      // Navbar scroll effect
+      const navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+      
+      // Filter tabs
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Filter stories
+          const filter = this.getAttribute('data-filter');
+          filterStories(filter);
+        });
+      });
+      
+      // Load more button
+      const loadMoreBtn = document.querySelector('.load-more-btn');
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+          // This is a placeholder for loading more stories
+          // In a real implementation, you'd load more stories from a database
+          alert('In a live version, this would load more success stories from our database!');
+        });
+      }
+      
+      // Load support messages on page load
+      loadSupportMessages();
+    });
 
+    // Filter stories
+    function filterStories(filter) {
+      const stories = document.querySelectorAll('.story-card');
+      
+      stories.forEach(story => {
+        if (filter === 'all') {
+          story.style.display = 'flex';
+        } else {
+          const categories = story.getAttribute('data-category').split(' ');
+          if (categories.includes(filter)) {
+            story.style.display = 'flex';
+          } else {
+            story.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // Success stories modal content
+    const storyDetails = {
+      mohammed: {
+        name: "Mohammed Ahmed",
+        location: "Dubai, UAE",
+        smokingHistory: "10 years",
+        smokeFreePeriod: "3 months",
+        image: "https://randomuser.me/api/portraits/men/75.jpg",
+        story: `<p>I started smoking when I was just 18, mostly due to peer pressure at university. It quickly became a habit, and before I knew it, I was smoking a pack a day.</p>
+                <p>Over the years, I tried to quit several times, but stress from work always pulled me back. My turning point came when my daughter, who's only 5, asked me why I smelled "yucky" all the time. That broke my heart.</p>
+                <p>I found QuitZone through a friend, and the daily challenges really helped me stay motivated. The first week was brutal - headaches, irritability, cravings. But I kept reminding myself why I was doing this.</p>
+                <p>Now, three months in, I can climb stairs without getting winded. I can taste food properly again. And best of all, my daughter says I don't smell "yucky" anymore!</p>
+                <p>To anyone thinking about quitting: it's hard, but so worth it. Take it one day at a time, and don't give up. Your future self will thank you.</p>`,
+        achievements: ["Improved breathing", "Normal heart rate", "Saved $1,200", "Improved sense of taste", "No more morning cough"],
+        tips: ["Track your progress daily", "Find a stress-relief activity", "Keep reminding yourself why you're quitting", "Celebrate small victories"]
+      },
+      sarah: {
+        name: "Sarah Khalid",
+        location: "Riyadh, KSA",
+        smokingHistory: "8 years",
+        smokeFreePeriod: "2 years",
+        image: "https://randomuser.me/api/portraits/women/65.jpg",
+        story: `<p>I started smoking in college to "manage stress" during exams. That excuse lasted for 8 years, even after I graduated and started my career.</p>
+                <p>My wake-up call came when I failed a basic fitness test at my workplace. I was only 29, but I had the lung capacity of someone much older. That was embarrassing and terrifying.</p>
+                <p>The first month of quitting was the hardest. I was irritable and had strong cravings, especially after meals or when I was stressed. I used nicotine patches for the first two weeks, then gradually went cold turkey.</p>
+                <p>Now, two years later, I'm running 5K races! I never thought I'd become a runner, but here I am. My skin looks better, I sleep better, and I've saved enough money to take my kids on a vacation to Japan next year.</p>
+                <p>If you're struggling to quit, remember that the discomfort is temporary, but the benefits last a lifetime. You're stronger than your addiction.</p>`,
+        achievements: ["Runs 5K weekly", "Heart health improved", "Saved $4,500", "Better skin complexion", "Improved stamina"],
+        tips: ["Find a physical activity you enjoy", "Track your savings for motivation", "Tell everyone you're quitting", "Remove smoking triggers from your environment"]
+      },
+      james: {
+        name: "James Miller",
+        location: "Chicago, USA",
+        smokingHistory: "15 years",
+        smokeFreePeriod: "5 years",
+        image: "https://randomuser.me/api/portraits/men/32.jpg",
+        story: `<p>Smoking was part of my identity for 15 years. I was known as the guy who always had a cigarette between his fingers.</p>
+                <p>I tried quitting multiple times but never made it past a few weeks. Then I had a health scare - chest pains that sent me to the ER. It wasn't a heart attack, thankfully, but it was a warning.</p>
+                <p>I used a combination of medication and behavioral therapy to quit. The medication helped with the physical addiction, and therapy helped me understand and change my smoking triggers.</p>
+                <p>Five years later, I sometimes can't believe I was ever a smoker. I've climbed Mt. Rainier, something I never could have done before. My doctor says my lung function is at 95%, which is remarkable considering how much damage I did.</p>
+                <p>My advice is to not try to do it alone. Get all the help you can - medical, emotional, whatever works for you. And be patient with yourself if you slip up.</p>`,
+        achievements: ["Climbed Mt. Rainier", "95% lung function", "Saved $12,775", "No more chronic bronchitis", "Improved sense of smell"],
+        tips: ["Seek professional help", "Set a quit date and stick to it", "Change your routines to avoid triggers", "Find a quit buddy for support"]
+      },
+      emily: {
+        name: "Emily Johnson",
+        location: "Sydney, Australia",
+        smokingHistory: "12 years",
+        smokeFreePeriod: "6 months",
+        image: "https://randomuser.me/api/portraits/women/32.jpg",
+        story: `<p>I started smoking as a teenager and carried the habit into adulthood. After having children, I would hide my smoking from them, which made me realize how ashamed I was of the habit.</p>
+                <p>When my 7-year-old son drew a family picture for school and included me with a cigarette, I knew I had to change. I didn't want that to be how my children remembered me.</p>
+                <p>I used the QuitZone app's savings calculator as motivation. Seeing how much money I was wasting on cigarettes was eye-opening. I decided to put that money into a vacation fund for my family instead.</p>
+                <p>The first month was difficult, especially in social situations where I used to smoke. I chewed a lot of gum and used breathing exercises when cravings hit.</p>
+                <p>Now, six months in, I have so much more energy to play with my kids. I don't need to take breaks during bike rides or playground visits. And I'm sleeping better than I have in years.</p>`,
+        achievements: ["More active with kids", "Better sleep quality", "Saved $2,340", "No more hiding from kids", "Healthier role model"],
+        tips: ["Use a savings calculator for motivation", "Be honest with your kids about quitting", "Find healthy substitutes for the hand-to-mouth habit", "Make a list of reasons to quit and review it daily"]
+      },
+      john: {
+        name: "John Doe",
+        location: "London, UK",
+        smokingHistory: "20 years",
+        smokeFreePeriod: "1 year",
+        image: "https://randomuser.me/api/portraits/men/55.jpg",
+        story: `<p>After smoking for 20 years, I honestly believed I would never quit. It was simply too ingrained in my daily life. Every morning cigarette with coffee, every smoke break at work, every cigarette after dinner - these were rituals I couldn't imagine giving up.</p>
+                <p>What finally motivated me was a conversation with my doctor about my decreasing lung function. He showed me a scan of my lungs and compared it to a healthy set. The difference was shocking.</p>
+                <p>I decided to quit using the gradual method, reducing by one cigarette each day until I was down to zero. It took longer than cold turkey, but it worked better for me psychologically.</p>
+                <p>The biggest surprise has been how much my mood has improved. I used to think cigarettes helped with stress, but now I realize they were actually making me more anxious. Without the constant cycle of nicotine withdrawal and relief, I feel more emotionally stable.</p>
+                <p>I've taken up cycling as a hobby and now ride 50 miles every weekend. My persistent morning cough is completely gone, and my sense of taste has returned - food is so much more enjoyable now!</p>`,
+        achievements: ["Cycles 50 miles weekly", "No more morning cough", "Saved $4,380", "Better sense of taste", "Improved mood stability"],
+        tips: ["Consider a gradual reduction approach", "Find a replacement physical activity", "Get regular health check-ups for motivation", "Be prepared for unexpected benefits"]
+      },
+      linda: {
+        name: "Linda Smith",
+        location: "Toronto, Canada",
+        smokingHistory: "15 years",
+        smokeFreePeriod: "3 years",
+        image: "https://randomuser.me/api/portraits/women/45.jpg",
+        story: `<p>Smoking was my way of dealing with stress, especially during my divorce 15 years ago. What started as a temporary coping mechanism turned into a decade and a half addiction.</p>
+                <p>I attempted to quit several times but never made it past a few weeks. The turning point came when my son announced I was going to be a grandmother. I knew I wanted to be healthy and active for my grandchild.</p>
+                <p>I quit with the help of nicotine replacement therapy and a support group. Having people to talk to who understood the struggle was invaluable. We celebrated each other's milestones and provided encouragement during tough times.</p>
+                <p>Three years later, I'm in the best shape of my life. I go to the gym regularly, something I never had the energy or lung capacity for before. My focus and mental clarity have improved dramatically, which has helped me advance in my career.</p>
+                <p>The money I've saved - over $8,700 - has gone into a college fund for my grandchild. Every time I contribute to it, I'm reminded of how one good decision can have such far-reaching positive effects.</p>`,
+        achievements: ["Regular gym-goer", "Improved focus", "Saved $8,760", "Started college fund for grandchild", "Enhanced career performance"],
+        tips: ["Join a support group", "Create a financial incentive", "Think of smoking as a relationship you're breaking up with", "Visualize your smoke-free future"]
+      }
+    };
+    
+    // Open story modal
+    function openStoryModal(storyId) {
+      const modal = document.getElementById('story-modal');
+      const modalContent = document.getElementById('modal-content');
+      const story = storyDetails[storyId];
+      
+      if (!story) {
+        return;
+      }
+      
+      let achievementsHTML = '';
+      story.achievements.forEach(achievement => {
+        achievementsHTML += `<li><i class="fas fa-check-circle"></i> ${achievement}</li>`;
+      });
+      
+      let tipsHTML = '';
+      story.tips.forEach(tip => {
+        tipsHTML += `<li><i class="fas fa-lightbulb"></i> ${tip}</li>`;
+      });
+      
+      modalContent.innerHTML = `
+        <div class="modal-header">
+          <img src="${story.image}" alt="${story.name}" class="modal-image">
+          <div class="modal-title">
+            <h2>${story.name}</h2>
+            <div class="modal-subtitle">
+              <span><i class="fas fa-map-marker-alt"></i> ${story.location}</span>
+              <span><i class="fas fa-smoking-ban"></i> Was ${story.smokingHistory} smoker</span>
+              <span><i class="fas fa-calendar-check"></i> ${story.smokeFreePeriod} smoke-free</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-story">
+          <h3>My Quitting Journey</h3>
+          ${story.story}
+        </div>
+        
+        <div class="modal-achievements">
+          <h3>My Achievements</h3>
+          <ul class="achievements-list">
+            ${achievementsHTML}
+          </ul>
+        </div>
+        
+        <div class="modal-tips">
+          <h3>My Tips for Success</h3>
+          <ul class="tips-list">
+            ${tipsHTML}
+          </ul>
+        </div>
+        
+        <div class="modal-share">
+          <h3>Share This Story</h3>
+          <div class="share-buttons">
+            <button class="share-btn facebook">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </button>
+            <button class="share-btn twitter">
+              <i class="fab fa-twitter"></i> Twitter
+            </button>
+            <button class="share-btn email">
+              <i class="fas fa-envelope"></i> Email
+            </button>
+          </div>
+        </div>
+      `;
+      
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // Close story modal
+    function closeStoryModal() {
+      const modal = document.getElementById('story-modal');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Support messages
     function sendSupport() {
       const name = document.getElementById("friend-name").value.trim();
       const message = document.getElementById("support-message").value.trim();
@@ -102,7 +656,12 @@
         return;
       }
 
-      const newMessage = { name, message };
+      const newMessage = {
+        name,
+        message,
+        timestamp: new Date().toLocaleString()
+      };
+      
       const messages = getStoredMessages();
       messages.push(newMessage);
       localStorage.setItem('supportMessages', JSON.stringify(messages));
@@ -111,20 +670,44 @@
 
       document.getElementById("friend-name").value = '';
       document.getElementById("support-message").value = '';
+      
+      // Show success message
+      alert(`Your supportive message to ${name} has been sent successfully!`);
     }
 
     function appendSupportMessage(msg) {
       const box = document.getElementById("support-messages");
       const msgDiv = document.createElement("div");
       msgDiv.className = "support-msg";
-      msgDiv.innerHTML = `<strong>${msg.name}:</strong> ${msg.message}`;
+      msgDiv.innerHTML = `
+        <div class="msg-header">
+          <strong>${msg.name}</strong>
+          <span class="msg-time">${msg.timestamp}</span>
+        </div>
+        <p>${msg.message}</p>
+      `;
       box.appendChild(msgDiv);
       box.scrollTop = box.scrollHeight;
     }
 
     function loadSupportMessages() {
       const messages = getStoredMessages();
-      messages.forEach(msg => appendSupportMessage(msg));
+      const box = document.getElementById("support-messages");
+      
+      if (box) {
+        box.innerHTML = '';
+        if (messages.length === 0) {
+          const emptyMsg = document.createElement("div");
+          emptyMsg.className = "empty-msg";
+          emptyMsg.innerHTML = `
+            <i class="fas fa-comment-dots"></i>
+            <p>No support messages yet. Be the first to send some encouragement!</p>
+          `;
+          box.appendChild(emptyMsg);
+        } else {
+          messages.forEach(msg => appendSupportMessage(msg));
+        }
+      }
     }
 
     function getStoredMessages() {
@@ -133,9 +716,761 @@
     }
 
     function clearSupportMessages() {
-      localStorage.removeItem('supportMessages');
-      document.getElementById("support-messages").innerHTML = '';
+      if (confirm("Are you sure you want to clear all support messages?")) {
+        localStorage.removeItem('supportMessages');
+        loadSupportMessages();
+      }
     }
+    
+    // Close the modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('story-modal');
+      if (event.target === modal) {
+        closeStoryModal();
+      }
+    });
+    
+    // Close the modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeStoryModal();
+      }
+    });
   </script>
+  
+  <style>
+    /* Additional Styles for Success Stories Page */
+    .success-banner {
+      background: linear-gradient(135deg, rgba(255, 126, 145, 0.9), rgba(255, 177, 153, 0.9)), 
+                  url('https://images.unsplash.com/photo-1504439904031-93ded9f93e4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      padding: 8rem 0 5rem;
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+    
+    .success-banner h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .success-banner p {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .banner-gradient {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4rem;
+      background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+    }
+    
+    .success-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .stat-item {
+      display: flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      padding: 1rem 1.5rem;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-icon {
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 1rem;
+      font-size: 1.25rem;
+    }
+    
+    .stat-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .success-container {
+      padding: 3rem 0;
+    }
+    
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .filter-btn {
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .filter-btn:hover {
+      border-color: var(--primary);
+    }
+    
+    .filter-btn.active {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .stories {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .story-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .story-image {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background-color: #f5f5f5;
+    }
+    
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .story-card:hover .story-image img {
+      transform: scale(1.05);
+    }
+    
+    .story-badge {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .story-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .story-card h2 {
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    
+    .story-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .story-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    
+    .story-meta i {
+      color: var(--primary);
+    }
+    
+    .story-card p {
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      line-height: 1.7;
+      flex: 1;
+    }
+    
+    .story-achievements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .achievement {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background-color: rgba(255, 225, 225, 0.3);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+    }
+    
+    .read-more-btn {
+      align-self: flex-start;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .read-more-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(244, 107, 142, 0.2);
+    }
+    
+    .load-more-container {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    
+    .load-more-btn {
+      background-color: white;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      border-radius: 50px;
+      padding: 0.8rem 2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .load-more-btn:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .help-others-section {
+      background-color: white;
+      padding: 4rem 0;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .help-others-section h2 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .help-others-section p {
+      color: var(--text);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2.5rem;
+    }
+    
+    .help-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .help-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .help-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .help-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      font-size: 1.25rem;
+    }
+    
+    .help-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    
+    .help-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+    
+    .support-friends-section {
+      background: linear-gradient(135deg, rgba(255, 126, 145, 0.1), rgba(255, 177, 153, 0.1));
+      padding: 4rem 0;
+      text-align: center;
+    }
+    
+    .support-friends-section h2 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .support-friends-section p {
+      color: var(--text);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2rem;
+    }
+    
+    .support-form {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius-sm);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 126, 145, 0.1);
+    }
+    
+    .send-support-btn {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.8rem 2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .send-support-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(244, 107, 142, 0.2);
+    }
+    
+    .message-board {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .message-board h3 {
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .messages-box {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      text-align: left;
+    }
+    
+    .support-msg {
+      background-color: #f9f9f9;
+      border-radius: var(--border-radius-sm);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--primary);
+    }
+    
+    .msg-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    
+    .msg-header strong {
+      color: var(--accent);
+    }
+    
+    .msg-time {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    
+    .support-msg p {
+      margin-bottom: 0;
+      color: var(--text);
+    }
+    
+    .empty-msg {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--text-light);
+    }
+    
+    .empty-msg i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #e0e0e0;
+    }
+    
+    .clear-btn {
+      background-color: #f1f1f1;
+      color: var(--text);
+      border: none;
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .clear-btn:hover {
+      background-color: var(--text-light);
+      color: white;
+    }
+    
+    /* Story Modal Styles */
+    .story-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      overflow-y: auto;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .story-modal.open {
+      display: block;
+      opacity: 1;
+    }
+    
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      margin: 5vh auto;
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-light);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 1;
+    }
+    
+    .modal-close:hover {
+      color: var(--accent);
+    }
+    
+    .modal-header {
+      display: flex;
+      margin-bottom: 2rem;
+    }
+    
+    .modal-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      margin-right: 1.5rem;
+    }
+    
+    .modal-title {
+      flex: 1;
+    }
+    
+    .modal-title h2 {
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    
+    .modal-subtitle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .modal-subtitle span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    
+    .modal-subtitle i {
+      color: var(--primary);
+    }
+    
+    .modal-story {
+      margin-bottom: 2rem;
+    }
+    
+    .modal-story h3,
+    .modal-achievements h3,
+    .modal-tips h3,
+    .modal-share h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .modal-story p {
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    .achievements-list,
+    .tips-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .achievements-list li,
+    .tips-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.5rem;
+    }
+    
+    .achievements-list li i {
+      color: var(--primary);
+      margin-top: 0.2rem;
+    }
+    
+    .tips-list li i {
+      color: var(--secondary);
+      margin-top: 0.2rem;
+    }
+    
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .share-btn {
+      flex: 1;
+      min-width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .share-btn:hover {
+      transform: translateY(-3px);
+    }
+    
+    .share-btn.facebook {
+      background-color: #3b5998;
+    }
+    
+    .share-btn.twitter {
+      background-color: #1da1f2;
+    }
+    
+    .share-btn.email {
+      background-color: #ea4335;
+    }
+    
+    @media (min-width: 768px) {
+      .stories {
+        grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+      }
+      
+      .story-card {
+        flex-direction: row;
+      }
+      
+      .story-image {
+        width: 200px;
+        height: auto;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .success-stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .modal-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .modal-image {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      
+      .modal-subtitle {
+        justify-content: center;
+      }
+      
+      .achievements-list,
+      .tips-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </body>
 </html>
