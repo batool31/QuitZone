@@ -21,11 +21,6 @@
         <span class="emoji">🚭</span>
       </a>
       
-      <!-- Mobile menu button -->
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      
       <!-- Navigation Links for Desktop -->
       <nav class="nav-desktop">
         <ul>
@@ -39,22 +34,6 @@
         </ul>
       </nav>
     </div>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="progress.html">Progress</a></li>
-        <li><a href="challenges.html">Challenges</a></li>
-        <li><a href="savings.html">Savings</a></li>
-        <li><a href="success_stories.html">Success Stories</a></li>
-        <li><a href="chatbot.html">Chatbot</a></li>
-        <li><a href="login.php" class="mobile-login-btn">Login</a></li>
-      </ul>
-    </div>
-    
-    <!-- Menu Overlay -->
-    <div class="menu-overlay"></div>
   </header>
 
   <main class="container savings-container">
@@ -62,7 +41,45 @@
     <p class="savings-subtitle" data-aos="fade-up" data-aos-delay="200">
       Every day you stay smoke-free, your wallet gets fatter and your future gets brighter.
     </p>
-
+    <div class="calculator-section" data-aos="fade-up" data-aos-delay="500">
+      <div class="calculator-header">
+        <h2><i class="fas fa-calculator"></i> Calculate Your Savings</h2>
+        <p>See how much you're saving by not smoking!</p>
+      </div>
+      
+      <div class="calculator-form">
+        <div class="form-group">
+          <label for="daily-expense">
+            <i class="fas fa-coins"></i> 
+            How much did you spend per day on smoking?
+          </label>
+          <div class="input-with-icon">
+            <span class="currency-symbol">$</span>
+            <input type="number" id="daily-expense" placeholder="Amount per day" min="0" max="3" step="0.01">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="daily-cigarettes">
+            <i class="fas fa-smoking"></i> 
+            How many cigarettes did you smoke per day?
+          </label>
+          <input type="number" id="daily-cigarettes" placeholder="Number of cigarettes" min="0" max="60">
+        </div>
+        
+        <div class="form-group">
+          <label for="days-quit">
+            <i class="fas fa-hourglass-half"></i> 
+            How many days have you been smoke-free?
+          </label>
+          <input type="number" id="days-quit" placeholder="Number of days" min="0">
+        </div>
+        
+        <button id="calculate-savings" class="calculate-btn">
+          <i class="fas fa-calculator"></i> Calculate Savings
+        </button>
+      </div>
+    </div>
     <div class="savings-dashboard" data-aos="fade-up" data-aos-delay="300">
       <div class="savings-summary">
         <div class="savings-card">
@@ -95,52 +112,14 @@
           </div>
         </div>
       </div>
-      
-      <div class="savings-chart-container" data-aos="fade-up" data-aos-delay="400">
-        <h2>Your Savings Growth</h2>
-        <div class="savings-chart">
-          <canvas id="savingsChart"></canvas>
-        </div>
-      </div>
     </div>
 
-    <div class="calculator-section" data-aos="fade-up" data-aos-delay="500">
-      <div class="calculator-header">
-        <h2><i class="fas fa-calculator"></i> Calculate Your Savings</h2>
-        <p>See how much you're saving by not smoking!</p>
-      </div>
-      
-      <div class="calculator-form">
-        <div class="form-group">
-          <label for="daily-expense">
-            <i class="fas fa-coins"></i> 
-            How much did you spend per day on smoking?
-          </label>
-          <div class="input-with-icon">
-            <span class="currency-symbol">$</span>
-            <input type="number" id="daily-expense" placeholder="Amount per day" min="0" step="0.01">
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="daily-cigarettes">
-            <i class="fas fa-smoking"></i> 
-            How many cigarettes did you smoke per day?
-          </label>
-          <input type="number" id="daily-cigarettes" placeholder="Number of cigarettes" min="0">
-        </div>
-        
-        <div class="form-group">
-          <label for="days-quit">
-            <i class="fas fa-hourglass-half"></i> 
-            How many days have you been smoke-free?
-          </label>
-          <input type="number" id="days-quit" placeholder="Number of days" min="0">
-        </div>
-        
-        <button id="calculate-savings" class="calculate-btn">
-          <i class="fas fa-calculator"></i> Calculate Savings
-        </button>
+    
+    
+    <div class="savings-chart-container" data-aos="fade-up" data-aos-delay="400">
+      <h2>Your Savings Growth</h2>
+      <div class="savings-chart">
+        <canvas id="savingsChart"></canvas>
       </div>
     </div>
     
@@ -178,123 +157,50 @@
           <span id="points">0</span> Points Collected
         </div>
       </div>
-      
-      <div class="reward-cards">
-        <div class="reward-card">
-          <div class="reward-icon">
-            <i class="fas fa-credit-card"></i>
+      <div class="rewards-section" data-aos="fade-up" data-aos-delay="700">
+        <div class="rewards-header">
+          <h2><i class="fas fa-gift"></i> Rewards Vault</h2>
+          <p>Trade in your smoke-free points for amazing rewards!</p>
+          <div class="points-display">
+            <i class="fas fa-star"></i>
+            <span id="points">0</span> Points Collected
           </div>
-          <h3>$5 Gift Card</h3>
-          <div class="reward-points">100 Points</div>
-          <button class="redeem-btn" data-points="100" data-reward="$5 Gift Card">
-            <i class="fas fa-gift"></i> Redeem
-          </button>
         </div>
         
-        <div class="reward-card">
-          <div class="reward-icon">
-            <i class="fas fa-ticket-alt"></i>
+        <div class="rewards-grid">
+          <!-- Reward Card 1 -->
+          <div class="reward-card">
+            <div class="reward-points">500 Points</div>
+            <i class="reward-icon fas fa-coffee"></i>
+            <h3>Coffee Shop Gift Card</h3>
+            <p>Treat yourself to your favorite coffee after staying smoke-free.</p>
+            <button class="redeem-btn" data-points="500">Redeem</button>
           </div>
-          <h3>$10 Gift Card</h3>
-          <div class="reward-points">200 Points</div>
-          <button class="redeem-btn" data-points="200" data-reward="$10 Gift Card">
-            <i class="fas fa-gift"></i> Redeem
-          </button>
-        </div>
-        
-        <div class="reward-card">
-          <div class="reward-icon">
-            <i class="fas fa-mobile-alt"></i>
+          
+          <!-- Reward Card 2 -->
+          <div class="reward-card">
+            <div class="reward-points">750 Points</div>
+            <i class="reward-icon fas fa-headphones"></i>
+            <h3>Music Subscription</h3>
+            <p>One month of premium music streaming to celebrate your progress.</p>
+            <button class="redeem-btn" data-points="750">Redeem</button>
           </div>
-          <h3>Health App Subscription</h3>
-          <div class="reward-points">500 Points</div>
-          <button class="redeem-btn" data-points="500" data-reward="Health App Subscription">
-            <i class="fas fa-gift"></i> Redeem
-          </button>
-        </div>
-        
-        <div class="reward-card">
-          <div class="reward-icon">
-            <i class="fas fa-spa"></i>
+          
+          <!-- Reward Card 3 (Premium/Locked) -->
+          <div class="reward-card locked">
+            <div class="reward-points">1000 Points</div>
+            <i class="reward-icon fas fa-crown"></i>
+            <h3>Premium Membership</h3>
+            <p>Unlock exclusive features and content to support your journey.</p>
+            <button class="redeem-btn disabled" data-points="1000">Locked</button>
+            <div class="points-needed">Need 1000 more points</div>
           </div>
-          <h3>Spa Day</h3>
-          <div class="reward-points">1000 Points</div>
-          <button class="redeem-btn" data-points="1000" data-reward="Spa Day">
-            <i class="fas fa-gift"></i> Redeem
-          </button>
         </div>
       </div>
-    </div>
-    
-    <div class="savings-ideas" data-aos="fade-up" data-aos-delay="800">
-      <h2><i class="fas fa-lightbulb"></i> What to Do With Your Savings</h2>
-      <div class="ideas-grid">
-        <div class="idea-card">
-          <div class="idea-icon">
-            <i class="fas fa-plane"></i>
-          </div>
-          <h3>Dream Vacation</h3>
-          <p>Start a vacation fund for that trip you've always wanted.</p>
-        </div>
-        
-        <div class="idea-card">
-          <div class="idea-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3>Education</h3>
-          <p>Invest in yourself through courses or continuing education.</p>
-        </div>
-        
-        <div class="idea-card">
-          <div class="idea-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <h3>Health & Wellness</h3>
-          <p>Join a gym, get massages, or treat yourself to healthy meals.</p>
-        </div>
-        
-        <div class="idea-card">
-          <div class="idea-icon">
-            <i class="fas fa-piggy-bank"></i>
-          </div>
-          <h3>Emergency Fund</h3>
-          <p>Build your financial security with a rainy day fund.</p>
-        </div>
-      </div>
-    </div>
-    
-    <div id="savings-notification" class="notification">
-      <div class="notification-icon">
-        <i class="fas fa-check-circle"></i>
-      </div>
-      <div class="notification-content">
-        <h3>Calculation Complete!</h3>
-        <p>Check out your impressive savings above!</p>
-      </div>
-      <button class="notification-close">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    
-    <div id="redeem-notification" class="notification">
-      <div class="notification-icon">
-        <i class="fas fa-gift"></i>
-      </div>
-      <div class="notification-content">
-        <h3>Reward Redeemed!</h3>
-        <p id="redeem-message">You've successfully redeemed your reward!</p>
-      </div>
-      <button class="notification-close">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
   </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <svg class="footer-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path fill="#ffe1e1" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-    </svg>
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
@@ -302,32 +208,46 @@
             <span>QuitZone</span>
             <span class="emoji">🚭</span>
           </a>
+          <p>Your partner in the journey to a smoke-free life.</p>
         </div>
         
-        <div class="social-links">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-twitter"></i>
-          </a>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3>Pages</h3>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="progress.html">Progress</a></li>
+              <li><a href="challenges.html">Challenges</a></li>
+              <li><a href="savings.html">Savings</a></li>
+              <li><a href="success_stories.html">Success Stories</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Connect</h3>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
         </div>
-        
-        <div class="footer-nav">
-          <a href="home.html">Home</a>
-          <a href="progress.html">Progress</a>
-          <a href="challenges.html">Challenges</a>
-          <a href="savings.html">Savings</a>
-          <a href="success_stories.html">Success Stories</a>
-          <a href="chatbot.html">Chatbot</a>
-        </div>
-        
-        <div class="copyright">
-          <p>© 2025 QuitZone - All Rights Reserved</p>
-        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 QuitZone. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -336,779 +256,169 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   
   <script>
-    // Initialize AOS animation library
+    // Initialize AOS
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
       once: true
     });
-    
-    // Mobile menu toggle
+
+    // Savings Calculator
     document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const menuOverlay = document.querySelector('.menu-overlay');
+      // Input validation for max values
+      const dailyExpenseInput = document.getElementById('daily-expense');
+      const dailyCigarettesInput = document.getElementById('daily-cigarettes');
       
-      if (mobileMenuBtn && mobileMenu && menuOverlay) {
-        mobileMenuBtn.addEventListener('click', function() {
-          mobileMenu.classList.toggle('open');
-          menuOverlay.classList.toggle('open');
-          
-          const icon = mobileMenuBtn.querySelector('i');
-          if (icon) {
-            if (icon.classList.contains('fa-bars')) {
-              icon.classList.remove('fa-bars');
-              icon.classList.add('fa-times');
-            } else {
-              icon.classList.remove('fa-times');
-              icon.classList.add('fa-bars');
-            }
-          }
-        });
-        
-        menuOverlay.addEventListener('click', function() {
-          mobileMenu.classList.remove('open');
-          menuOverlay.classList.remove('open');
-          
-          const icon = mobileMenuBtn.querySelector('i');
-          if (icon) {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-          }
-        });
-      }
-      
-      // Navbar scroll effect
-      const navbar = document.querySelector('.navbar');
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
+      // Add event listeners to enforce max values
+      dailyExpenseInput.addEventListener('input', function() {
+        if (this.value > 3) {
+          this.value = 3;
         }
       });
       
-      // Setup initial chart
-      setupSavingsChart();
-      
-      // Close notifications
-      const notifications = document.querySelectorAll('.notification');
-      notifications.forEach(notification => {
-        const closeBtn = notification.querySelector('.notification-close');
-        if (closeBtn) {
-          closeBtn.addEventListener('click', function() {
-            notification.classList.remove('show');
-          });
+      dailyCigarettesInput.addEventListener('input', function() {
+        if (this.value > 60) {
+          this.value = 60;
         }
       });
       
-      // Redeem rewards
-      const redeemBtns = document.querySelectorAll('.redeem-btn');
-      redeemBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          const points = parseInt(this.getAttribute('data-points'));
-          const reward = this.getAttribute('data-reward');
-          redeemReward(points, reward);
-        });
-      });
-    });
-    
-    // Initialize empty data for savings chart
-    let chartData = {
-      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
-      datasets: [{
-        label: 'Savings ($)',
-        data: [0, 0, 0, 0, 0, 0, 0],
-        fill: true,
-        backgroundColor: 'rgba(255, 126, 145, 0.2)',
-        borderColor: '#ff7e91',
-        tension: 0.4,
-        pointBackgroundColor: '#ffb199',
-        pointBorderColor: 'white',
-        pointBorderWidth: 2,
-        pointRadius: 5
-      }]
-    };
-    
-    let savingsChart;
-    
-    function setupSavingsChart() {
+      const calculateBtn = document.getElementById('calculate-savings');
+      calculateBtn.addEventListener('click', calculateSavings);
+      
+      // Initialize savings chart
       const ctx = document.getElementById('savingsChart').getContext('2d');
       
-      savingsChart = new Chart(ctx, {
+      const savingsChart = new Chart(ctx, {
         type: 'line',
-        data: chartData,
+        data: {
+          labels: ['Day 1', 'Week 1', 'Month 1', 'Month 3', 'Month 6', 'Year 1'],
+          datasets: [{
+            label: 'Savings ($)',
+            data: [0, 0, 0, 0, 0, 0],
+            borderColor: '#37474F',
+            backgroundColor: 'rgba(55, 71, 79, 0.1)',
+            tension: 0.3,
+            fill: true
+          }]
+        },
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+              callbacks: {
+                label: function(context) {
+                  return `Savings: $${context.raw.toFixed(2)}`;
+                }
+              }
+            }
+          },
           scales: {
             y: {
               beginAtZero: true,
-              ticks: {
-                callback: function(value) {
-                  return '$' + value;
-                }
-              },
-              grid: {
-                color: 'rgba(0, 0, 0, 0.05)'
+              title: {
+                display: true,
+                text: 'Savings ($)'
               }
             },
             x: {
-              grid: {
-                color: 'rgba(0, 0, 0, 0.05)'
+              title: {
+                display: true,
+                text: 'Time Period'
               }
             }
-          },
-          plugins: {
-            legend: {
-              display: false
-            },
-            tooltip: {
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              titleColor: '#f46b8e',
-              bodyColor: '#333',
-              borderColor: '#ff7e91',
-              borderWidth: 1,
-              padding: 12,
-              displayColors: false,
-              callbacks: {
-                label: function(context) {
-                  return 'Savings: $' + context.parsed.y.toFixed(2);
-                }
-              }
-            }
-          },
-          interaction: {
-            intersect: false,
-            mode: 'index'
-          },
-          animation: {
-            duration: 2000,
-            easing: 'easeOutQuart'
           }
-        }
+        },
       });
-    }
-
-    document.getElementById("calculate-savings").addEventListener("click", function () {
-      const dailyExpense = parseFloat(document.getElementById("daily-expense").value);
-      const dailyCigarettes = parseInt(document.getElementById("daily-cigarettes").value);
-      const daysQuit = parseInt(document.getElementById("days-quit").value);
-
-      if (isNaN(dailyExpense) || isNaN(daysQuit) || isNaN(dailyCigarettes) || 
-          dailyExpense <= 0 || daysQuit <= 0 || dailyCigarettes <= 0) {
-        alert("Please enter valid numbers for all fields.");
-        return;
-      }
-
-      // Calculate savings
-      const totalSaved = dailyExpense * daysQuit;
-      const points = Math.floor(totalSaved);
-      const cigarettesAvoided = dailyCigarettes * daysQuit;
       
-      // Animate the counters
-      animateCounter('total-saved', totalSaved, true);
-      animateCounter('smoke-free-days', daysQuit, false);
-      animateCounter('cigarettes-avoided', cigarettesAvoided, false);
-      animateCounter('points', points, false);
-      
-      // Calculate projections
-      const monthlyProjection = dailyExpense * 30;
-      const sixMonthProjection = dailyExpense * 182;
-      const yearlyProjection = dailyExpense * 365;
-      const fiveYearProjection = dailyExpense * 365 * 5;
-      
-      // Update projection displays
-      document.getElementById('month-projection').textContent = '$' + monthlyProjection.toFixed(2);
-      document.getElementById('six-month-projection').textContent = '$' + sixMonthProjection.toFixed(2);
-      document.getElementById('year-projection').textContent = '$' + yearlyProjection.toFixed(2);
-      document.getElementById('five-year-projection').textContent = '$' + fiveYearProjection.toFixed(2);
-      
-      // Update chart data
-      updateSavingsChart(dailyExpense, daysQuit);
-      
-      // Show notification
-      document.getElementById('savings-notification').classList.add('show');
-      
-      // Auto hide notification after 5 seconds
-      setTimeout(() => {
-        document.getElementById('savings-notification').classList.remove('show');
-      }, 5000);
-    });
-    
-    function animateCounter(elementId, target, isCurrency) {
-      const element = document.getElementById(elementId);
-      if (!element) return;
-      
-      const start = 0;
-      const duration = 1500;
-      const increment = target / (duration / 16);
-      let current = start;
-      
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          if (isCurrency) {
-            element.textContent = '$' + target.toFixed(2);
-          } else {
-            element.textContent = Math.floor(target);
-          }
-          clearInterval(timer);
-        } else {
-          if (isCurrency) {
-            element.textContent = '$' + current.toFixed(2);
-          } else {
-            element.textContent = Math.floor(current);
-          }
+      function calculateSavings() {
+        const dailyExpense = parseFloat(dailyExpenseInput.value) || 0;
+        const dailyCigarettes = parseInt(dailyCigarettesInput.value) || 0;
+        const daysQuit = parseInt(document.getElementById('days-quit').value) || 0;
+        
+        if (dailyExpense === 0 || dailyCigarettes === 0 || daysQuit === 0) {
+          alert("Please fill in all fields with values greater than zero.");
+          return;
         }
-      }, 16);
-    }
-    
-    function updateSavingsChart(dailyExpense, daysQuit) {
-      // Create new labels and data arrays
-      const labels = [];
-      const data = [];
-      
-      // Limit chart to show at most 30 days
-      const daysToShow = Math.min(daysQuit, 30);
-      
-      for (let i = 1; i <= daysToShow; i++) {
-        labels.push('Day ' + i);
-        data.push(dailyExpense * i);
+        
+        // Calculate total savings
+        const totalSaved = dailyExpense * daysQuit;
+        document.getElementById('total-saved').textContent = totalSaved.toFixed(2);
+        document.getElementById('smoke-free-days').textContent = daysQuit;
+        document.getElementById('cigarettes-avoided').textContent = dailyCigarettes * daysQuit;
+        
+        // Calculate projected savings
+        const monthProj = dailyExpense * 30;
+        const sixMonthProj = dailyExpense * 180;
+        const yearProj = dailyExpense * 365;
+        const fiveYearProj = dailyExpense * 1825;
+        
+        document.getElementById('month-projection').textContent = '$' + monthProj.toFixed(2);
+        document.getElementById('six-month-projection').textContent = '$' + sixMonthProj.toFixed(2);
+        document.getElementById('year-projection').textContent = '$' + yearProj.toFixed(2);
+        document.getElementById('five-year-projection').textContent = '$' + fiveYearProj.toFixed(2);
+        
+        // Update chart
+        savingsChart.data.datasets[0].data = [
+          dailyExpense,
+          dailyExpense * 7,
+          monthProj,
+          dailyExpense * 90,
+          sixMonthProj,
+          yearProj
+        ];
+        savingsChart.update();
+        
+        // Update points (1 point per dollar saved)
+        const points = Math.floor(totalSaved);
+        document.getElementById('points').textContent = points;
+        
+        // Enable/disable redeem buttons based on points
+        document.querySelectorAll('.redeem-btn').forEach(btn => {
+          const requiredPoints = parseInt(btn.getAttribute('data-points'));
+          if (points >= requiredPoints) {
+            btn.disabled = false;
+            btn.classList.remove('disabled');
+          } else {
+            btn.disabled = true;
+            btn.classList.add('disabled');
+          }
+        });
       }
       
-      // Update chart data
-      chartData.labels = labels;
-      chartData.datasets[0].data = data;
-      
-      // Update the chart
-      savingsChart.update();
-    }
-    
-    function redeemReward(points, reward) {
-      const currentPoints = parseInt(document.getElementById('points').textContent);
-      
-      if (currentPoints < points) {
-        alert(`You need ${points - currentPoints} more points to redeem this reward.`);
-        return;
-      }
-      
-      // Deduct points
-      document.getElementById('points').textContent = currentPoints - points;
-      
-      // Update redeem message
-      document.getElementById('redeem-message').textContent = 
-        `You've successfully redeemed ${reward} for ${points} points!`;
-      
-      // Show notification
-      document.getElementById('redeem-notification').classList.add('show');
-      
-      // Auto hide notification after 5 seconds
-      setTimeout(() => {
-        document.getElementById('redeem-notification').classList.remove('show');
-      }, 5000);
-    }
+      // Handle reward redemption
+      document.querySelectorAll('.redeem-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const reward = this.getAttribute('data-reward');
+          const pointsCost = parseInt(this.getAttribute('data-points'));
+          const currentPoints = parseInt(document.getElementById('points').textContent);
+          
+          if (currentPoints >= pointsCost) {
+            alert(`You have successfully redeemed ${reward}! Check your email for details.`);
+            const remainingPoints = currentPoints - pointsCost;
+            document.getElementById('points').textContent = remainingPoints;
+            
+            // Update button states
+            document.querySelectorAll('.redeem-btn').forEach(redeemBtn => {
+              const requiredPoints = parseInt(redeemBtn.getAttribute('data-points'));
+              if (remainingPoints >= requiredPoints) {
+                redeemBtn.disabled = false;
+                redeemBtn.classList.remove('disabled');
+              } else {
+                redeemBtn.disabled = true;
+                redeemBtn.classList.add('disabled');
+              }
+            });
+          }
+        });
+      });
+    });
   </script>
-  
-  <style>
-    /* Additional Styles for Savings Page */
-    .savings-container {
-      padding-top: 7rem;
-      padding-bottom: 3rem;
-    }
-    
-    .savings-title {
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-    
-    .savings-subtitle {
-      text-align: center;
-      color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto 3rem;
-    }
-    
-    .savings-dashboard {
-      margin-bottom: 3rem;
-    }
-    
-    .savings-summary {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    
-    .savings-card {
-      background-color: white;
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .savings-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .savings-icon {
-      width: 60px;
-      height: 60px;
-      min-width: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      font-size: 1.5rem;
-      border-radius: 50%;
-      margin-right: 1.5rem;
-      box-shadow: 0 5px 15px rgba(244, 107, 142, 0.2);
-    }
-    
-    .savings-amount {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .amount-label {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-bottom: 0.25rem;
-    }
-    
-    .amount-value {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    
-    .savings-chart-container {
-      background-color: white;
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      box-shadow: var(--shadow-md);
-      margin-top: 2rem;
-    }
-    
-    .savings-chart-container h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: var(--accent);
-      font-size: 1.5rem;
-    }
-    
-    .savings-chart {
-      height: 300px;
-      position: relative;
-    }
-    
-    .calculator-section {
-      background-color: white;
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 3rem;
-    }
-    
-    .calculator-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    
-    .calculator-header h2 {
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    
-    .calculator-header p {
-      color: var(--text-light);
-    }
-    
-    .calculator-form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .form-group input {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 1px solid #ddd;
-      border-radius: var(--border-radius-sm);
-      transition: border-color 0.3s, box-shadow 0.3s;
-      font-size: 1rem;
-    }
-    
-    .form-group input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(255, 126, 145, 0.1);
-    }
-    
-    .input-with-icon {
-      position: relative;
-    }
-    
-    .currency-symbol {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-light);
-    }
-    
-    .input-with-icon input {
-      padding-left: 2rem;
-    }
-    
-    .calculate-btn {
-      width: 100%;
-      padding: 1rem;
-      border: none;
-      border-radius: var(--border-radius-sm);
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      color: white;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      transition: transform 0.3s, box-shadow 0.3s;
-      margin-top: 1rem;
-    }
-    
-    .calculate-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 15px rgba(244, 107, 142, 0.2);
-    }
-    
-    .savings-projection {
-      margin-bottom: 3rem;
-    }
-    
-    .savings-projection h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: var(--accent);
-    }
-    
-    .projection-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    .projection-card {
-      background-color: white;
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .projection-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .projection-period {
-      font-size: 1.1rem;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    
-    .projection-amount {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    
-    .rewards-section {
-      background: linear-gradient(135deg, rgba(255, 126, 145, 0.1), rgba(255, 177, 153, 0.1));
-      border-radius: var(--border-radius);
-      padding: 2.5rem;
-      margin-bottom: 3rem;
-    }
-    
-    .rewards-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    
-    .rewards-header h2 {
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    
-    .rewards-header p {
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
-    
-    .points-display {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      background-color: white;
-      border-radius: 50px;
-      font-weight: 600;
-      color: var(--primary);
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    
-    .points-display i {
-      color: var(--secondary);
-    }
-    
-    .reward-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    .reward-card {
-      background-color: white;
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .reward-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .reward-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      margin: 0 auto 1rem;
-      font-size: 1.5rem;
-    }
-    
-    .reward-card h3 {
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-      font-size: 1.1rem;
-    }
-    
-    .reward-points {
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    
-    .redeem-btn {
-      background-color: var(--secondary);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 0.5rem 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      width: 100%;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-    
-    .redeem-btn:hover {
-      background-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    
-    .savings-ideas {
-      margin-bottom: 3rem;
-    }
-    
-    .savings-ideas h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    
-    .ideas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    .idea-card {
-      background-color: white;
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .idea-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .idea-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      margin: 0 auto 1rem;
-      font-size: 1.5rem;
-    }
-    
-    .idea-card h3 {
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-    
-    .idea-card p {
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
-    
-    .notification {
-      position: fixed;
-      bottom: -100px;
-      right: 30px;
-      background-color: white;
-      border-radius: var(--border-radius);
-      padding: 1rem;
-      display: flex;
-      align-items: flex-start;
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
-      z-index: 1000;
-      transition: bottom 0.5s ease-in-out;
-      width: 300px;
-      opacity: 0;
-    }
-    
-    .notification.show {
-      bottom: 30px;
-      opacity: 1;
-    }
-    
-    .notification-icon {
-      margin-right: 1rem;
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-    
-    .notification-content {
-      flex: 1;
-    }
-    
-    .notification-content h3 {
-      margin-bottom: 0.25rem;
-      color: var(--accent);
-      font-size: 1rem;
-    }
-    
-    .notification-content p {
-      color: var(--text-light);
-      font-size: 0.9rem;
-      margin-bottom: 0;
-    }
-    
-    .notification-close {
-      background: none;
-      border: none;
-      color: var(--text-light);
-      cursor: pointer;
-      font-size: 1rem;
-      padding: 0.25rem;
-      transition: color 0.3s;
-    }
-    
-    .notification-close:hover {
-      color: var(--accent);
-    }
-    
-    @media (max-width: 768px) {
-      .savings-summary {
-        grid-template-columns: 1fr;
-      }
-      
-      .projection-grid, .reward-cards, .ideas-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      }
-      
-      .calculator-form {
-        padding: 0 1rem;
-      }
-      
-      .notification {
-        width: 280px;
-        right: 20px;
-      }
-      
-      .notification.show {
-        bottom: 20px;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .projection-grid, .reward-cards, .ideas-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .savings-chart {
-        height: 250px;
-      }
-    }
-  </style>
+  <script src="common.js"></script>
 </body>
 </html>

@@ -21,11 +21,6 @@
                 <span class="emoji">🚭</span>
             </a>
             
-            <!-- Mobile menu button -->
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            
             <!-- Navigation Links for Desktop -->
             <nav class="nav-desktop">
                 <ul>
@@ -39,233 +34,301 @@
                 </ul>
             </nav>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="progress.html">Progress</a></li>
-                <li><a href="challenges.html">Challenges</a></li>
-                <li><a href="savings.html">Savings</a></li>
-                <li><a href="success_stories.html">Success Stories</a></li>
-                <li><a href="chatbot.html">Chatbot</a></li>
-                <li><a href="login.php" class="mobile-login-btn">Login</a></li>
-            </ul>
-        </div>
-        
-        <!-- Menu Overlay -->
-        <div class="menu-overlay"></div>
     </header>
 
-    <section class="container" style="padding-top: 8rem;">
-        <h1 class="section-title" data-aos="fade-up">Health Improvement After Quitting Smoking</h1>
-        
-        <div class="chart-container" data-aos="fade-up" data-aos-delay="200">
-            <canvas id="healthChart"></canvas>
-        </div>
-
-        <div class="benefits" data-aos="fade-up" data-aos-delay="300">
-            <h2>Health Benefits Over Time</h2>
-            <ul class="timeline-benefits">
-                <li class="timeline-item">
-                    <span class="timeline-icon"><i class="fas fa-clock"></i></span>
-                    <div class="timeline-content">
-                        <h3>20 minutes</h3>
-                        <p>Heart rate and blood pressure drop.</p>
-                    </div>
-                </li>
-                <li class="timeline-item">
-                    <span class="timeline-icon"><i class="fas fa-lungs"></i></span>
-                    <div class="timeline-content">
-                        <h3>12 hours</h3>
-                        <p>Carbon monoxide level in blood returns to normal.</p>
-                    </div>
-                </li>
-                <li class="timeline-item">
-                    <span class="timeline-icon"><i class="fas fa-heartbeat"></i></span>
-                    <div class="timeline-content">
-                        <h3>24 hours</h3>
-                        <p>Risk of heart attack starts to decrease.</p>
-                    </div>
-                </li>
-                <li class="timeline-item">
-                    <span class="timeline-icon"><i class="fas fa-wind"></i></span>
-                    <div class="timeline-content">
-                        <h3>1 week</h3>
-                        <p>Breathing improves as lungs start to clear.</p>
-                    </div>
-                </li>
-                <li class="timeline-item">
-                    <span class="timeline-icon"><i class="fas fa-running"></i></span>
-                    <div class="timeline-content">
-                        <h3>1 month</h3>
-                        <p>Lung function improves significantly. Increased energy levels.</p>
-                    </div>
-                </li>
-                <li class="timeline-item">
-                    <span class="timeline-icon"><i class="fas fa-heart"></i></span>
-                    <div class="timeline-content">
-                        <h3>1 year</h3>
-                        <p>Risk of heart disease drops by half compared to a smoker.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="progress-milestones" data-aos="fade-up" data-aos-delay="400">
-            <h2>Your Progress Milestones</h2>
-            <div class="milestone-grid">
-                <div class="milestone-card">
-                    <div class="milestone-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <div class="milestone-info">
-                        <h3>1 Day</h3>
-                        <div class="progress-bar-container mini">
-                            <div class="progress-bar" style="width: 100%"></div>
-                        </div>
-                        <p>Completed</p>
-                    </div>
-                </div>
-                <div class="milestone-card">
-                    <div class="milestone-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="milestone-info">
-                        <h3>1 Week</h3>
-                        <div class="progress-bar-container mini">
-                            <div class="progress-bar" style="width: 100%"></div>
-                        </div>
-                        <p>Completed</p>
-                    </div>
-                </div>
-                <div class="milestone-card">
-                    <div class="milestone-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="milestone-info">
-                        <h3>1 Month</h3>
-                        <div class="progress-bar-container mini">
-                            <div class="progress-bar" style="width: 100%"></div>
-                        </div>
-                        <p>Completed</p>
-                    </div>
-                </div>
-                <div class="milestone-card upcoming">
-                    <div class="milestone-icon upcoming">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="milestone-info">
-                        <h3>3 Months</h3>
-                        <div class="progress-bar-container mini">
-                            <div class="progress-bar" style="width: 80%"></div>
-                        </div>
-                        <p>In progress - 12 days left</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="feedback" data-aos="fade-up" data-aos-delay="500">
-            <h2>Did You Feel Any Benefits?</h2>
-            <form id="feedbackForm">
-                <div class="checkbox-grid">
-                    <label class="checkbox-card">
-                        <input type="checkbox" name="benefit" value="Heart rate and blood pressure drop">
-                        <span class="checkbox-icon"><i class="fas fa-check"></i></span>
-                        <span class="checkbox-text">Heart rate and blood pressure drop</span>
-                    </label>
-                    
-                    <label class="checkbox-card">
-                        <input type="checkbox" name="benefit" value="Carbon monoxide level returns to normal">
-                        <span class="checkbox-icon"><i class="fas fa-check"></i></span>
-                        <span class="checkbox-text">Carbon monoxide level returns to normal</span>
-                    </label>
-                    
-                    <label class="checkbox-card">
-                        <input type="checkbox" name="benefit" value="Risk of heart attack decreased">
-                        <span class="checkbox-icon"><i class="fas fa-check"></i></span>
-                        <span class="checkbox-text">Risk of heart attack decreased</span>
-                    </label>
-                    
-                    <label class="checkbox-card">
-                        <input type="checkbox" name="benefit" value="Breathing improved">
-                        <span class="checkbox-icon"><i class="fas fa-check"></i></span>
-                        <span class="checkbox-text">Breathing improved</span>
-                    </label>
-                    
-                    <label class="checkbox-card">
-                        <input type="checkbox" name="benefit" value="Lung function improved">
-                        <span class="checkbox-icon"><i class="fas fa-check"></i></span>
-                        <span class="checkbox-text">Lung function improved</span>
-                    </label>
-                    
-                    <label class="checkbox-card">
-                        <input type="checkbox" name="benefit" value="Lower risk of heart disease">
-                        <span class="checkbox-icon"><i class="fas fa-check"></i></span>
-                        <span class="checkbox-text">Lower risk of heart disease</span>
-                    </label>
-                </div>
-                
-                <button type="button" class="submit-btn" onclick="submitBenefitsFeedback()">Submit Benefits</button>
-            </form>
-        </div>
-
-        <div id="benefitsResult" style="display:none;" data-aos="fade-up">
-            <h3>Selected Benefits:</h3>
-            <ul id="benefitsList"></ul>
-            <div class="celebration">
-                <i class="fas fa-award"></i>
-                <p>Great job! Keep going on your smoke-free journey!</p>
-            </div>
-        </div>
-
-        <div class="feedback-container" data-aos="fade-up" data-aos-delay="600">
-            <h2>What did you feel after quitting smoking?</h2>
-            <p>Share your journey to help motivate others!</p>
+    <!-- Main content -->
+    <section class="progress-page">
+        <div class="container" style="padding-top: 8rem;">
+            <h1 class="section-title" data-aos="fade-up">Health Improvement After Quitting Smoking</h1>
             
-            <div class="feedback-form">
-                <div class="feedback-step">
-                    <label for="dayFeelings"><i class="fas fa-sun"></i> Day 1:</label>
-                    <textarea id="dayFeelings" placeholder="Share how you felt after the first day of quitting..."></textarea>
-                </div>
-                
-                <div class="feedback-step">
-                    <label for="weekFeelings"><i class="fas fa-calendar-week"></i> 1 Week:</label>
-                    <textarea id="weekFeelings" placeholder="Share how you felt after the first week of quitting..."></textarea>
-                </div>
-                
-                <div class="feedback-step">
-                    <label for="monthFeelings"><i class="fas fa-calendar-alt"></i> 1 Month:</label>
-                    <textarea id="monthFeelings" placeholder="Share how you felt after the first month of quitting..."></textarea>
-                </div>
-                
-                <div class="feedback-step">
-                    <label for="yearFeelings"><i class="fas fa-calendar-check"></i> 1 Year:</label>
-                    <textarea id="yearFeelings" placeholder="Share how you felt after 1 year of quitting..."></textarea>
-                </div>
-                
-                <button type="button" class="submit-btn" onclick="submitFeelingsFeedback()">
-                    <i class="fas fa-paper-plane"></i> Submit Feelings
-                </button>
+            <!-- Health Benefits Timeline Section -->
+<div class="benefits-section" data-aos="fade-up" data-aos-delay="300">
+    <h2 class="subsection-title">Health Benefits Over Time</h2>
+    <div class="timeline-benefits">
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>20 minutes</h3>
+                <p>Heart rate and blood pressure drop.</p>
             </div>
         </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-lungs"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>12 hours</h3>
+                <p>Carbon monoxide level in blood returns to normal.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>24 hours</h3>
+                <p>Risk of heart attack starts to decrease.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-wind"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>1 week</h3>
+                <p>Breathing improves as lungs start to clear.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-running"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>1 month</h3>
+                <p>Lung function improves significantly. Increased energy levels.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>1 year</h3>
+                <p>Risk of heart disease drops by half compared to a smoker.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <div id="feelingsResult" style="display: none;" data-aos="fade-up">
-            <h3>Your Feelings Summary:</h3>
-            <ul id="feelingsList"></ul>
-            <div class="action-btns">
-                <button class="share-btn"><i class="fas fa-share-alt"></i> Share Your Journey</button>
-                <button class="save-btn"><i class="fas fa-save"></i> Save Journal Entry</button>
+            <!-- Health Chart Section -->
+            <div class="chart-section" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="subsection-title">Your Health Improvement</h2>
+                <div class="chart-container">
+                    <canvas id="healthChart"></canvas>
+                </div>
+            </div>
+            <!-- Personal Goals Section with Checkboxes -->
+            <div class="goals-section" data-aos="fade-up" data-aos-delay="350">
+                <h2 class="subsection-title">Your Personal Goals</h2>
+                <div class="goals-container">
+                    <div class="goal-item">
+                        <label class="checkbox-container">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="goal-text">Go one full day without smoking</span>
+                        </label>
+                    </div>
+                    <div class="goal-item">
+                        <label class="checkbox-container">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="goal-text">Try a new healthy habit to replace smoking</span>
+                        </label>
+                    </div>
+                    <div class="goal-item">
+                        <label class="checkbox-container">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="goal-text">Exercise for 30 minutes three times a week</span>
+                        </label>
+                    </div>
+                    <div class="goal-item">
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="goal-text">Reach one month without smoking</span>
+                        </label>
+                    </div>
+                    <div class="goal-item">
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="goal-text">Save $500 from not buying cigarettes</span>
+                        </label>
+                    </div>
+                    <div class="add-goal">
+                        <input type="text" placeholder="Add a new goal...">
+                        <button class="add-goal-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- Progress Milestones Section -->
+            <div class="milestones-section" data-aos="fade-up" data-aos-delay="400">
+                <h2 class="subsection-title">Your Progress Milestones</h2>
+                <div class="milestone-grid">
+                    <div class="milestone-card">
+                        <div class="milestone-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="milestone-info">
+                            <h3>1 Day</h3>
+                            <div class="progress-bar-container mini">
+                                <div class="progress-bar" style="width: 100%"></div>
+                            </div>
+                            <p>Completed</p>
+                            <label class="checkbox-container small">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                Achieved
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-card">
+                        <div class="milestone-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="milestone-info">
+                            <h3>1 Week</h3>
+                            <div class="progress-bar-container mini">
+                                <div class="progress-bar" style="width: 100%"></div>
+                            </div>
+                            <p>Completed</p>
+                            <label class="checkbox-container small">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                Achieved
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-card">
+                        <div class="milestone-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="milestone-info">
+                            <h3>1 Month</h3>
+                            <div class="progress-bar-container mini">
+                                <div class="progress-bar" style="width: 100%"></div>
+                            </div>
+                            <p>Completed</p>
+                            <label class="checkbox-container small">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                Achieved
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-card upcoming">
+                        <div class="milestone-icon upcoming">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="milestone-info">
+                            <h3>3 Months</h3>
+                            <div class="progress-bar-container mini">
+                                <div class="progress-bar" style="width: 80%"></div>
+                            </div>
+                            <p>In progress - 12 days left</p>
+                            <label class="checkbox-container small">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                Achieved
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Next Milestones Section -->
+            <div class="next-milestones-section" data-aos="fade-up" data-aos-delay="500">
+                <h2 class="subsection-title">Your Next Health Milestones</h2>
+                <div class="milestone-timeline">
+                    <div class="milestone-node completed">
+                        <div class="milestone-dot"></div>
+                        <div class="milestone-content">
+                            <h3>Circulation Improves</h3>
+                            <p>2 weeks after quitting</p>
+                            <div class="milestone-detail">
+                                Walking becomes easier as circulation improves. Lung function begins to improve.
+                            </div>
+                            <label class="checkbox-container">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                Mark as achieved
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-node completed">
+                        <div class="milestone-dot"></div>
+                        <div class="milestone-content">
+                            <h3>Breathing Improvement</h3>
+                            <p>1-3 months after quitting</p>
+                            <div class="milestone-detail">
+                                Your lung function increases up to 30%. Coughing and shortness of breath decreases.
+                            </div>
+                            <label class="checkbox-container">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                Mark as achieved
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-node active">
+                        <div class="milestone-dot"></div>
+                        <div class="milestone-content">
+                            <h3>Heart Disease Risk Drops</h3>
+                            <p>1 year after quitting</p>
+                            <div class="milestone-detail">
+                                Your risk of coronary heart disease is about half that of a smoker's.
+                            </div>
+                            <label class="checkbox-container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                Mark as achieved
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-node">
+                        <div class="milestone-dot"></div>
+                        <div class="milestone-content">
+                            <h3>Stroke Risk Reduced</h3>
+                            <p>2-5 years after quitting</p>
+                            <div class="milestone-detail">
+                                Your risk of stroke is reduced to that of a nonsmoker 2-5 years after quitting.
+                            </div>
+                            <label class="checkbox-container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                Mark as achieved
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-node">
+                        <div class="milestone-dot"></div>
+                        <div class="milestone-content">
+                            <h3>Cancer Risk Decreases</h3>
+                            <p>10 years after quitting</p>
+                            <div class="milestone-detail">
+                                Your risk of lung cancer falls to about half that of a smoker. Risk of other cancers decreases.
+                            </div>
+                            <label class="checkbox-container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                Mark as achieved
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <svg class="footer-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffe1e1" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
@@ -273,32 +336,46 @@
                         <span>QuitZone</span>
                         <span class="emoji">🚭</span>
                     </a>
+                    <p>Your partner in the journey to a smoke-free life.</p>
                 </div>
                 
-                <div class="social-links">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-twitter"></i>
-                    </a>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Pages</h3>
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="progress.html">Progress</a></li>
+                            <li><a href="challenges.html">Challenges</a></li>
+                            <li><a href="savings.html">Savings</a></li>
+                            <li><a href="success_stories.html">Success Stories</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="footer-nav">
-                    <a href="home.html">Home</a>
-                    <a href="progress.html">Progress</a>
-                    <a href="challenges.html">Challenges</a>
-                    <a href="savings.html">Savings</a>
-                    <a href="success_stories.html">Success Stories</a>
-                    <a href="chatbot.html">Chatbot</a>
-                </div>
-                
-                <div class="copyright">
-                    <p>© 2025 QuitZone - All Rights Reserved</p>
-                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 QuitZone. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -307,503 +384,130 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        // Initialize AOS animation library
+        // Initialize AOS
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
             once: true
         });
 
-        // Mobile menu toggle
+        // Health improvement chart
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const menuOverlay = document.querySelector('.menu-overlay');
+            const ctx = document.getElementById('healthChart').getContext('2d');
             
-            if (mobileMenuBtn && mobileMenu && menuOverlay) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('open');
-                    menuOverlay.classList.toggle('open');
-                    
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (icon) {
-                        if (icon.classList.contains('fa-bars')) {
-                            icon.classList.remove('fa-bars');
-                            icon.classList.add('fa-times');
-                        } else {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    }
-                });
-                
-                menuOverlay.addEventListener('click', function() {
-                    mobileMenu.classList.remove('open');
-                    menuOverlay.classList.remove('open');
-                    
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (icon) {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            }
-            
-            // Navbar scroll effect
-            const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-        });
-
-        // Health Improvement Chart
-        const ctx = document.getElementById('healthChart').getContext('2d');
-        const gradientFill = ctx.createLinearGradient(0, 0, 0, 400);
-        gradientFill.addColorStop(0, 'rgba(255, 126, 145, 0.6)');
-        gradientFill.addColorStop(1, 'rgba(255, 177, 153, 0.1)');
-        
-        const healthChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['1 Day', '1 Week', '1 Month', '3 Months', '6 Months', '1 Year', '5 Years', '10 Years'],
-                datasets: [{
-                    label: 'Health Improvement %',
-                    data: [5, 15, 30, 45, 60, 70, 90, 100],
-                    borderColor: '#ff7e91',
-                    backgroundColor: gradientFill,
-                    borderWidth: 4,
-                    pointBackgroundColor: '#ffb199',
-                    pointBorderColor: 'white',
-                    pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHoverRadius: 8,
-                    tension: 0.4,
-                    fill: true
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
+            const healthChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Day 1', 'Day 3', 'Day 7', 'Day 14', 'Day 30', 'Day 90', 'Day 180', 'Day 365'],
+                    datasets: [
+                        {
+                            label: 'Lung Function',
+                            data: [40, 45, 52, 60, 70, 78, 85, 92],
+                            borderColor: '#37474F',
+                            backgroundColor: 'rgba(55, 71, 79, 0.1)',
+                            tension: 0.3,
+                            fill: true
                         },
-                        ticks: {
-                            callback: function(value) {
-                                return value + '%';
-                            }
+                        {
+                            label: 'Heart Health',
+                            data: [50, 53, 58, 65, 72, 80, 88, 95],
+                            borderColor: '#546E7A',
+                            backgroundColor: 'rgba(84, 110, 122, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Energy Levels',
+                            data: [30, 35, 45, 55, 65, 75, 82, 90],
+                            borderColor: '#78909C',
+                            backgroundColor: 'rgba(120, 144, 156, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Health Improvement Metrics'
                         }
                     },
-                    x: {
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: {
-                            font: {
-                                family: 'Poppins'
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Health Score (%)'
                             }
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        titleColor: '#f46b8e',
-                        bodyColor: '#333',
-                        borderColor: '#ff7e91',
-                        borderWidth: 1,
-                        padding: 12,
-                        displayColors: false,
-                        callbacks: {
-                            label: function(context) {
-                                return `Health improvement: ${context.parsed.y}%`;
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time Since Quitting'
                             }
                         }
                     }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index'
-                },
-                animation: {
-                    duration: 2000,
-                    easing: 'easeOutQuart'
                 }
-            }
+            });
         });
 
-        // Submit benefits feedback
-        function submitBenefitsFeedback() {
-            const checkboxes = document.querySelectorAll('input[name="benefit"]:checked');
-            let selectedBenefits = [];
-            checkboxes.forEach((checkbox) => selectedBenefits.push(checkbox.value));
+        // Add new goal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const addGoalBtn = document.querySelector('.add-goal-btn');
+            const goalInput = document.querySelector('.add-goal input');
+            const goalsContainer = document.querySelector('.goals-container');
 
-            const benefitsResultDiv = document.getElementById("benefitsResult");
-            const benefitsList = document.getElementById("benefitsList");
-            benefitsList.innerHTML = "";
-
-            if (selectedBenefits.length > 0) {
-                selectedBenefits.forEach((benefit) => {
-                    let li = document.createElement("li");
-                    li.innerHTML = `<i class="fas fa-check-circle"></i> ${benefit}`;
-                    benefitsList.appendChild(li);
+            if (addGoalBtn && goalInput && goalsContainer) {
+                addGoalBtn.addEventListener('click', function() {
+                    const goalText = goalInput.value.trim();
+                    if (goalText) {
+                        // Create new goal item
+                        const newGoalItem = document.createElement('div');
+                        newGoalItem.className = 'goal-item';
+                        newGoalItem.innerHTML = `
+                            <label class="checkbox-container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                <span class="goal-text">${goalText}</span>
+                            </label>
+                        `;
+                        
+                        // Insert before the add goal section
+                        goalsContainer.insertBefore(newGoalItem, document.querySelector('.add-goal'));
+                        
+                        // Clear input
+                        goalInput.value = '';
+                    }
                 });
-                benefitsResultDiv.style.display = "block";
-                
-                // Scroll to results
-                setTimeout(() => {
-                    benefitsResultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            } else {
-                alert("Please select at least one benefit before submitting.");
-            }
-        }
 
-        // Submit feelings feedback
-        function submitFeelingsFeedback() {
-            const dayFeelings = document.getElementById("dayFeelings").value.trim();
-            const weekFeelings = document.getElementById("weekFeelings").value.trim();
-            const monthFeelings = document.getElementById("monthFeelings").value.trim();
-            const yearFeelings = document.getElementById("yearFeelings").value.trim();
-
-            if (!dayFeelings && !weekFeelings && !monthFeelings && !yearFeelings) {
-                alert("Please share your feelings for at least one time period.");
-                return;
+                // Add ability to press Enter key to add a goal
+                goalInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        addGoalBtn.click();
+                        e.preventDefault();
+                    }
+                });
             }
-
-            const feelingsResultDiv = document.getElementById("feelingsResult");
-            const feelingsList = document.getElementById("feelingsList");
-            feelingsList.innerHTML = "";
-
-            if (dayFeelings) {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong><i class="fas fa-sun"></i> Day 1:</strong> ${dayFeelings}`;
-                feelingsList.appendChild(li);
-            }
-            
-            if (weekFeelings) {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong><i class="fas fa-calendar-week"></i> Week 1:</strong> ${weekFeelings}`;
-                feelingsList.appendChild(li);
-            }
-            
-            if (monthFeelings) {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong><i class="fas fa-calendar-alt"></i> Month 1:</strong> ${monthFeelings}`;
-                feelingsList.appendChild(li);
-            }
-            
-            if (yearFeelings) {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong><i class="fas fa-calendar-check"></i> Year 1:</strong> ${yearFeelings}`;
-                feelingsList.appendChild(li);
-            }
-
-            feelingsResultDiv.style.display = "block";
-            
-            // Scroll to results
-            setTimeout(() => {
-                feelingsResultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        }
-        
-        // Animate progress bars on milestone cards when they come into view
-        const miniProgressBars = document.querySelectorAll('.milestone-card .progress-bar');
-        if (miniProgressBars.length > 0) {
-            miniProgressBars.forEach(bar => {
-                // Reset width for animation
-                const originalWidth = bar.style.width;
-                bar.style.width = '0%';
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            setTimeout(() => {
-                                bar.style.width = originalWidth;
-                            }, 300);
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                
-                observer.observe(bar);
-            });
-        }
+        });
     </script>
-
-    <style>
-        /* Additional Styles for Progress Page */
-        .timeline-benefits {
-            list-style: none;
-            padding: 0;
-            position: relative;
-            margin: 2rem 0;
+    <script>
+        // Scroll to top when page is refreshed
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
         }
         
-        .timeline-benefits::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 20px;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-left: 60px;
-            padding-bottom: 2rem;
-        }
-        
-        .timeline-icon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        
-        .timeline-content h3 {
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-        
-        .timeline-content p {
-            color: var(--text);
-        }
-        
-        .progress-milestones {
-            margin: 4rem 0;
-            padding: 2rem;
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .progress-milestones h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--accent);
-        }
-        
-        .milestone-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .milestone-card {
-            display: flex;
-            align-items: flex-start;
-            padding: 1.5rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: var(--border-radius-sm);
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .milestone-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .milestone-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            font-size: 1.5rem;
-            border-radius: 50%;
-            margin-right: 1rem;
-            box-shadow: 0 4px 10px rgba(244, 107, 142, 0.3);
-        }
-        
-        .milestone-icon.upcoming {
-            background: linear-gradient(135deg, #a0a0a0, #d0d0d0);
-        }
-        
-        .milestone-info {
-            flex: 1;
-        }
-        
-        .milestone-info h3 {
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-        
-        .milestone-info p {
-            margin-top: 0.5rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        
-        .progress-bar-container.mini {
-            height: 0.75rem;
-            margin-top: 0;
-        }
-        
-        .checkbox-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .checkbox-card {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: var(--border-radius-sm);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-        
-        .checkbox-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .checkbox-card input {
-            display: none;
-        }
-        
-        .checkbox-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--primary-light);
-            border-radius: 6px;
-            margin-right: 1rem;
-            color: transparent;
-            transition: all 0.3s;
-        }
-        
-        .checkbox-card input:checked + .checkbox-icon {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-        
-        .checkbox-text {
-            color: var(--text);
-            transition: color 0.3s;
-        }
-        
-        .checkbox-card input:checked ~ .checkbox-text {
-            color: var(--accent);
-            font-weight: 500;
-        }
-        
-        .celebration {
-            text-align: center;
-            margin-top: 2rem;
-            animation: pulse 2s infinite;
-        }
-        
-        .celebration i {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-        
-        .celebration p {
-            color: var(--accent);
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-        
-        .feedback-form {
-            background-color: white;
-            border-radius: var(--border-radius-sm);
-            padding: 1.5rem;
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .feedback-step {
-            margin-bottom: 1.5rem;
-        }
-        
-        .feedback-step label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-            font-weight: 500;
-        }
-        
-        .feedback-step label i {
-            margin-right: 0.5rem;
-        }
-        
-        .action-btns {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .share-btn, .save-btn {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: var(--border-radius-sm);
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .share-btn {
-            background-color: #3b5998;
-            color: white;
-        }
-        
-        .save-btn {
-            background-color: var(--accent);
-            color: white;
-        }
-        
-        .share-btn:hover, .save-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        #feelingsList li, #benefitsList li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        #feelingsList li strong, #benefitsList li i {
-            margin-right: 0.5rem;
-            color: var(--primary);
-        }
-    </style>
+        // Also force scroll to top when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+        });
+    </script>
+    <script src="common.js"></script>
 </body>
 </html>
