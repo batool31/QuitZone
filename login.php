@@ -51,39 +51,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>QuitZone</span>
                 <span class="emoji">🚭</span>
             </a>
-            
-            <!-- Mobile menu button -->
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            
             <!-- Navigation Links for Desktop -->
             <nav class="nav-desktop">
-                <ul>
-                    <li><a href="home.html" class="nav-link">Home</a></li>
-                    <li><a href="progress.html" class="nav-link">Progress</a></li>
-                    <li><a href="challenges.html" class="nav-link">Challenges</a></li>
-                    <li><a href="savings.html" class="nav-link">Savings</a></li>
-                    <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
-                    <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
-                    <li><a href="login.php" class="login-btn">Login</a></li>
-                </ul>
-            </nav>
+        <ul>
+          <li><a href="home.html" class="nav-link active">Home</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="challenges.html" class="nav-link">Challenges</a></li>
+          <li><a href="savings.html" class="nav-link">Savings</a></li>
+          <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
+          <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
+          <li><a href="login.php" class="login-btn">Login</a></li>
+        </ul>
+      </nav>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="progress.html">Progress</a></li>
-                <li><a href="challenges.html">Challenges</a></li>
-                <li><a href="savings.html">Savings</a></li>
-                <li><a href="success_stories.html">Success Stories</a></li>
-                <li><a href="chatbot.html">Chatbot</a></li>
-                <li><a href="login.php" class="mobile-login-btn">Login</a></li>
-            </ul>
-        </div>
-        
+      
         <!-- Menu Overlay -->
         <div class="menu-overlay"></div>
     </header>
