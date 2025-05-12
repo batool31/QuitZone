@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuitZone - Spreading Awareness</title>
+    <meta name="description" content="Learn about the health, environmental, and financial impacts of smoking. QuitZone provides information to help you make informed decisions about quitting.">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="QuitZone - Smoking Awareness">
+    <meta property="og:description" content="Understand the consequences of smoking and learn why quitting is one of the best decisions you can make for your health, environment, and wallet.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quitzone.com/awareness.html">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* QuitZone Awareness Page Styles */
+        :root {
+            --primary: #004B8D;        /* Primary blue */
+            --primary-light: #1976D2;
+            --primary-dark: #00264D;
+            --secondary: #FF524E;      /* Secondary red/orange */
+            --secondary-light: #FF7043;
+            --secondary-dark: #C41C00;
+            --accent: #4CAF50;         /* Green accent */
+            --accent-light: #81C784;
+            --accent-dark: #388E3C;
+            
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --border-radius: 0.5rem;
+            --border-radius-sm: 0.25rem;
+            --border-radius-lg: 1rem;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--gray-700);
+            line-height: 1.5;
+            background-color: var(--gray-50);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--gray-800);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            font-weight: 500;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            padding: 0.625rem 1.25rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+            border-color: var(--accent-dark);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            padding: 1rem 0;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            margin-right: 0.5rem;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 5px 0;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-desktop {
+            display: flex;
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-desktop li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-desktop a {
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--primary);
+        }
+
+        .nav-desktop a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-desktop a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .login-btn {
+            background-color: var(--primary);
+            color: white !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (max-width: 992px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-desktop {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                box-shadow: var(--shadow-md);
+                padding: 1rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                flex-direction: column;
+            }
+
+            .nav-desktop.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-desktop ul {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .nav-desktop li {
+                margin: 0.5rem 0;
+                width: 100%;
+            }
+
+            .nav-desktop a {
+                display: block;
+                padding: 0.5rem 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            padding: 4rem 0;
+            background: linear-gradient(to right, rgba(0, 75, 141, 0.8), rgba(25, 118, 210, 0.8));
+        }
+
+        .smoke-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('https://images.unsplash.com/photo-1603119979877-0845edb63881?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(50%) brightness(0.6);
+            mix-blend-mode: multiply;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: white;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Animated Background Smoke Elements */
+        .smoke-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(30px);
+            z-index: 1;
+        }
+
+        .smoke-1 {
+            top: 20%;
+            left: 10%;
+            width: 200px;
+            height: 200px;
+            animation: floatSmoke 25s infinite linear;
+        }
+
+        .smoke-2 {
+            top: 60%;
+            right: 15%;
+            width: 150px;
+            height: 150px;
+            animation: floatSmoke 20s infinite linear;
+            animation-delay: 5s;
+        }
+
+        .smoke-3 {
+            bottom: 10%;
+            left: 25%;
+            width: 120px;
+            height: 120px;
+            animation: floatSmoke 18s infinite linear;
+            animation-delay: 3s;
+        }
+
+        @keyframes floatSmoke {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.2;
+            }
+            25% {
+                transform: translateY(-50px) translateX(50px) scale(1.2);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-100px) translateX(100px) scale(1.5);
+                opacity: 0.1;
+            }
+            75% {
+                transform: translateY(-150px) translateX(50px) scale(1.2);
+                opacity: 0.05;
+            }
+            100% {
+                transform: translateY(-200px) translateX(0) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Stat Counter Section */
+        .stat-counter {
+            padding: 3rem 0;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .counter-item {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .counter-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .counter-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+        }
+
+        .counter-item:nth-child(2)::before {
+            background: linear-gradient(to right, var(--secondary), var(--secondary-light));
+        }
+
+        .counter-item:nth-child(3)::before {
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+        }
+
+        .counter-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .counter-item:nth-child(2) .counter-value {
+            color: var(--secondary);
+        }
+
+        .counter-item:nth-child(3) .counter-value {
+            color: var(--accent);
+        }
+
+        .counter-label {
+            font-size: 1.2rem;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .counter-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .counter-item:nth-child(2) .counter-icon {
+            color: var(--secondary);
+        }
+
+        .counter-item:nth-child(3) .counter-icon {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .counter-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Awareness Content Styles */
+        .awareness-content {
+            padding: 5rem 0;
+            background-color: var(--gray-50);
+            position: relative;
+        }
+
+        .awareness-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d1d5db' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .awareness-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .content-card:nth-child(2)::before {
+            background: linear-gradient(to right, var(--secondary), var(--secondary-light));
+        }
+
+        .content-card:nth-child(3)::before {
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            background-color: rgba(0, 75, 141, 0.1);
+            color: var(--primary);
+        }
+
+        .content-card:nth-child(2) .card-icon {
+            background-color: rgba(255, 82, 78, 0.1);
+            color: var(--secondary);
+        }
+
+        .content-card:nth-child(3) .card-icon {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--accent);
+        }
+
+        .content-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gray-800);
+        }
+
+        .content-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-card ul {
+            list-style-position: inside;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            list-style-type: none;
+        }
+
+        .content-card ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .content-card:nth-child(2) ul li::before {
+            color: var(--secondary);
+        }
+
+        .content-card:nth-child(3) ul li::before {
+            color: var(--accent);
+        }
+
+        @media (max-width: 992px) {
+            .awareness-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .awareness-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Visual Data Section */
+        .visual-data {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .visual-data h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .visual-data h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            border-radius: 2px;
+        }
+
+        .visual-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .chart-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+
+        .donut-chart {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            background: conic-gradient(
+                var(--primary) 0% 30%,
+                var(--secondary) 30% 65%,
+                var(--accent) 65% 100%
+            );
+            box-shadow: var(--shadow-lg);
+        }
+
+        .donut-hole {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 60%;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--gray-800);
+            font-size: 1.2rem;
+        }
+
+        .chart-legend {
+            margin-top: 2rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 0.8rem;
+        }
+
+        .legend-color.primary {
+            background-color: var(--primary);
+        }
+
+        .legend-color.secondary {
+            background-color: var(--secondary);
+        }
+
+        .legend-color.accent {
+            background-color: var(--accent);
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 400px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bar-label {
+            width: 120px;
+            text-align: right;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 30px;
+            background-color: var(--gray-200);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1rem;
+            color: white;
+            font-weight: 500;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .bar-fill.heart {
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            width: 0; /* Set by JS animation */
+        }
+
+        .bar-fill.lungs {
+            background: linear-gradient(to right, var(--secondary), var(--secondary-light));
+            width: 0; /* Set by JS animation */
+        }
+
+        .bar-fill.brain {
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+            width: 0; /* Set by JS animation */
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,208C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .cta-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .btn-white:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .btn-outline-white {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline-white:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+        .square {
+            border-radius: 4px;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 5%;
+            background-color: var(--primary);
+            animation: float-element 15s infinite ease-in-out;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 40%;
+            right: 10%;
+            background-color: var(--secondary);
+            animation: float-element 12s infinite ease-in-out;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            bottom: 20%;
+            left: 15%;
+            background-color: var(--accent);
+            animation: float-element 10s infinite ease-in-out;
+            animation-delay: 4s;
+        }
+
+        @keyframes float-element {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            z-index: 200;
+        }
+
+        /* Back To Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 100;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-800);
+            color: var(--gray-400);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-nav {
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+
+        .footer-nav a {
+            color: var(--gray-300);
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Back To Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <a href="home.html" class="logo">
+                <span>QuitZone</span>
+                <span class="emoji">🚭</span>
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav-desktop" id="navDesktop">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="awareness.html" class="active">Awareness</a></li>
+                    <li><a href="progress.html">Progress</a></li>
+                    <li><a href="challenges.html">Challenges</a></li>
+                    <li><a href="savings.html">Savings</a></li>
+                    <li><a href="success_stories.html">Success Stories</a></li>
+                    <li><a href="chatbot">Chatbot</a></li>
+                    <li><a href="login.php" class="login-btn">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="smoke-bg"></div>
+        <div class="smoke-element smoke-1"></div>
+        <div class="smoke-element smoke-2"></div>
+        <div class="smoke-element smoke-3"></div>
+        
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Spread Awareness About the <br>Dangers of Smoking</h1>
+                <p>Understanding the consequences is the first step toward making a change</p>
+                <div class="cta-buttons">
+                    <a href="#health-risks" class="btn btn-primary">Learn More</a>
+                    <a href="login.php" class="btn btn-outline-white">Start Your Journey</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stat Counter Section -->
+    <section class="stat-counter">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-item" data-aos="fade-up">
+                    <div class="counter-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <div class="counter-value" data-target="8000000">8M+</div>
+                    <div class="counter-label">Deaths Yearly</div>
+                </div>
+                
+                <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="counter-icon">
+                        <i class="fas fa-disease"></i>
+                    </div>
+                    <div class="counter-value" data-target="16">16+</div>
+                    <div class="counter-label">Types of Cancer</div>
+                </div>
+                
+                <div class="counter-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="counter-icon">
+                        <i class="fas fa-smoking-ban"></i>
+                    </div>
+                    <div class="counter-value" data-target="70">70%</div>
+                    <div class="counter-label">Want to Quit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Awareness Content -->
+    <section class="awareness-content" id="health-risks">
+        <div class="floating-element circle"></div>
+        <div class="floating-element square"></div>
+        <div class="floating-element circle"></div>
+        
+        <div class="container">
+            <div class="awareness-grid">
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-icon">
+                        <i class="fas fa-heart-broken"></i>
+                    </div>
+                    <h2>The Health Risks</h2>
+                    <p>Smoking is the leading cause of preventable diseases, including lung cancer, heart disease, and respiratory disorders. It damages nearly every organ in your body.</p>
+                    <ul>
+                        <li>Increases risk of cardiovascular diseases</li>
+                        <li>Causes COPD and emphysema</li>
+                        <li>Linked to multiple types of cancer</li>
+                        <li>Weakens immune system function</li>
+                        <li>Reduces fertility in both men and women</li>
+                    </ul>
+                    <p>Every cigarette contains over 7,000 chemicals, at least 70 of which are known to cause cancer. Your body begins to heal within minutes of quitting.</p>
+                </div>
+                
+                <div class="content-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h2>Environmental Impact</h2>
+                    <p>Not only does smoking harm your health, but it also damages the environment. Cigarette production, consumption, and disposal all contribute to pollution.</p>
+                    <ul>
+                        <li>Cigarette butts are the most littered item</li>
+                        <li>Toxic chemicals leach into soil and water</li>
+                        <li>Takes up to 10 years to decompose</li>
+                        <li>Deforestation for tobacco farming</li>
+                        <li>Produces 84 million tons of CO2 yearly</li>
+                    </ul>
+                    <p>By quitting smoking, you're not only improving your health but also making a positive impact on the environment around you.</p>
+                </div>
+                
+                <div class="content-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h2>The Financial Cost</h2>
+                    <p>Smoking is expensive. The money spent on cigarettes could be put to better use, like saving for your future or investing in healthier habits.</p>
+                    <ul>
+                        <li>Average smoker spends $2,300+ yearly</li>
+                        <li>Medical costs can exceed $35,000 per year</li>
+                        <li>Higher insurance premiums</li>
+                        <li>Reduced home and car resale value</li>
+                        <li>Lost productivity and sick days</li>
+                    </ul>
+                    <p>Use our savings calculator to see how much you could save by quitting smoking. The results may surprise you!</p>
+                    <a href="savings.html" class="btn btn-accent">Calculate Your Savings</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Data Section -->
+    <section class="visual-data">
+        <div class="container">
+            <h2 data-aos="fade-up">The Impact of Quitting</h2>
+            
+            <div class="visual-container">
+                <div class="chart-container" data-aos="fade-right">
+                    <div class="donut-chart">
+                        <div class="donut-hole">Health Benefits</div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color primary"></div>
+                            <span>Within 20 minutes - Blood pressure normalizes</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color secondary"></div>
+                            <span>Within 2 days - Smell and taste improve</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color accent"></div>
+                            <span>Within 1 month - Lung function increases</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bar-chart" data-aos="fade-left">
+                    <div class="bar-item">
+                        <div class="bar-label">Heart Health</div>
+                        <div class="bar-track">
+                            <div class="bar-fill heart" data-width="70%">70%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">Lung Function</div>
+                        <div class="bar-track">
+                            <div class="bar-fill lungs" data-width="85%">85%</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">Brain Function</div>
+                        <div class="bar-track">
+                            <div class="bar-fill brain" data-width="60%">60%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-wave"></div>
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Take the First Step?</h2>
+                <p>Join thousands of others who have successfully quit smoking with QuitZone.</p>
+                <div class="cta-buttons">
+                    <a href="login.php" class="btn btn-white">Start Your Journey</a>
+                    <a href="chatbot" class="btn btn-outline-white">Talk to Our Assistant</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="home.html" class="footer-logo">QuitZone</a>
+                
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="awareness.html">Awareness</a></li>
+                        <li><a href="progress.html">Progress</a></li>
+                        <li><a href="challenges.html">Challenges</a></li>
+                        <li><a href="savings.html">Savings</a></li>
+                        <li><a href="success_stories.html">Success Stories</a></li>
+                        <li><a href="chatbot">Chatbot</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2025 QuitZone. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Mobile Menu Toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navDesktop = document.getElementById('navDesktop');
+            
+            if (mobileToggle && navDesktop) {
+                mobileToggle.addEventListener('click', function() {
+                    navDesktop.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Scroll Progress Indicator
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                
+                if (scrollIndicator) {
+                    scrollIndicator.style.width = scrolled + "%";
+                }
+                
+                // Back to Top Button Visibility
+                const backToTop = document.getElementById('backToTop');
+                if (backToTop) {
+                    if (winScroll > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }
+            });
+            
+            // Back to Top Button Click
+            const backToTopButton = document.getElementById('backToTop');
+            if (backToTopButton) {
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Animate the bar chart
+            setTimeout(function() {
+                const barFills = document.querySelectorAll('.bar-fill');
+                barFills.forEach(fill => {
+                    const width = fill.getAttribute('data-width');
+                    fill.style.width = width;
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>

@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <nav class="nav-desktop">
         <ul>
           <li><a href="home.html" class="nav-link active">Home</a></li>
+          <li><a href="awareness.html" class="nav-link">Awareness</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="challenges.html" class="nav-link">Challenges</a></li>
           <li><a href="savings.html" class="nav-link">Savings</a></li>
