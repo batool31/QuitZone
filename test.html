@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuitZone - Readiness Test</title>
+  <link rel="stylesheet" href="grad.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    .checkbox-group {
+      margin: 15px 0;
+    }
+    .checkbox-option {
+      margin: 8px 0;
+      display: block;
+    }
+    .date-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .date-option {
+      display: flex;
+      align-items: center;
+    }
+    .date-option input[type="radio"] {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container">
+      <a href="home.html" class="logo"><span>QuitZone</span><span class="emoji">🚭</span></a>
+    </div>
+  </header>
+
+  <!-- Readiness Test Section -->
+  <section class="interactive-test" style="padding-top: 7rem;">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">🧠 Are You Ready to Quit Smoking?</h2>
+      <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+        Answer the following questions to discover your readiness level.
+      </p>
+
+      <form id="readiness-form" class="test-card" data-aos="zoom-in" data-aos-delay="400" onsubmit="calculateReadiness(event)">
+        <div id="questions-container">
+          <!-- Questions will be added here dynamically -->
+        </div>
+
+        <button class="start-btn" type="submit" style="margin-top: 1.5rem;"><span>Get My Result</span></button>
+      </form>
+
+      <div id="test-result" class="test-card" style="display:none; margin-top: 2rem;" data-aos="fade-up">
+        <h3>Your Readiness Result:</h3>
+        <p id="readiness-message" style="font-size: 1.2rem; margin-top: 1rem;"></p>
+        <a href="awareness.html" class="start-btn" style="margin-top: 1.5rem;"><span>Improve My Readiness</span></a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Questions data
+    const questions = [
+      {
+        type: "select",
+        question: "Do you feel emotionally prepared to quit smoking?",
+        options: [
+          { text: "Yes", value: 2 },
+          { text: "Somewhat", value: 1 },
+          { text: "No", value: 0 }
+        ]
+      },
+      {
+        type: "select",
+        question: "Can you identify your smoking triggers?",
+        options: [
+          { text: "Yes", value: 2 },
+          { text: "Somewhat", value: 1 },
+          { text: "No", value: 0 }
+        ]
+      },
+      {
+        type: "select",
+        question: "Have you tried quitting before?",
+        options: [
+          { text: "Yes, successfully", value: 2 },
+          { text: "Yes, but relapsed", value: 1 },
+          { text: "No", value: 0 }
+        ]
+      },
+      {
+        type: "select",
+        question: "Do you have support from family or friends?",
+        options: [
+          { text: "Yes", value: 2 },
+          { text: "A little", value: 1 },
+          { text: "No", value: 0 }
+        ]
+      },
+      {
+        type: "select",
+        question: "Why Are You Quitting?",
+        options: [
+          { text: "It is affecting my health", value: 1 },
+          { text: "For my family or friends", value: 1 },
+          { text: "My doctor recommended quitting", value: 1 },
+          { text: "To save money", value: 1 },
+          { text: "To set a good example", value: 1 },
+          { text: "To have a better future", value: 1 },
+          { text: "To take back control", value: 1 },
+          { text: "For the environment", value: 1 },
+          { text: "To look and smell better", value: 1 },
+          { text: "For my pets", value: 1 },
+          { text: "It's hard to find places to smoke", value: 1 },
+          { text: "Baby on the way", value: 1 }
+        ]
+      },
+      {
+        type: "select",
+        question: "When is your quit date?",
+        options: [
+          { text: "Today", value: 2 },
+          { text: "Tomorrow", value: 2 },
+          { text: "Pick My Date", value: 1 },
+          { text: "Not Ready", value: 0 }
+        ]
+      }
+    ];
+
+    // Render questions
+    function renderQuestions() {
+      const container = document.getElementById('questions-container');
+      
+      questions.forEach((q, index) => {
+        const div = document.createElement('div');
+        div.className = 'form-group';
+        
+        const label = document.createElement('label');
+        label.textContent = q.question;
+        div.appendChild(label);
+        
+        if (q.type === "select") {
+          const select = document.createElement('select');
+          select.required = true;
+          select.name = `question-${index}`;
+          
+          const defaultOption = document.createElement('option');
+          defaultOption.value = "";
+          defaultOption.textContent = "-- Select --";
+          select.appendChild(defaultOption);
+          
+          q.options.forEach(opt => {
+            const option = document.createElement('option');
+            option.value = opt.value;
+            option.textContent = opt.text;
+            select.appendChild(option);
+          });
+          
+          div.appendChild(select);
+        } 
+        
+     
+        
+        container.appendChild(div);
+      });
+    }
+
+    // Calculate readiness score
+    function calculateReadiness(event) {
+      event.preventDefault();
+      let total = 0;
+      
+      // Calculate score from select questions
+      const selects = document.querySelectorAll('select');
+      selects.forEach(select => {
+        if (select.value) total += parseInt(select.value);
+      });
+      
+      // Calculate score from radio buttons
+      const radios = document.querySelectorAll('input[type="radio"]:checked');
+      radios.forEach(radio => {
+        total += parseInt(radio.value);
+      });
+      
+      // Calculate score from checkboxes (1 point per selected checkbox)
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      total += checkboxes.length;
+      
+      const resultBox = document.getElementById('test-result');
+      const message = document.getElementById('readiness-message');
+
+      if (total >= 10) {
+        message.textContent = "🎉 You're extremely ready to quit! You've got strong motivation and a plan!";
+      } else if (total >= 6) {
+        message.textContent = "🌟 You're well prepared. Keep strengthening your reasons and plan!";
+      } else {
+        message.textContent = "🛠️ You're getting ready. Focus on your motivations and set a quit date.";
+      }
+
+      resultBox.style.display = 'block';
+      resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Render questions when page loads
+    document.addEventListener('DOMContentLoaded', renderQuestions);
+  </script>
+</body>
+</html>

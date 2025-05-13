@@ -547,6 +547,173 @@ p {
   right: -80px;
   z-index: 0;
 }
+/* Interactive Test Section */
+/* Interactive Test Card Styling */
+.test-card {
+  background: white;
+  padding: 2.8rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid rgba(224, 234, 252, 0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 1.2s ease forwards, pulseBox 6s infinite ease-in-out;
+}
+
+.test-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(55, 71, 79, 0.15);
+}
+
+.test-info {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+
+.test-recommendations {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.test-recommendations li {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+@keyframes pulseBox {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(79, 195, 247, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(79, 195, 247, 0.07);
+  }
+}
+
+
+
+.start-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50px;
+  padding: 2px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: var(--transition);
+  animation: floatBtn 4s ease-in-out infinite;
+  box-shadow: 0 8px 20px rgba(55, 71, 79, 0.1);
+}
+
+.start-btn::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  z-index: 0;
+  transition: all 0.5s ease;
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.start-btn span {
+  position: relative;
+  border-radius: 50px;
+  background-color: white;
+  padding: 0.9rem 2.2rem;
+  color: var(--primary);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.start-btn:hover::before {
+  transform: scaleX(1.1);
+  background: linear-gradient(to right, var(--secondary), var(--primary));
+}
+
+.start-btn:hover span {
+  background-color: transparent;
+  color: white;
+}
+
+@keyframes floatBtn {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ============ Test Page Styles ============ 
+.test-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: 2.5rem;
+  margin-top: 2rem;
+  transition: var(--transition);
+  border: 1px solid rgba(224, 234, 252, 0.7);
+}
+
+.test-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.test-card h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--primary-light);
+  transition: var(--transition);
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(55, 71, 79, 0.1);
+}
+
+/* Enhancing Test Result Box 
+#test-result {
+  background-color: #f9fdfc;
+  border-left: 6px solid var(--primary);
+}
+
+#readiness-message {
+  color: var(--accent);
+  line-height: 1.6;
+}
+*/
 
 .circle-alt {
   left: -80px;
