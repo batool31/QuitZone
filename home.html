@@ -7,22 +7,19 @@
   <link rel="stylesheet" href="grad.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
   <header class="navbar">
     <div class="container">
       <a href="home.html" class="logo">
         <span>QuitZone</span>
         <span class="emoji">🚭</span>
       </a>
-      
-      <!-- Navigation Links for Desktop -->
+
       <nav class="nav-desktop">
         <ul>
-          <li><a href="home.html" class="nav-link active">Home</a></li>
+          <li><a href="home.html" class="nav-link ">Home</a></li>
           <li><a href="awareness.html" class="nav-link">Awareness</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
           <li><a href="challenges.html" class="nav-link">Challenges</a></li>
@@ -35,53 +32,46 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="bg-elements">
-      <div class="bg-circle circle-1"></div>
-      <div class="bg-circle circle-2"></div>
-      <div class="bg-circle circle-3"></div>
-    </div>
-    
-    <div class="hero-content">
-      <h2 class="subtitle" data-aos="fade-down" data-aos-delay="100">
-        Welcome to <span class="highlight">QuitZone <span class="wave">👋</span></span>
+<section class="hero">
+  <div class="bg-elements">
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+  </div>
 
-      </h2>
-      
-      <h1 class="title"> Start Your Journey to a Smoke-Free Life
-</h1>
-<div class="hero-buttons">
-  <a href="login.php" class="cta-button"><span class="btn-bg"></span><span class="btn-text">Get Started</span></a>
-  <a href="#features" class="cta-button"><span class="btn-bg"></span><span class="btn-text">Learn More</span></a>
-</div>
-      
-      
-      <p class="quote" data-aos="fade-up" data-aos-delay="700">
-        "Every cigarette you don't smoke is a step towards a healthier life!"
-      </p>
+  <div class="hero-content">
+    <h2 class="subtitle" data-aos="fade-down" data-aos-delay="100">
+      Welcome to <span class="highlight">QuitZone <span class="wave">👋</span></span>
+    </h2>
+
+    <h1 class="title" data-aos="fade-up" data-aos-delay="200">
+      Start Your Journey to a Smoke-Free Life
+    </h1>
+
+    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+      <a href="login.php" class="cta-button"><span class="btn-bg"></span><span class="btn-text">Get Started</span></a>
+      <a href="#features" class="cta-button secondary"><span class="btn-bg"></span><span class="btn-text">Learn More</span></a>
     </div>
-    
-    <div class="hero-gradient"></div>
-   
+
+    <p class="quote" data-aos="fade-up" data-aos-delay="700">
+      "Every cigarette you don't smoke is a step towards a healthier life!"
+    </p>
+  </div>
+
   </section>
 
-  <!-- Flower Background Section -->
-  <div class="flower-background"></div>
 
-  <!-- Progress Stats Section -->
   <section class="progress-stats">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Your Smoke-Free Progress</h2>
-      
+
       <div class="stats-card" data-aos="fade-up" data-aos-delay="200">
         <div class="stats-grid">
-          <!-- Progress stats -->
           <div class="stat-box" data-aos="fade-right" data-aos-delay="400">
             <div class="decoration-circle"></div>
-            <p class="stat-label"><i class="fas fa-calendar"></i> Quit Date:</p>
+            <p class="stat-label"><i class="fas fa-calendar-alt"></i> Quit Date:</p>
             <p id="quit-date" class="stat-value">January 1, 2025</p>
-            
+
             <p class="stat-label"><i class="fas fa-hourglass-half"></i> Time Smoke-Free:</p>
             <p class="stat-value">
               <span id="days-free" class="counter" data-target="124">0</span>
@@ -91,26 +81,23 @@
               <span class="time-unit">30s</span>
             </p>
           </div>
-          
-          <!-- Saved money and health -->
+
           <div class="stat-box" data-aos="fade-left" data-aos-delay="600">
             <div class="decoration-circle circle-alt"></div>
             <p class="stat-label"><i class="fas fa-coins"></i> Money Saved:</p>
-            <p class="stat-value">$<span id="money-saved" class="counter" data-target="1245.50">0</span></p>
-            
+            <p class="stat-value">$<span id="money-saved" class="counter" data-target="1245.50">0.00</span></p>
+
             <p class="stat-label"><i class="fas fa-heartbeat"></i> Health Improved:</p>
             <p id="health-benefit" class="stat-value">Lung function improved 🫁</p>
           </div>
         </div>
-        
-       <!-- Progress bar -->
-<div class="progress-section" data-aos="fade-up" data-aos-delay="800">
+
+       <div class="progress-section" data-aos="fade-up" data-aos-delay="800">
   <p class="stat-label">Your Milestones:</p>
   <div class="progress-bar-container">
     <div id="progress-bar" class="progress-bar" style="width: 50%">
     </div>
-    
-    <!-- Milestone markers -->
+
     <div class="milestone-markers">
       <span class="milestone" style="left: 10%">1d</span>
       <span class="milestone" style="left: 30%">1w</span>
@@ -124,34 +111,34 @@
 
 
 <section class="awareness-section">
-  <h2 class="section-title">Why Quit Smoking?</h2>
+  <h2 class="section-title" data-aos="fade-up">Why Quit Smoking?</h2>
   <div class="awareness-container">
-    <div class="awareness-box">
-      <img src="images/health.png" alt="Health Icon" class="awareness-icon" />
+    <div class="awareness-box" data-aos="fade-up" data-aos-delay="200">
+      <img src="img/betheath.jpg" alt="Health Icon" class="awareness-icon" />
+
       <h3>Better Health</h3>
       <p>Quitting smoking significantly reduces the risk of heart disease, stroke, and cancer.</p>
       <a href="progress.html" class="awareness-btn">Track Your Progress</a>
     </div>
 
-    <div class="awareness-box">
-      <img src="images/money.png" alt="Money Icon" class="awareness-icon" />
+    <div class="awareness-box" data-aos="fade-up" data-aos-delay="300">
+      <img src="img/savem.png" alt="Money Icon" class="awareness-icon" />
       <h3>Save Money</h3>
       <p>Smoking is expensive. Quitting can save you thousands every year.</p>
       <a href="savings.html" class="awareness-btn">View Your Savings</a>
     </div>
 
-    <div class="awareness-box">
-      <img src="images/air.png" alt="Clean Air Icon" class="awareness-icon" />
+    <div class="awareness-box" data-aos="fade-up" data-aos-delay="400">
+      <img src="img/clear.png" alt="Clean Air Icon" class="awareness-icon" />
       <h3>Clean Environment</h3>
       <p>Secondhand smoke harms those around you. Quitting helps protect others too.</p>
+       <a href="awareness.html" class="awareness-btn">Learn More</a>
     </div>
   </div>
 </section>
 
- 
-          
-<!-- Interactive Test Section -->
-<section class="interactive-test" style="padding: 6rem 0; background-color: var(--light-bg); position: relative;">
+
+<section class="interactive-test">
   <div class="container">
     <h2 class="section-title" data-aos="fade-up">🎯 Interactive Test: "Are you ready to quit?"</h2>
     <p class="section-description" data-aos="fade-up" data-aos-delay="200">
@@ -168,7 +155,7 @@
       </ul>
       <div class="test-buttons">
         <a href="test.html" class="start-btn"><span>Take the Test</span></a>
-        <a href="awareness.html" class="start-btn"><span>Visit Awareness Page</span></a>
+        <a href="awareness.html" class="start-btn secondary"><span>Visit Awareness Page</span></a>
       </div>
     </div>
   </div>
@@ -176,20 +163,15 @@
 
 
 
-        
-        
->>>>>>> Stashed changes
 
-  <!-- Features Section -->
   <section class="features">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">How QuitZone Helps You Quit</h2>
       <p class="section-description" data-aos="fade-up" data-aos-delay="200">
         Our comprehensive tools and resources are designed to support every aspect of your quit journey
       </p>
-      
+
       <div class="features-grid">
-        <!-- Feature 1 -->
         <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-icon">
             <i class="fas fa-chart-line"></i>
@@ -199,8 +181,7 @@
             Monitor your smoke-free days, health improvements, and money saved in real-time.
           </p>
         </div>
-        
-        <!-- Feature 2 -->
+
         <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
           <div class="feature-icon">
             <i class="fas fa-trophy"></i>
@@ -210,8 +191,7 @@
             Stay motivated with daily, weekly, and monthly challenges to conquer cravings.
           </p>
         </div>
-        
-        <!-- Feature 3 -->
+
         <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
           <div class="feature-icon">
             <i class="fas fa-piggy-bank"></i>
@@ -221,8 +201,7 @@
             See how much money you're saving and plan what to do with your newfound wealth.
           </p>
         </div>
-        
-        <!-- Feature 4 -->
+
         <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
           <div class="feature-icon">
             <i class="fas fa-users"></i>
@@ -232,8 +211,7 @@
             Connect with fellow quitters, share experiences, and celebrate victories together.
           </p>
         </div>
-        
-        <!-- Feature 5 -->
+
         <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
           <div class="feature-icon">
             <i class="fas fa-brain"></i>
@@ -243,8 +221,7 @@
             Get personalized advice and support when cravings strike, 24/7.
           </p>
         </div>
-        
-        <!-- Feature 6 -->
+
         <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
           <div class="feature-icon">
             <i class="fas fa-heartbeat"></i>
@@ -258,10 +235,8 @@
     </div>
   </section>
 
-  
-  
 
-  <!-- Footer -->
+
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
@@ -272,7 +247,7 @@
           </a>
           <p>Your partner in the journey to a smoke-free life.</p>
         </div>
-        
+
         <div class="footer-links">
           <div class="footer-column">
             <h3>Pages</h3>
@@ -284,7 +259,7 @@
               <li><a href="success_stories.html">Success Stories</a></li>
             </ul>
           </div>
-          
+
           <div class="footer-column">
             <h3>Support</h3>
             <ul>
@@ -295,7 +270,7 @@
               <li><a href="#">Terms of Service</a></li>
             </ul>
           </div>
-          
+
           <div class="footer-column">
             <h3>Connect</h3>
             <div class="social-links">
@@ -314,16 +289,15 @@
           </div>
         </div>
       </div>
-      
+
       <div class="footer-bottom">
         <p>&copy; 2025 QuitZone. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- AOS Animation Library -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  
+
   <script>
     // Initialize AOS
     AOS.init({
@@ -336,7 +310,7 @@
     window.onbeforeunload = function () {
       window.scrollTo(0, 0);
     }
-    
+
     // Also force scroll to top when the page loads
     document.addEventListener('DOMContentLoaded', function() {
       window.scrollTo(0, 0);
@@ -346,10 +320,10 @@
     function animateCounter(element, target, duration = 2000) {
       let start = 0;
       const increment = target / (duration / 16);
-      
+
       const updateCounter = () => {
         start += increment;
-        
+
         if (start < target) {
           if (Number.isInteger(target)) {
             element.textContent = Math.floor(start).toLocaleString();
@@ -365,11 +339,30 @@
           }
         }
       };
-      
-      updateCounter();
+
+      // Observe element visibility before starting animation
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            updateCounter();
+            observer.unobserve(entry.target); // Stop observing once animated
+          }
+        });
+      }, { threshold: 0.5 }); // Trigger when 50% of element is visible
+
+
+      // Start animation after a slight delay if already in view or observe
+      // Check if element is already in viewport on load
+      if (isInViewport(element)) {
+         setTimeout(() => {
+            updateCounter();
+          }, 500); // Slight delay even if in view
+      } else {
+         observer.observe(element);
+      }
     }
 
-    // Check if element is in viewport
+    // Check if element is in viewport (helper function for initial check)
     function isInViewport(element) {
       const rect = element.getBoundingClientRect();
       return (
@@ -380,21 +373,31 @@
       );
     }
 
+
     // Animate counters when they come into view
     document.addEventListener('DOMContentLoaded', () => {
       const counters = document.querySelectorAll('.counter');
-      
+
       counters.forEach(counter => {
         const targetValue = parseFloat(counter.getAttribute('data-target'));
-        counter.textContent = '0';
-        
-        // Start animation after a slight delay
-        setTimeout(() => {
-          animateCounter(counter, targetValue);
-        }, 1000);
+        counter.textContent = '0'; // Initialize to 0
+
+        // Use the updated animateCounter with observer
+        animateCounter(counter, targetValue);
       });
     });
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) { // Adjust scroll threshold as needed
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
   </script>
   <script src="common.js"></script>
 </body>
-</html> 
+</html>
