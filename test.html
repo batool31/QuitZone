@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
   <style>
     .checkbox-group {
       margin: 15px 0;
@@ -32,31 +32,13 @@
   </style>
 </head>
 <body>
-<!-- Header -->
-    <header class="navbar">
-        <div class="container">
-            <a href="home.html" class="logo">
-                <span>QuitZone</span>
-                <span class="emoji">🚭</span>
-            </a>
-            
-            <!-- Navigation Links for Desktop -->
-            <nav class="nav-desktop">
-                <ul>
-                    <li><a href="home.html" class="nav-link">Home</a></li>
-                    <li><a href="awareness.html" class="nav-link">Awareness</a></li>
-                    <li><a href="progress.html" class="nav-link">Progress</a></li>
-                    <li><a href="challenges.html" class="nav-link active">Challenges</a></li>
-                    <li><a href="savings.html" class="nav-link">Savings</a></li>
-                    <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
-                    <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
-                    <li><a href="login.php" class="login-btn">Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container">
+      <a href="home.html" class="logo"><span>QuitZone</span><span class="emoji">🚭</span></a>
+    </div>
+  </header>
 
-  <!-- Readiness Test Section -->
   <section class="interactive-test" style="padding-top: 7rem;">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">🧠 Are You Ready to Quit Smoking?</h2>
@@ -65,17 +47,28 @@
       </p>
 
       <form id="readiness-form" class="test-card" data-aos="zoom-in" data-aos-delay="400" onsubmit="calculateReadiness(event)">
-        <div id="questions-container">
-          <!-- Questions will be added here dynamically -->
-        </div>
-
+        <div id="questions-container"></div>
         <button class="start-btn" type="submit" style="margin-top: 1.5rem;"><span>Get My Result</span></button>
       </form>
 
-      <div id="test-result" class="test-card" style="display:none; margin-top: 2rem;" data-aos="fade-up">
-        <h3>Your Readiness Result:</h3>
-        <p id="readiness-message" style="font-size: 1.2rem; margin-top: 1rem;"></p>
-        <a href="awareness.html" class="start-btn" style="margin-top: 1.5rem;"><span>Improve My Readiness</span></a>
+      <div id="test-result" class="test-card" style="display:none; margin-top: 3rem;" data-aos="fade-up">
+        <h3 style="font-size: 1.5rem; color: #cc8080;margin-top: 3rem;">🎯 Your Readiness Result</h3>
+        <p id="readiness-message" style="font-size: 1.2rem; margin-top: 3rem;"></p>
+        <p id="quit-date-display" style="font-size: 1.1rem; color: #555; margin-top: 0.5rem;"></p>
+
+        <button onclick="improveTips()" class="start-btn" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+          <span>How Can I Improve?</span>
+        </button>
+
+        <div id="readiness-tips" style="display:none;"></div>
+
+        <!-- زر Start Your Journey يذهب إلى login.html -->
+        <a id="awareness-btnn" href="login.php" class="awareness-btn" style="margin-top: 1.5rem; display: none;">
+            Star Your Journey
+          </a>
+          
+          
+        
       </div>
     </div>
   </section>
@@ -84,7 +77,6 @@
   <script>
     AOS.init();
 
-    // Questions data
     const questions = [
       {
         type: "select",
@@ -143,6 +135,7 @@
       {
         type: "select",
         question: "When is your quit date?",
+        id: "quit-date-question",
         options: [
           { text: "Today", value: 2 },
           { text: "Tomorrow", value: 2 },
@@ -152,67 +145,111 @@
       }
     ];
 
-    // Render questions
     function renderQuestions() {
       const container = document.getElementById('questions-container');
-      
       questions.forEach((q, index) => {
         const div = document.createElement('div');
         div.className = 'form-group';
-        
         const label = document.createElement('label');
         label.textContent = q.question;
+        label.htmlFor = `question-${index}`;
         div.appendChild(label);
-        
+
         if (q.type === "select") {
           const select = document.createElement('select');
           select.required = true;
           select.name = `question-${index}`;
-          
+          select.id = `question-${index}`;
+
           const defaultOption = document.createElement('option');
           defaultOption.value = "";
           defaultOption.textContent = "-- Select --";
           select.appendChild(defaultOption);
-          
+
           q.options.forEach(opt => {
             const option = document.createElement('option');
             option.value = opt.value;
             option.textContent = opt.text;
             select.appendChild(option);
           });
-          
+
+          if (q.question === "When is your quit date?") {
+            select.addEventListener('change', function () {
+              const existing = document.getElementById('custom-date-container');
+              if (existing) existing.remove();
+
+              if (this.value === "1") {
+                const customDateDiv = document.createElement('div');
+                customDateDiv.id = 'custom-date-container';
+                customDateDiv.style.marginTop = "1rem";
+
+                const dateLabel = document.createElement('label');
+                dateLabel.textContent = "Select Your Quit Date:";
+                dateLabel.setAttribute('for', 'custom-quit-date');
+
+                const dateInput = document.createElement('input');
+                dateInput.type = 'date';
+                dateInput.id = 'custom-quit-date';
+                dateInput.name = 'custom-quit-date';
+                dateInput.required = true;
+
+                customDateDiv.appendChild(dateLabel);
+                customDateDiv.appendChild(dateInput);
+                div.appendChild(customDateDiv);
+              }
+            });
+          }
+
           div.appendChild(select);
-        } 
-        
-     
-        
+        }
+
         container.appendChild(div);
       });
     }
 
-    // Calculate readiness score
     function calculateReadiness(event) {
       event.preventDefault();
       let total = 0;
-      
-      // Calculate score from select questions
+      let incomplete = false;
+      let selectedQuitDate = "";
       const selects = document.querySelectorAll('select');
+
       selects.forEach(select => {
-        if (select.value) total += parseInt(select.value);
+        if (select.value === "") {
+          incomplete = true;
+        } else {
+          total += parseInt(select.value);
+
+          if (select.name.includes("question-5")) {
+            if (select.value === "2") {
+              selectedQuitDate = select.options[select.selectedIndex].text;
+            } else if (select.value === "1") {
+              const customDate = document.getElementById('custom-quit-date');
+              if (!customDate || customDate.value === "") {
+                incomplete = true;
+              } else {
+                const dateObj = new Date(customDate.value);
+                selectedQuitDate = dateObj.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                });
+              }
+            } else {
+              selectedQuitDate = select.options[select.selectedIndex].text;
+            }
+          }
+        }
       });
-      
-      // Calculate score from radio buttons
-      const radios = document.querySelectorAll('input[type="radio"]:checked');
-      radios.forEach(radio => {
-        total += parseInt(radio.value);
-      });
-      
-      // Calculate score from checkboxes (1 point per selected checkbox)
-      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-      total += checkboxes.length;
-      
+
+      if (incomplete) {
+        alert("Please answer all questions (and choose a date if needed) before submitting.");
+        return;
+      }
+
       const resultBox = document.getElementById('test-result');
       const message = document.getElementById('readiness-message');
+      const dateDisplay = document.getElementById('quit-date-display');
 
       if (total >= 10) {
         message.textContent = "🎉 You're extremely ready to quit! You've got strong motivation and a plan!";
@@ -222,11 +259,53 @@
         message.textContent = "🛠️ You're getting ready. Focus on your motivations and set a quit date.";
       }
 
+      if (selectedQuitDate) {
+        dateDisplay.innerHTML = `🗓️ <strong>Your Quit Date:</strong> ${selectedQuitDate}`;
+      } else {
+        dateDisplay.innerHTML = "";
+      }
+
       resultBox.style.display = 'block';
+      document.getElementById('readiness-tips').style.display = 'none';
+      document.getElementById('awareness-btnn').style.display = 'none'; // إخفاء الزر في كل مرة من البداية
       resultBox.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Render questions when page loads
+    function improveTips() {
+      const tipsBox = document.getElementById('readiness-tips');
+      const message = document.getElementById('readiness-message').textContent;
+      const awarenessBtn = document.getElementById('awareness-btnn');
+      let tips = "";
+
+      if (message.includes("extremely ready")) {
+        tips = `
+          ✅ Keep your quit plan visible.<br>
+          ✅ Stay connected with your support system.<br>
+          ✅ Avoid triggers and reward yourself!
+        `;
+      } else if (message.includes("well prepared")) {
+        tips = `
+          🔹 Write down your reasons for quitting.<br>
+          🔹 Start reducing your smoking.<br>
+          🔹 Inform your support network about your goal.
+        `;
+      } else {
+        tips = `
+          🔸 Learn more about health risks.<br>
+          🔸 Set a realistic quit date.<br>
+          🔸 Talk to a doctor or counselor.<br>
+          🔸 Use quit-smoking apps for motivation.
+        `;
+      }
+
+      tipsBox.innerHTML = tips;
+      tipsBox.style.display = 'block';
+      tipsBox.scrollIntoView({ behavior: 'smooth' });
+
+      // إظهار الزر بعد عرض النصائح
+      awarenessBtn.style.display = 'inline-block';
+    }
+
     document.addEventListener('DOMContentLoaded', renderQuestions);
   </script>
 <!-- Footer -->
