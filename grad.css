@@ -2999,6 +2999,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
 .message-bubble p {
   margin-bottom: 0.8rem;
   line-height: 1.5;
+  color: var(--primary);
 }
 
 .message-bubble p:last-child {
