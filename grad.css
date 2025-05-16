@@ -124,6 +124,7 @@ p {
   line-height: 1.7;
 }
 
+
 /* Header Styles */
 .navbar {
   position: fixed;
@@ -335,8 +336,8 @@ background: url('img/lungg.png') no-repeat center center / cover;
 
 
 .hero .subtitle {
-  font-size: 1.8rem; /* Slightly larger subtitle */
-  font-weight: 400;
+  font-size: 2.2rem; /* Slightly larger subtitle */
+  font-weight: 650;
   color: var(--accent); /* Darker color for subtitle */
   margin-bottom: 1rem; /* Reduced margin */
   letter-spacing: 1px;
@@ -344,10 +345,15 @@ background: url('img/lungg.png') no-repeat center center / cover;
 }
 
 .highlight {
-  font-weight: 700;
-  color: var(--primary); /* Use primary for highlight */
+  font-weight: 600;
+  font-size: 2rem;
+  color: var(--primary-dark); /* Use primary for highlight */
   position: relative;
+  margin-top: 4rem;
   display: inline-block;
+  box-shadow: inset 0 -0.9em 0 rgba(232, 231, 227, 0.6);
+  padding: 0 4px;
+
 }
 
 .highlight::after {
@@ -356,18 +362,20 @@ background: url('img/lungg.png') no-repeat center center / cover;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 4px; /* Thinner underline */
-  background-color: rgba(235, 126, 116, 0.3); /* Subtle pink underline */
+ 
+  height: 6px; /* Thinner underline */
+  
   border-radius: 2px;
   z-index: -1;
 }
 
 .hero .title {
-  font-size: 4.5rem; /* Larger title */
+  font-size: 3.5rem; /* Larger title */
   font-weight: 800; /* Bolder title */
   color: var(--accent); /* Darker color for title */
   text-transform: uppercase;
-  margin-bottom: 2.5rem; /* Increased margin */
+  margin-bottom: 0.5rem; /* Increased margin */
+  margin-top: 5rem;
   letter-spacing: 3px; /* Increased letter spacing */
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
 }
@@ -384,85 +392,116 @@ background: url('img/lungg.png') no-repeat center center / cover;
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  padding: 15px 30px;
+  padding: 5px 30px;
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
+  color: white;
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
   transition: all 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 8px 15px rgba(55, 71, 79, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   z-index: 1;
-  color: var(--primary);
 }
 
-.start-btn::before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(to right, var(--primary), var(--primary-dark));
-  z-index: 0;
-  transition: all 0.5s ease;
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.start-btn.secondary::before {
+.start-btn.secondary {
   background: linear-gradient(to right, var(--secondary), var(--accent));
 }
 
 .start-btn span {
   position: relative;
-  border-radius: 50px;
-  background-color: white;
   padding: 12px 20px;
-  color: var(--primary);
-  z-index: 1;
+  border-radius: 50px;
+  color: white;
+  background-color: transparent !important; /* force remove inner background */
+  z-index: 2;
   transition: all 0.3s ease;
 }
 
-.start-btn.secondary span {
-  color: var(--secondary);
-}
-
 /* Hover Effects */
-.start-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(55, 71, 79, 0.3);
-}
-
+.start-btn:hover,
 .start-btn.secondary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(55, 71, 79, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
-.start-btn:hover::before {
-  transform: scaleX(1.1);
+.start-btn:hover {
   background: linear-gradient(to right, var(--primary-dark), var(--primary));
 }
 
-.start-btn.secondary:hover::before {
+.start-btn.secondary:hover {
   background: linear-gradient(to right, var(--accent), var(--secondary));
 }
 
-.start-btn:hover span {
-  background-color: var(--primary);
-  color: white;
-  transform: scale(1.05);
-}
-
-/* Secondary Button Hover */
+.start-btn:hover span,
 .start-btn.secondary:hover span {
-  background-color: var(--secondary);
-  color: white;
   transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1); /* subtle shine */
 }
 
 /* Glowing effect */
-.start-btn:focus, .start-btn:hover {
-  box-shadow: 0 0 25px rgba(55, 71, 79, 0.5), 0 0 15px var(--primary);
+.start-btn:focus,
+.start-btn:hover {
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.1),
+    0 0 20px rgba(55, 71, 79, 0.4),
+    0 0 25px var(--primary);
 }
 
+.start-btnn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  border-color: white;
+  padding: 5px 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+  transition: all 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+.start-btnn span {
+  position: relative;
+  padding: 12px 20px;
+  border-radius: 50px;
+  color: white;
+  background-color: transparent !important; /* force remove inner background */
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.start-btnn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.start-btnn:hover {
+  background: linear-gradient(to right, var(--primary-dark), var(--primary));
+}
+
+.start-btnn:hover span  {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1); /* subtle shine */
+}
+
+/* Glowing effect */
+.start-btnn:focus,
+.start-btnn:hover {
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.1),
+    0 0 20px rgba(55, 71, 79, 0.4),
+    0 0 25px var(--primary);
+}
+/* Floating animation (if needed later) */
 @keyframes floatBtn {
   0%, 100% {
     transform: translateY(0px);
@@ -472,7 +511,6 @@ background: url('img/lungg.png') no-repeat center center / cover;
   }
 }
 
-
 /* Gradient animation */
 @keyframes gradientBg {
   0% { background-position: 0% 50%; }
@@ -481,7 +519,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
 }
 
 .hero .quote {
-  font-size: 1.1rem; /* Adjusted quote font size */
+  font-size: 1.5rem; /* Adjusted quote font size */
   font-style: italic;
   opacity: 0.9; /* Slightly more opaque */
   margin-top: 2.5rem; /* Adjusted margin */
@@ -490,27 +528,6 @@ background: url('img/lungg.png') no-repeat center center / cover;
   text-shadow: none; /* Removed text shadow */
 }
 
-/* Progress Stats Section */
-.progress-stats {
-  padding: 6rem 0; /* Increased padding */
-  background-color: var(--light-bg); /* Use light background color */
-  border-radius: var(--border-radius-lg);
-  margin: -5rem 1rem 5rem; /* Pull up into hero section */
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  z-index: 20;
-  overflow: hidden; /* Hide overflowing circles */
-}
-
-.stats-card {
-  background: linear-gradient(135deg, #ffffff, #f5f7fa);
-  border-radius: var(--border-radius);
-  padding: 3rem; /* Increased padding */
-  box-shadow: var(--shadow-md);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
-}
 
 .decoration-circle {
   position: absolute;
@@ -530,6 +547,17 @@ background: url('img/lungg.png') no-repeat center center / cover;
   top: auto;
   bottom: -100px; /* Adjusted position */
   background-color: rgba(84, 110, 122, 0.1); /* Secondary color with transparency */
+}
+.progress-stats {
+  margin-top: 2rem;
+  padding: 1rem 1rem;
+  min-height: 150px; /* Ensures the box has a taller height */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .stats-grid {
@@ -590,6 +618,16 @@ background: url('img/lungg.png') no-repeat center center / cover;
   margin-top: 2.5rem; /* Increased margin */
 }
 
+.progress-bar-container1 {
+  width: 100%;
+  height: 10px; /* Thicker progress bar */
+  background-color: var(--secondary-light);
+  border-radius: 10px;
+  margin-top: 1.5rem; /* Increased margin */
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: visible;
+}
 .progress-bar-container {
   width: 100%;
   height: 15px; /* Thicker progress bar */
@@ -599,46 +637,48 @@ background: url('img/lungg.png') no-repeat center center / cover;
   position: relative;
   overflow: visible;
 }
-
 .progress-bar {
   height: 100%;
   background: linear-gradient(to right, var(--primary), var(--primary-dark)); /* Gradient for progress */
   border-radius: 10px;
   transition: width 1.5s ease-in-out;
 }
-
 .milestone-markers {
   position: relative;
   width: 100%;
-  height: 40px; /* Increased height */
-  margin-top: 10px; /* Adjusted margin */
+  height: 50px; /* Slightly taller for better spacing */
+  margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
-  padding: 0 5px; /* Add some padding */
+  padding: 0 1rem;
 }
 
+/* Individual Milestone Label */
 .milestone {
   position: absolute;
   transform: translateX(-50%);
-  font-size: 0.9rem; /* Slightly larger font */
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--primary); /* Primary shade for milestones */
-  padding-top: 5px; /* Increased padding */
+  color: var(--primary-dark);
+  padding-top: 10px;
+  white-space: nowrap;
+  text-align: center;
 }
 
+/* Milestone Dot */
 .milestone::before {
   content: '';
   position: absolute;
-  top: -15px; /* Adjusted position */
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px; /* Larger dots */
-  height: 14px;
-  background-color: var(--primary-dark); /* Darker primary shade for dots */
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary-dark);
   border-radius: 50%;
-  z-index: 10;
-  border: 3px solid white; /* White border around dots */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 /* Awareness Section */
@@ -795,7 +835,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
 }
 
 
-.start-btn {
+.start-btn2 {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -812,7 +852,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
   z-index: 1;
 }
 
-.start-btn::before {
+.start-btn2::before {
   content: '';
   position: absolute;
   height: 100%;
@@ -824,12 +864,12 @@ background: url('img/lungg.png') no-repeat center center / cover;
   transform-origin: left;
 }
 
-.start-btn.secondary::before {
+.start-btn2.secondary::before {
     background: linear-gradient(to right, var(--secondary), var(--accent)); /* Secondary gradient for secondary button */
 }
 
 
-.start-btn span {
+.start-btn2 span {
   position: relative;
   border-radius: 50px;
   background-color: white;
@@ -839,22 +879,22 @@ background: url('img/lungg.png') no-repeat center center / cover;
   transition: all 0.3s ease;
 }
 
-.start-btn.secondary span {
+.start-btn2.secondary span {
     color: var(--secondary); /* Text color for secondary button */
 }
 
 
-.start-btn:hover::before {
+.start-btn2:hover::before {
   transform: scaleX(1.1);
   background: linear-gradient(to right, var(--primary-dark), var(--primary)); /* Reverse gradient on hover */
 }
 
-.start-btn.secondary:hover::before {
+.start-btn2.secondary:hover::before {
     background: linear-gradient(to right, var(--accent), var(--secondary)); /* Reverse gradient on hover */
 }
 
 
-.start-btn:hover span {
+.start-btn2:hover span {
   background-color: transparent;
   color: white;
 }
@@ -1668,17 +1708,25 @@ background: url('img/lungg.png') no-repeat center center / cover;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin: 2rem auto;
+
+  /* Box styling */
+  max-width: 800px; /* Smaller rectangle */
+  padding: 0.5rem;
+  background-color:var(--secondary); /* Soft blue background */
+  border-radius: 15px;
+  border: 1px solid rgba(243, 234, 236, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .category-btn {
   padding: 0.8rem 1.5rem;
   background-color: white;
-  border: 1px solid var(--secondary-light);
-  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--primary);
+  border-radius: var(--primary);
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  color: var(--primary);
+  color: white;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -2037,6 +2085,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
 .savings-title {
   text-align: center;
   margin-bottom: 1rem;
+  color: #37474F;
 }
 
 .savings-subtitle {
@@ -2695,7 +2744,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
 .bot-avatar {
   width: 50px;
   height: 50px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: whitesmoke;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -2737,17 +2786,39 @@ background: url('img/lungg.png') no-repeat center center / cover;
   background-color: #4CAF50;
   box-shadow: 0 0 10px #4CAF50;
 }
+/* Progress Stats Section */
+.progress-stats2 {
+  margin-top: 1rem;
+  padding: 1rem 1rem;
+  min-height: 150px; /* Ensures the box has a taller height */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-.chat-actions h4, .progress-stats h4 {
+.stats-card {
+  background: linear-gradient(135deg, #ffffff, #f5f7fa);
+  border-radius: var(--border-radius);
+  padding:1rem; /* Increased padding */
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
+}
+
+.chat-actions h4, .progress-stats2 h4 {
   display: flex;
   align-items: center;
   font-size: 1rem;
   margin-bottom: 1rem;
-  color: rgb(88, 9, 9);
+  color:var(--primary);
   opacity: 0.9;
 }
 
-.chat-actions h4 i, .progress-stats h4 i {
+.chat-actions h4 i, .progress-stats2 h4 i {
   margin-right: 0.5rem;
 }
 
@@ -2816,17 +2887,6 @@ background: url('img/lungg.png') no-repeat center center / cover;
   flex: 1;
 }
 
-.progress-stats {
-  margin-top: 1rem;
-  padding: 2rem 1.5rem;
-  min-height: 170px; /* Ensures the box has a taller height */
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 
 .stat-cards {
@@ -3362,6 +3422,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
 
 .banner-content p {
   opacity: 0.9;
+  color: rgb(179, 175, 175);
   margin-bottom: 2rem;
   font-size: 1.1rem;
 }
@@ -3852,7 +3913,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--primary);
+    color: #37474F;
 }
 
 .new-section-description {
@@ -3956,6 +4017,8 @@ background: url('img/lungg.png') no-repeat center center / cover;
         font-size: 14px;
     }
 }
+
+
 /* Article Page Specific Styles */
   /* Article Content Styling */
 .article {

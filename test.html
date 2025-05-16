@@ -32,10 +32,28 @@
   </style>
 </head>
 <body>
+ 
   <!-- Header -->
   <header class="navbar">
     <div class="container">
-      <a href="home.html" class="logo"><span>QuitZone</span><span class="emoji">🚭</span></a>
+      <a href="home.html" class="logo">
+        <span>QuitZone</span>
+        <span class="emoji">🚭</span>
+      </a>
+      
+      <!-- Navigation Links for Desktop -->
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="home.html" class="nav-link">Home</a></li>
+          <li><a href="awareness.html" class="nav-link">Awareness</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="challenges.html" class="nav-link">Challenges</a></li>
+          <li><a href="savings.html" class="nav-link ">Savings</a></li>
+          <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
+          <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
+          <li><a href="home.html" class="login-btn">Logout</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -48,7 +66,7 @@
 
       <form id="readiness-form" class="test-card" data-aos="zoom-in" data-aos-delay="400" onsubmit="calculateReadiness(event)">
         <div id="questions-container"></div>
-        <button class="start-btn" type="submit" style="margin-top: 1.5rem;"><span>Get My Result</span></button>
+        <button class="start-btnn" type="submit" style="margin-top: 1.5rem;"><span>Get My Result</span></button>
       </form>
 
       <div id="test-result" class="test-card" style="display:none; margin-top: 3rem;" data-aos="fade-up">
@@ -56,7 +74,7 @@
         <p id="readiness-message" style="font-size: 1.2rem; margin-top: 3rem;"></p>
         <p id="quit-date-display" style="font-size: 1.1rem; color: #555; margin-top: 0.5rem;"></p>
 
-        <button onclick="improveTips()" class="start-btn" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+        <button onclick="improveTips()" class="start-btnn" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
           <span>How Can I Improve?</span>
         </button>
 

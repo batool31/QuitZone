@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Redirect to the welcome page on successful login
     if ($result->num_rows > 0) {
-        header("Location: welcome.html");  // Redirect to the welcoming page
+        header("Location: test.html");  // Redirect to the welcoming page
         exit();
     } else {
         $errorMessage = "❌ Invalid credentials. Try again.";
@@ -363,25 +363,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <style>
         /* Additional Styles for Login Page */
-        .login-page {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 150px);
-            padding: 6rem 1rem 3rem;
-            background: linear-gradient(135deg, rgba(255, 225, 225, 0.3), rgba(224, 234, 252, 0.3));
-        }
+     .login-page {
+    background-image: url('img/happy.png'); /* Relative to the location of login.php */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
         
-        .login-container {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            padding: 2.5rem;
-            width: 100%;
-            max-width: 500px;
-            position: relative;
-            overflow: hidden;
-        }
+      .login-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Light white background for contrast */
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
         
         .login-container::before {
             content: '';
@@ -548,7 +551,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .login-btnn {
             width: 100%;
             padding: 0.8rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
             color: white;
             border: none;
             border-radius: var(--border-radius-sm);
