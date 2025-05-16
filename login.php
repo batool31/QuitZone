@@ -45,30 +45,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <!-- Header -->
+ <!-- Header -->
     <header class="navbar">
         <div class="container">
             <a href="home.html" class="logo">
                 <span>QuitZone</span>
                 <span class="emoji">🚭</span>
             </a>
+            
             <!-- Navigation Links for Desktop -->
             <nav class="nav-desktop">
-        <ul>
-          <li><a href="home.html" class="nav-link active">Home</a></li>
-          <li><a href="awareness.html" class="nav-link">Awareness</a></li>
-          <li><a href="progress.html" class="nav-link">Progress</a></li>
-          <li><a href="challenges.html" class="nav-link">Challenges</a></li>
-          <li><a href="savings.html" class="nav-link">Savings</a></li>
-          <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
-          <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
-          <li><a href="login.php" class="login-btn">Login</a></li>
-        </ul>
-      </nav>
+                <ul>
+                    <li><a href="home.html" class="nav-link">Home</a></li>
+                    <li><a href="awareness.html" class="nav-link">Awareness</a></li>
+                    <li><a href="progress.html" class="nav-link">Progress</a></li>
+                    <li><a href="challenges.html" class="nav-link ">Challenges</a></li>
+                    <li><a href="savings.html" class="nav-link">Savings</a></li>
+                    <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
+                    <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
+                    <li><a href="login.php" class="login-btn active">Login</a></li>
+                </ul>
+            </nav>
         </div>
-      
-        <!-- Menu Overlay -->
-        <div class="menu-overlay"></div>
     </header>
+
 
     <section class="login-page">
         <div class="login-container" data-aos="fade-up">
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <a href="#">Forgot Password?</a>
                         </div>
                         
-                        <button type="submit" class="login-btn">
+                        <button type="submit" class="login-btnn">
                             <i class="fas fa-sign-in-alt"></i> Login
                         </button>
                     </form>
@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </label>
                         </div>
                         
-                        <button type="submit" class="login-btn">
+                        <button type="submit" class="login-btnn">
                             <i class="fas fa-user-plus"></i> Register
                         </button>
                     </form>
@@ -221,48 +221,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <svg class="footer-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffe1e1" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="home.html">
-                        <span>QuitZone</span>
-                        <span class="emoji">🚭</span>
-                    </a>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
-                
-                <div class="footer-nav">
-                    <a href="home.html">Home</a>
-                    <a href="progress.html">Progress</a>
-                    <a href="challenges.html">Challenges</a>
-                    <a href="savings.html">Savings</a>
-                    <a href="success_stories.html">Success Stories</a>
-                    <a href="chatbot.html">Chatbot</a>
-                </div>
-                
-                <div class="copyright">
-                    <p>© 2025 QuitZone - All Rights Reserved</p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -434,22 +392,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             height: 5px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
         }
-        
-        .login-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .login-header h2 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-size: 2rem;
-        }
-        
-        .login-header p {
-            color: var(--text-light);
-        }
-        
+      
         .message-container {
             padding: 1rem;
             margin: 1rem 0 2rem;
@@ -602,7 +545,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text-decoration: underline;
         }
         
-        .login-btn {
+        .login-btnn {
             width: 100%;
             padding: 0.8rem;
             background: linear-gradient(to right, var(--primary), var(--secondary));
@@ -796,5 +739,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     </style>
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="home.html">
+                        <span>QuitZone</span>
+                        <span class="emoji">🚭</span>
+                    </a>
+                    <p>Your partner in the journey to a smoke-free life.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Pages</h3>
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="progress.html">Progress</a></li>
+                            <li><a href="challenges.html">Challenges</a></li>
+                            <li><a href="savings.html">Savings</a></li>
+                            <li><a href="success_stories.html">Success Stories</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 QuitZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JS -->
+    <script src="common.js"></script>
 </body>
 </html>

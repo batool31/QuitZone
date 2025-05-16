@@ -8,6 +8,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     .checkbox-group {
       margin: 15px 0;
@@ -31,12 +32,29 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="navbar">
-    <div class="container">
-      <a href="home.html" class="logo"><span>QuitZone</span><span class="emoji">🚭</span></a>
-    </div>
-  </header>
+<!-- Header -->
+    <header class="navbar">
+        <div class="container">
+            <a href="home.html" class="logo">
+                <span>QuitZone</span>
+                <span class="emoji">🚭</span>
+            </a>
+            
+            <!-- Navigation Links for Desktop -->
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="home.html" class="nav-link">Home</a></li>
+                    <li><a href="awareness.html" class="nav-link">Awareness</a></li>
+                    <li><a href="progress.html" class="nav-link">Progress</a></li>
+                    <li><a href="challenges.html" class="nav-link active">Challenges</a></li>
+                    <li><a href="savings.html" class="nav-link">Savings</a></li>
+                    <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
+                    <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
+                    <li><a href="login.php" class="login-btn">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
   <!-- Readiness Test Section -->
   <section class="interactive-test" style="padding-top: 7rem;">
@@ -211,5 +229,60 @@
     // Render questions when page loads
     document.addEventListener('DOMContentLoaded', renderQuestions);
   </script>
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="home.html">
+                        <span>QuitZone</span>
+                        <span class="emoji">🚭</span>
+                    </a>
+                    <p>Your partner in the journey to a smoke-free life.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Pages</h3>
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="progress.html">Progress</a></li>
+                            <li><a href="challenges.html">Challenges</a></li>
+                            <li><a href="savings.html">Savings</a></li>
+                            <li><a href="success_stories.html">Success Stories</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 QuitZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JS -->
+    <script src="common.js"></script>
 </body>
 </html>

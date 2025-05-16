@@ -12,7 +12,7 @@
   --primary-light: #ffedea; /* Lighter shade of primary */
   --primary-dark: #d46b60; /* Darker shade of primary */
   --secondary: #546E7A;     /* Slate blue/gray */
-  --secondary-light: #CFD8DC; /* Pale gray */
+  --secondary-light: #c3ccd0; /* Pale gray */
   --accent: #263238;        /* Deep slate */
   --text: #333; /* Dark gray for main text */
   --text-light: #555; /* Lighter gray for secondary text */
@@ -58,6 +58,7 @@ body {
 
 /* Animation Classes (Keep AOS classes) */
 /* Add more specific custom animations if needed */
+
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
@@ -370,57 +371,105 @@ background: url('img/lungg.png') no-repeat center center / cover;
   letter-spacing: 3px; /* Increased letter spacing */
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
 }
-
 .hero-buttons {
   display: flex;
-  gap: 1rem; /* Reduced gap between buttons */
+  gap: 1.5rem;
   justify-content: center;
-  margin-top: 2rem; /* Adjusted margin */
+  margin-top: 2rem;
 }
 
-.cta-button {
-  display: inline-block;
+.start-btn {
   position: relative;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1; /* Ensure button is above background */
-}
-
-.cta-button:hover {
-  transform: translateY(-3px); /* Reduced lift on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Adjusted shadow */
-}
-
-.cta-button .btn-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--primary), var(--primary-dark)); /* Gradient using primary shades */
-  background-size: 200% 100%;
-  animation: gradientBg 4s ease infinite;
-  border-radius: 50px;
-  z-index: -1; /* Place behind text */
-}
-
-.cta-button.secondary .btn-bg {
-   background: linear-gradient(90deg, var(--secondary), var(--accent)); /* Gradient for secondary button */
-}
-
-
-.btn-text {
-  position: relative;
-  display: block;
-  padding: 0.8rem 2rem; /* Reduced padding for smaller buttons */
-  font-size: 1rem; /* Adjusted font size */
+  padding: 15px 30px;
   font-weight: 600;
-  color: white;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 15px rgba(55, 71, 79, 0.2);
+  overflow: hidden;
   z-index: 1;
-  letter-spacing: 0.5px;
+  color: var(--primary);
 }
 
-.cta-button.secondary .btn-text {
-    color: white; /* Text color for secondary button */
+.start-btn::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+  z-index: 0;
+  transition: all 0.5s ease;
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.start-btn.secondary::before {
+  background: linear-gradient(to right, var(--secondary), var(--accent));
+}
+
+.start-btn span {
+  position: relative;
+  border-radius: 50px;
+  background-color: white;
+  padding: 12px 20px;
+  color: var(--primary);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.start-btn.secondary span {
+  color: var(--secondary);
+}
+
+/* Hover Effects */
+.start-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(55, 71, 79, 0.3);
+}
+
+.start-btn.secondary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(55, 71, 79, 0.3);
+}
+
+.start-btn:hover::before {
+  transform: scaleX(1.1);
+  background: linear-gradient(to right, var(--primary-dark), var(--primary));
+}
+
+.start-btn.secondary:hover::before {
+  background: linear-gradient(to right, var(--accent), var(--secondary));
+}
+
+.start-btn:hover span {
+  background-color: var(--primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Secondary Button Hover */
+.start-btn.secondary:hover span {
+  background-color: var(--secondary);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Glowing effect */
+.start-btn:focus, .start-btn:hover {
+  box-shadow: 0 0 25px rgba(55, 71, 79, 0.5), 0 0 15px var(--primary);
+}
+
+@keyframes floatBtn {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 
@@ -1201,7 +1250,13 @@ background: url('img/lungg.png') no-repeat center center / cover;
 .timeline-content p {
   color: var(--secondary);
 }
-
+/* Container for side-by-side sections */
+.side-by-side-container {
+    display: grid; /* Enables CSS Grid layout */
+    grid-template-columns: 1fr 1fr; /* Creates two columns of equal width */
+    gap: 3rem; /* Adds space between the grid items (the two sections) */
+    margin-bottom: 3rem; /* Adds space below the entire container */
+}
 /* Chart Section */
 .chart-section {
   background-color: white;
@@ -1212,7 +1267,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
 }
 
 .chart-container {
-  height: 400px;
+  height: 500px;
   margin: 0 auto;
 }
 
@@ -1963,6 +2018,16 @@ background: url('img/lungg.png') no-repeat center center / cover;
       gap: 1rem;
   }
 }
+/* Responsive Adjustments for smaller screens */
+@media (max-width: 768px) {
+  /* Stack side-by-side sections on smaller screens */
+  .side-by-side-container {
+      grid-template-columns: 1fr; /* Single column layout for smaller screens */
+      gap: 2rem; /* Adjusted gap for stacking */
+      max-width: 95%; /* Adjust max-width for small screens if needed, using percentage for flexibility */
+      margin: 0 auto 2rem auto; /* Center and add bottom margin for stacked layout */
+  }
+}
 /* Savings Page Styles */
 .savings-container {
   padding-top: 8rem;
@@ -2171,8 +2236,8 @@ background: url('img/lungg.png') no-repeat center center / cover;
 }
 /* Rewards Section Styles */
 .rewards-section {
-  margin: 4rem 0;
-  padding: 2rem;
+  margin: 5rem 0;
+  padding: 5rem;
 }
 
 .rewards-header {
@@ -2498,7 +2563,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
 }
 
 .gradient-text {
-  background: linear-gradient(to right, #37474F, #546E7A, #37474F);
+  background: linear-gradient(--primary-dark);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -2605,7 +2670,7 @@ background: url('img/lungg.png') no-repeat center center / cover;
 /* Chat Sidebar */
 .chat-sidebar {
   background: var(--primary-gradient);
-  color: white;
+  color:#263238;
   padding: 1rem 0.5rem;
   border-radius: 20px 0 0 20px;
   display: flex;
@@ -2753,8 +2818,16 @@ background: url('img/lungg.png') no-repeat center center / cover;
 
 .progress-stats {
   margin-top: 1rem;
-  padding: 0.5rem;
+  padding: 2rem 1.5rem;
+  min-height: 170px; /* Ensures the box has a taller height */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 
 .stat-cards {
   display: grid;
@@ -3764,9 +3837,8 @@ background: url('img/lungg.png') no-repeat center center / cover;
     font-size: 1.1rem;
   }
 }
-/* ========================= */
-/*     QuitZone Awareness Page Styles     */
-/* ========================= */
+
+/*  QuitZone Awareness Page Styles  */
 
 .new-awareness-section {
     padding: 60px 20px;

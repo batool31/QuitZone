@@ -7,21 +7,17 @@
     <link rel="stylesheet" href="grad.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Header -->
     <header class="navbar">
         <div class="container">
             <a href="home.html" class="logo">
                 <span>QuitZone</span>
                 <span class="emoji">🚭</span>
             </a>
-            
-            <!-- Navigation Links for Desktop -->
+
             <nav class="nav-desktop">
                 <ul>
                     <li><a href="home.html" class="nav-link">Home</a></li>
@@ -37,85 +33,83 @@
         </div>
     </header>
 
-    <!-- Main content -->
     <section class="progress-page">
         <div class="container" style="padding-top: 8rem;">
             <h1 class="section-title" data-aos="fade-up">Health Improvement After Quitting Smoking</h1>
-            
-            <!-- Health Benefits Timeline Section -->
-<div class="benefits-section" data-aos="fade-up" data-aos-delay="300">
-    <h2 class="subsection-title">Health Benefits Over Time</h2>
-    <div class="timeline-benefits">
-        <div class="timeline-item">
-            <div class="timeline-icon">
-                <i class="fas fa-clock"></i>
-            </div>
-            <div class="timeline-content">
-                <h3>20 minutes</h3>
-                <p>Heart rate and blood pressure drop.</p>
-            </div>
-        </div>
-        
-        <div class="timeline-item">
-            <div class="timeline-icon">
-                <i class="fas fa-lungs"></i>
-            </div>
-            <div class="timeline-content">
-                <h3>12 hours</h3>
-                <p>Carbon monoxide level in blood returns to normal.</p>
-            </div>
-        </div>
-        
-        <div class="timeline-item">
-            <div class="timeline-icon">
-                <i class="fas fa-heartbeat"></i>
-            </div>
-            <div class="timeline-content">
-                <h3>24 hours</h3>
-                <p>Risk of heart attack starts to decrease.</p>
-            </div>
-        </div>
-        
-        <div class="timeline-item">
-            <div class="timeline-icon">
-                <i class="fas fa-wind"></i>
-            </div>
-            <div class="timeline-content">
-                <h3>1 week</h3>
-                <p>Breathing improves as lungs start to clear.</p>
-            </div>
-        </div>
-        
-        <div class="timeline-item">
-            <div class="timeline-icon">
-                <i class="fas fa-running"></i>
-            </div>
-            <div class="timeline-content">
-                <h3>1 month</h3>
-                <p>Lung function improves significantly. Increased energy levels.</p>
-            </div>
-        </div>
-        
-        <div class="timeline-item">
-            <div class="timeline-icon">
-                <i class="fas fa-heart"></i>
-            </div>
-            <div class="timeline-content">
-                <h3>1 year</h3>
-                <p>Risk of heart disease drops by half compared to a smoker.</p>
-            </div>
-        </div>
-    </div>
-</div>
 
-            <!-- Health Chart Section -->
-            <div class="chart-section" data-aos="fade-up" data-aos-delay="200">
-                <h2 class="subsection-title">Your Health Improvement</h2>
-                <div class="chart-container">
-                    <canvas id="healthChart"></canvas>
+            <div class="side-by-side-container">
+                <div class="benefits-section" data-aos="fade-up" data-aos-delay="300">
+                    <h2 class="subsection-title">Health Benefits Over Time</h2>
+                    <div class="timeline-benefits">
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>20 minutes</h3>
+                                <p>Heart rate and blood pressure drop.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-lungs"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>12 hours</h3>
+                                <p>Carbon monoxide level in blood returns to normal.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>24 hours</h3>
+                                <p>Risk of heart attack starts to decrease.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>1 week</h3>
+                                <p>Breathing improves as lungs start to clear.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>1 month</h3>
+                                <p>Lung function improves significantly. Increased energy levels.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>1 year</h3>
+                                <p>Risk of heart disease drops by half compared to a smoker.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-section" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="subsection-title">Your Health Improvement</h2>
+                    <div class="chart-container">
+                        <canvas id="healthChart"></canvas>
+                    </div>
                 </div>
             </div>
-            <!-- Personal Goals Section with Checkboxes -->
             <div class="goals-section" data-aos="fade-up" data-aos-delay="350">
                 <h2 class="subsection-title">Your Personal Goals</h2>
                 <div class="goals-container">
@@ -160,9 +154,8 @@
                     </div>
                 </div>
             </div>
-            
-            
-            <!-- Progress Milestones Section -->
+
+
             <div class="milestones-section" data-aos="fade-up" data-aos-delay="400">
                 <h2 class="subsection-title">Your Progress Milestones</h2>
                 <div class="milestone-grid">
@@ -183,7 +176,7 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="milestone-card">
                         <div class="milestone-icon">
                             <i class="fas fa-award"></i>
@@ -201,7 +194,7 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="milestone-card">
                         <div class="milestone-icon">
                             <i class="fas fa-trophy"></i>
@@ -219,7 +212,7 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="milestone-card upcoming">
                         <div class="milestone-icon upcoming">
                             <i class="fas fa-star"></i>
@@ -239,8 +232,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Next Milestones Section -->
+
             <div class="next-milestones-section" data-aos="fade-up" data-aos-delay="500">
                 <h2 class="subsection-title">Your Next Health Milestones</h2>
                 <div class="milestone-timeline">
@@ -259,7 +251,7 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="milestone-node completed">
                         <div class="milestone-dot"></div>
                         <div class="milestone-content">
@@ -275,7 +267,7 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="milestone-node active">
                         <div class="milestone-dot"></div>
                         <div class="milestone-content">
@@ -291,7 +283,7 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="milestone-node">
                         <div class="milestone-dot"></div>
                         <div class="milestone-content">
@@ -307,7 +299,7 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="milestone-node">
                         <div class="milestone-dot"></div>
                         <div class="milestone-content">
@@ -328,7 +320,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -339,7 +330,7 @@
                     </a>
                     <p>Your partner in the journey to a smoke-free life.</p>
                 </div>
-                
+
                 <div class="footer-links">
                     <div class="footer-column">
                         <h3>Pages</h3>
@@ -351,7 +342,7 @@
                             <li><a href="success_stories.html">Success Stories</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="footer-column">
                         <h3>Support</h3>
                         <ul>
@@ -362,7 +353,7 @@
                             <li><a href="#">Terms of Service</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="footer-column">
                         <h3>Connect</h3>
                         <div class="social-links">
@@ -374,16 +365,15 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 QuitZone. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <script>
         // Initialize AOS
         AOS.init({
@@ -395,7 +385,7 @@
         // Health improvement chart
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('healthChart').getContext('2d');
-            
+
             const healthChart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -479,10 +469,10 @@
                                 <span class="goal-text">${goalText}</span>
                             </label>
                         `;
-                        
+
                         // Insert before the add goal section
                         goalsContainer.insertBefore(newGoalItem, document.querySelector('.add-goal'));
-                        
+
                         // Clear input
                         goalInput.value = '';
                     }
@@ -503,7 +493,7 @@
         window.onbeforeunload = function () {
             window.scrollTo(0, 0);
         }
-        
+
         // Also force scroll to top when the page loads
         document.addEventListener('DOMContentLoaded', function() {
             window.scrollTo(0, 0);

@@ -4,83 +4,93 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to QuitZone</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            padding: 10px 20px;
-            color: white;
-            text-align: center;
-        }
-        .welcome-container {
-            text-align: center;
-            margin: 50px;
-        }
-        .welcome-container h2 {
-            color: #333;
-        }
-        .welcome-message {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 30px;
-        }
-        .logout-btn {
-            padding: 10px 20px;
-            font-size: 1rem;
-            color: white;
-            background-color: #ff6347;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .logout-btn:hover {
-            background-color: #f44336;
-        }
-    </style>
+    <link rel="stylesheet" href="grad.css" />
 </head>
 <body>
-
-        <header class="navbar">
-            <div class="container">
-              <a href="home.html" class="logo">
+<!-- Header -->
+    <header class="navbar">
+        <div class="container">
+            <a href="home.html" class="logo">
                 <span>QuitZone</span>
                 <span class="emoji">🚭</span>
-              </a>
-              
-              <!-- Navigation Links for Desktop -->
-              <nav class="nav-desktop">
+            </a>
+            
+            <!-- Navigation Links for Desktop -->
+            <nav class="nav-desktop">
                 <ul>
-                  <li><a href="home.html" class="nav-link">Home</a></li>
-                  <li><a href="awareness.html" class="nav-link">Awareness</a></li>
-                  <li><a href="progress.html" class="nav-link">Progress</a></li>
-                  <li><a href="challenges.html" class="nav-link">Challenges</a></li>
-                  <li><a href="savings.html" class="nav-link active">Savings</a></li>
-                  <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
-                  <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
-                  <li><a href="login.php" class="login-btn">Login</a></li>
+                    <li><a href="home.html" class="nav-link">Home</a></li>
+                    <li><a href="awareness.html" class="nav-link">Awareness</a></li>
+                    <li><a href="progress.html" class="nav-link">Progress</a></li>
+                    <li><a href="challenges.html" class="nav-link active">Challenges</a></li>
+                    <li><a href="savings.html" class="nav-link">Savings</a></li>
+                    <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
+                    <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
+                    <li><a href="login.php" class="login-btn">Login</a></li>
                 </ul>
-              </nav>
-            </div>
-         
-        <h1>Welcome to QuitZone 🚭</h1>
+            </nav>
+        </div>
     </header>
+
 
     <div class="welcome-container">
         <h2>Welcome, [Sara Hasan ]!</h2>
         <p class="welcome-message">We are so excited to have you with us on your smoke-free journey. Keep up the great work!</p>
-        <a href="logout.php" class="logout-btn">Logout</a>
+        <a href="home.html" class="logout-btn">Logout</a>
     </div>
-
-    <footer>
-        <p style="text-align: center; color: #777;">© 2025 QuitZone - All Rights Reserved</p>
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="home.html">
+                        <span>QuitZone</span>
+                        <span class="emoji">🚭</span>
+                    </a>
+                    <p>Your partner in the journey to a smoke-free life.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Pages</h3>
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="progress.html">Progress</a></li>
+                            <li><a href="challenges.html">Challenges</a></li>
+                            <li><a href="savings.html">Savings</a></li>
+                            <li><a href="success_stories.html">Success Stories</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 QuitZone. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- External JS -->
     <script src="common.js"></script>
 </body>
 </html>
