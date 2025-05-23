@@ -1,39 +1,33 @@
 <?php
-session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // استقبال الحقول من النموذج
+    $fullName = $_POST['fullName'];
     $username = $_POST['username'];
-    $email    = $_POST['email'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
+    $confirm_password = $_POST['confirm-password'];
+
+    // تحقق من تطابق كلمتي المرور
+    if ($password !== $confirm_password) {
+        echo "<script>alert('Passwords do not match'); window.history.back();</script>";
+        exit;
+    }
 
     // الاتصال بقاعدة البيانات
     $conn = new mysqli("localhost", "root", "", "quitzone");
-
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // التحقق من وجود المستخدم
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND username = ?");
-    $stmt->bind_param("ss", $email, $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    // تشفير كلمة المرور وإدخال البيانات
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $stmt = $conn->prepare("INSERT INTO users (fullName, username, email, Password) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $fullName, $username, $email, $hashedPassword);
 
-    if ($user = $result->fetch_assoc()) {
-        // تحقق من كلمة المرور
-        if (password_verify($password, $user['Password'])) {
-            // تسجيل الدخول ناجح - الانتقال إلى test.php
-
-          $_SESSION['user_id']=$user['ID'];
-         
-            echo "<script>alert('Login successful'); window.location.href='test.php';</script>";
-            exit();
-        } else {
-            echo "<script>alert('⚠️ Incorrect password'); window.location.href='login.php';</script>";
-            exit();
-        }
+    if ($stmt->execute()) {
+        echo "<script>alert('Registered successfully! Please login.'); window.location.href='login.php';</script>";
     } else {
-        echo "<script>alert('❌ User not found'); window.location.href='login.php';</script>";
-        exit();
+        echo "<script>alert('Registration failed: " . $stmt->error . "'); window.history.back();</script>";
     }
 
     $stmt->close();
@@ -41,226 +35,133 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>QuitZone - Login</title>
+    <title>QuitZone - Register</title>
     <link rel="stylesheet" href="grad.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
- <!-- Header -->
     <header class="navbar">
         <div class="container">
             <a href="home.html" class="logo">
                 <span>QuitZone</span>
                 <span class="emoji">🚭</span>
             </a>
-            
-            <!-- Navigation Links for Desktop -->
             <nav class="nav-desktop">
                 <ul>
                     <li><a href="home.html" class="nav-link">Home</a></li>
                     <li><a href="awareness.html" class="nav-link">Awareness</a></li>
                     <li><a href="progress.html" class="nav-link">Progress</a></li>
-                    <li><a href="challenges.php" class="nav-link ">Challenges</a></li>
+                    <li><a href="challenges.php" class="nav-link">Challenges</a></li>
                     <li><a href="savings.php" class="nav-link">Savings</a></li>
                     <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
                     <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
-                    <li><a href="login.php" class="login-btn active">Login</a></li>
+                    <li><a href="login.php" class="login-btn">Login</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-
-      <section class="login-page">
+    <section class="login-page">
         <div class="login-container">
             <div class="login-header">
-                <h2>Welcome Back</h2>
-                <p>Ready to continue your smoke-free journey? 🌱</p>
+                <h2>Create Account</h2>
+                <p>Join the smoke-free movement today! ✨</p>
             </div>
 
-            <form id="login-form" action="login.php" method="POST">
+            <form method="POST" action="register.php">
                 <div class="input-group">
-                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                    <input type="email" id="email" name="email" required />
+                    <label for="reg-name"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="reg-name" name="fullName" required />
                 </div>
 
                 <div class="input-group">
-                    <label for="username"><i class="fas fa-user"></i> Username</label>
-                    <input type="text" id="username" name="username" required />
+                    <label for="reg-email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="reg-email" name="email" required />
                 </div>
 
                 <div class="input-group">
-                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <label for="reg-username"><i class="fas fa-user-circle"></i> Username</label>
+                    <input type="text" id="reg-username" name="username" required />
+                </div>
+
+                <div class="input-group">
+                    <label for="reg-password"><i class="fas fa-lock"></i> Password</label>
                     <div class="password-field">
-                        <input type="password" id="password" name="password" required />
-                        <button type="button" id="toggle-password" class="toggle-password"><i class="fas fa-eye"></i></button>
+                        <input type="password" id="reg-password" name="password" required />
+                        <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
                     </div>
                 </div>
 
-                <div class="forgot-password">
-                 <a href="forget_password.php">Forgot Password?</a>
+                <div class="input-group">
+                    <label for="reg-confirm-password"><i class="fas fa-lock"></i> Confirm Password</label>
+                    <div class="password-field">
+                        <input type="password" id="reg-confirm-password" name="confirm-password" required />
+                        <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                    </div>
                 </div>
 
-                <button type="submit" class="login-btnn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <div class="terms-agreement">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required />
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="login-btnn"><i class="fas fa-user-plus"></i> Register</button>
                 <div class="switch-form">
-    <p>Don't have an account? <a href="register.php" class="register-link">Register here</a></p>
+    <p>Already have an account? <a href="login.php" class="login-link">Login here</a></p>
 </div>
 
             </form>
         </div>
     </section>
 
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const menuOverlay = document.querySelector('.menu-overlay');
-            
-            if (mobileMenuBtn && mobileMenu && menuOverlay) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('open');
-                    menuOverlay.classList.toggle('open');
-                    
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (icon) {
-                        if (icon.classList.contains('fa-bars')) {
-                            icon.classList.remove('fa-bars');
-                            icon.classList.add('fa-times');
-                        } else {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    }
-                });
-                
-                menuOverlay.addEventListener('click', function() {
-                    mobileMenu.classList.remove('open');
-                    menuOverlay.classList.remove('open');
-                    
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (icon) {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            }
-            
-            // Navbar scroll effect
-            const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
+        // Toggle password visibility
+        document.querySelectorAll('.toggle-password').forEach(button => {
+            button.addEventListener('click', function () {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
                 } else {
-                    navbar.classList.remove('scrolled');
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
                 }
             });
-            
-            // Login/Register tab switching
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Hide all tab panes
-                    document.querySelectorAll('.tab-pane').forEach(pane => {
-                        pane.classList.remove('active');
-                    });
-                    
-                    // Show the selected tab pane
-                    const tab = this.getAttribute('data-tab');
-                    document.getElementById(`${tab}-tab`).classList.add('active');
-                });
-            });
-            
-            // Password visibility toggle
-            const toggleButtons = document.querySelectorAll('.toggle-password');
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const input = this.parentElement.querySelector('input');
-                    const icon = this.querySelector('i');
-                    
-                    if (input.type === 'password') {
-                        input.type = 'text';
-                        icon.classList.remove('fa-eye');
-                        icon.classList.add('fa-eye-slash');
-                    } else {
-                        input.type = 'password';
-                        icon.classList.remove('fa-eye-slash');
-                        icon.classList.add('fa-eye');
-                    }
-                });
-            });
-            
-            // Input focus effect
-            const inputs = document.querySelectorAll('.input-group input');
-            inputs.forEach(input => {
-                input.addEventListener('focus', function() {
-                    this.parentElement.classList.add('focused');
-                });
-                
-                input.addEventListener('blur', function() {
-                    if (!this.value) {
-                        this.parentElement.classList.remove('focused');
-                    }
-                });
-                
-                // Check if input has value on page load
-                if (input.value) {
-                    input.parentElement.classList.add('focused');
-                }
-            });
-            
-            // Register form submission (placeholder)
-            const registerForm = document.getElementById('register-form');
-            if (registerForm) {
-                registerForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const password = document.getElementById('reg-password').value;
-                    const confirmPassword = document.getElementById('reg-confirm-password').value;
-                    
-                    if (password !== confirmPassword) {
-                        alert('Passwords do not match.');
-                        return;
-                    }
-                    
-                    // This is a placeholder - in a real implementation, you'd submit to a server
-                    alert('Registration successful! Please log in with your new credentials.');
-                    
-                    // Switch to login tab
-                    document.querySelector('.tab-btn[data-tab="login"]').click();
-                });
-            }
         });
     </script>
+
+
     
-    <style>
+     <style>
+        .switch-form {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
         /* Additional Styles for Login Page */
      .login-page {
     background-image: url('img/happy.png'); /* Relative to the location of login.php */
@@ -282,21 +183,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
-}
-.switch-form {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.switch-form a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.switch-form a:hover {
-    text-decoration: underline;
 }
 
         

@@ -1,0 +1,8 @@
+USER_ID: 3 | REWARD_ID: 1
+USER_ID: 3 | REWARD_ID: 1
+USER_ID: 3 | REWARD_ID: 2
+USER_ID: 3 | REWARD_ID: 2
+Redemption error: Prepare failed (rewards): Unknown column 'points_cost' in 'field list'
+Redemption error: Reward not found
+Redemption error: Not enough points
+Redemption error: Not enough points

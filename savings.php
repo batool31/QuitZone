@@ -1,3 +1,40 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+include 'data.Base.php';
+
+$userId = $_SESSION['user_id'];
+
+// استعلام لإحضار نقاط المستخدم
+$sql = "SELECT points FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+if (!$stmt) {
+    die("Prepare failed: " . $conn->error);
+}
+
+$stmt->bind_param("i", $userId);
+
+$stmt->execute();
+
+$result = $stmt->get_result();
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $points = intval($row['points']);
+} else {
+    $points = 0; // إذا ما وجد نقاط في قاعدة البيانات
+}
+
+$stmt->close();
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +65,8 @@
           <li><a href="home.html" class="nav-link">Home</a></li>
           <li><a href="awareness.html" class="nav-link">Awareness</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
-          <li><a href="challenges.html" class="nav-link">Challenges</a></li>
-          <li><a href="savings.html" class="nav-link active">Savings</a></li>
+          <li><a href="challenges.php" class="nav-link">Challenges</a></li>
+          <li><a href="savings.php" class="nav-link active">Savings</a></li>
           <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
           <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
           <li><a href="login.php" class="login-btn">Login</a></li>
@@ -39,6 +76,7 @@
   </header>
 
   <main class="container savings-container">
+    
     <h1 class="savings-title" data-aos="fade-up">Your Smoke-Free Bank</h1>
     <p class="savings-subtitle" data-aos="fade-up" data-aos-delay="200">
       Every day you stay smoke-free, your wallet gets fatter and your future gets brighter.
@@ -168,16 +206,18 @@
             <i class="reward-icon fas fa-coffee"></i>
             <h3>Coffee Shop Gift Card</h3>
             <p>Treat yourself to your favorite coffee after staying smoke-free.</p>
-            <button class="redeem-btn" data-points="500">Redeem</button>
+            <button class="redeem-btn" data-id="1" data-points="500" data-reward="Coffee Shop Gift Card">Redeem</button>
+
           </div>
-          
+    
           <!-- Reward Card 2 -->
           <div class="reward-card">
             <div class="reward-points">750 Points</div>
             <i class="reward-icon fas fa-headphones"></i>
             <h3>Music Subscription</h3>
             <p>One month of premium music streaming to celebrate your progress.</p>
-            <button class="redeem-btn" data-points="750">Redeem</button>
+            <button class="redeem-btn" data-id="2" data-points="750" data-reward="Music Subscription">Redeem</button>
+
           </div>
           
           <!-- Reward Card 3 (Premium/Locked) -->
@@ -186,7 +226,8 @@
             <i class="reward-icon fas fa-crown"></i>
             <h3>Premium Membership</h3>
             <p>Unlock exclusive features and content to support your journey.</p>
-            <button class="redeem-btn disabled" data-points="1000">Locked</button>
+           <button class="redeem-btn disabled" data-id="3" data-points="1000" data-reward="Free Mug">Locked</button>
+
             <div class="points-needed">Need 1000 more points</div>
           </div>
         </div>
@@ -211,8 +252,8 @@
             <ul>
               <li><a href="home.html">Home</a></li>
               <li><a href="progress.html">Progress</a></li>
-              <li><a href="challenges.html">Challenges</a></li>
-              <li><a href="savings.html">Savings</a></li>
+              <li><a href="challenges.php">Challenges</a></li>
+              <li><a href="savings.php">Savings</a></li>
               <li><a href="success_stories.html">Success Stories</a></li>
             </ul>
           </div>
@@ -248,171 +289,161 @@
 
   <!-- AOS Animation Library -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  
   <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true
-    });
+  // Initialize AOS Animation
+ AOS.init({
+  duration: 800,
+  easing: 'ease-in-out',
+  once: true
+});
 
-    // Savings Calculator
-    document.addEventListener('DOMContentLoaded', function() {
-      // Input validation for max values
-      const dailyExpenseInput = document.getElementById('daily-expense');
-      const dailyCigarettesInput = document.getElementById('daily-cigarettes');
-      
-      // Add event listeners to enforce max values
-      dailyExpenseInput.addEventListener('input', function() {
-        if (this.value > 12) {
-          this.value = 12;
-        }
-      });
-      
-      dailyCigarettesInput.addEventListener('input', function() {
-        if (this.value > 60) {
-          this.value = 60;
-        }
-      });
-      
-      const calculateBtn = document.getElementById('calculate-savings');
-      calculateBtn.addEventListener('click', calculateSavings);
-      
-      // Initialize savings chart
-      const ctx = document.getElementById('savingsChart').getContext('2d');
-      
-      const savingsChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Day 1', 'Week 1', 'Month 1', 'Month 3', 'Month 6', 'Year 1'],
-          datasets: [{
-            label: 'Savings ($)',
-            data: [0, 0, 0, 0, 0, 0],
-            borderColor: '#37474F',
-            backgroundColor: 'rgba(55, 71, 79, 0.1)',
-            tension: 0.3,
-            fill: true
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'top',
-            },
-            tooltip: {
-              mode: 'index',
-              intersect: false,
-              callbacks: {
-                label: function(context) {
-                  return `Savings: $${context.raw.toFixed(2)}`;
-                }
-              }
-            }
-          },
-          scales: {
-            y: {
-              beginAtZero: true,
-              title: {
-                display: true,
-                text: 'Savings ($)'
-              }
-            },
-            x: {
-              title: {
-                display: true,
-                text: 'Time Period'
-              }
-            }
+document.addEventListener('DOMContentLoaded', function () {
+  const dailyExpenseInput = document.getElementById('daily-expense');
+  const dailyCigarettesInput = document.getElementById('daily-cigarettes');
+  const daysQuitInput = document.getElementById('days-quit');
+  const calculateBtn = document.getElementById('calculate-savings');
+  const pointsElement = document.getElementById('points');
+
+  dailyExpenseInput.addEventListener('input', function () {
+    if (this.value > 12) this.value = 12;
+  });
+
+  dailyCigarettesInput.addEventListener('input', function () {
+    if (this.value > 60) this.value = 60;
+  });
+
+  const ctx = document.getElementById('savingsChart').getContext('2d');
+  const savingsChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Day 1', 'Week 1', 'Month 1', 'Month 3', 'Month 6', 'Year 1'],
+      datasets: [{
+        label: 'Savings ($)',
+        data: [0, 0, 0, 0, 0, 0],
+        borderColor: '#37474F',
+        backgroundColor: 'rgba(55, 71, 79, 0.1)',
+        tension: 0.3,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+            label: context => `Savings: $${context.raw.toFixed(2)}`
           }
-        },
-      });
-      
-      function calculateSavings() {
-        const dailyExpense = parseFloat(dailyExpenseInput.value) || 0;
-        const dailyCigarettes = parseInt(dailyCigarettesInput.value) || 0;
-        const daysQuit = parseInt(document.getElementById('days-quit').value) || 0;
-        
-        if (dailyExpense === 0 || dailyCigarettes === 0 || daysQuit === 0) {
-          alert("Please fill in all fields with values greater than zero.");
-          return;
         }
-        
-        // Calculate total savings
-        const totalSaved = dailyExpense * daysQuit;
-        document.getElementById('total-saved').textContent = totalSaved.toFixed(2);
-        document.getElementById('smoke-free-days').textContent = daysQuit;
-        document.getElementById('cigarettes-avoided').textContent = dailyCigarettes * daysQuit;
-        
-        // Calculate projected savings
-        const monthProj = dailyExpense * 30;
-        const sixMonthProj = dailyExpense * 180;
-        const yearProj = dailyExpense * 365;
-        const fiveYearProj = dailyExpense * 1825;
-        
-        document.getElementById('month-projection').textContent = '$' + monthProj.toFixed(2);
-        document.getElementById('six-month-projection').textContent = '$' + sixMonthProj.toFixed(2);
-        document.getElementById('year-projection').textContent = '$' + yearProj.toFixed(2);
-        document.getElementById('five-year-projection').textContent = '$' + fiveYearProj.toFixed(2);
-        
-        // Update chart
-        savingsChart.data.datasets[0].data = [
-          dailyExpense,
-          dailyExpense * 7,
-          monthProj,
-          dailyExpense * 90,
-          sixMonthProj,
-          yearProj
-        ];
-        savingsChart.update();
-        
-        // Update points (1 point per dollar saved)
-        const points = Math.floor(totalSaved);
-        document.getElementById('points').textContent = points;
-        
-        // Enable/disable redeem buttons based on points
-        document.querySelectorAll('.redeem-btn').forEach(btn => {
-          const requiredPoints = parseInt(btn.getAttribute('data-points'));
-          if (points >= requiredPoints) {
-            btn.disabled = false;
-            btn.classList.remove('disabled');
-          } else {
-            btn.disabled = true;
-            btn.classList.add('disabled');
-          }
-        });
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'Savings ($)' }
+        },
+        x: {
+          title: { display: true, text: 'Time Period' }
+        }
       }
-      
-      // Handle reward redemption
-      document.querySelectorAll('.redeem-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          const reward = this.getAttribute('data-reward');
-          const pointsCost = parseInt(this.getAttribute('data-points'));
-          const currentPoints = parseInt(document.getElementById('points').textContent);
-          
-          if (currentPoints >= pointsCost) {
-            alert(`You have successfully redeemed ${reward}! Check your email for details.`);
-            const remainingPoints = currentPoints - pointsCost;
-            document.getElementById('points').textContent = remainingPoints;
-            
-            // Update button states
-            document.querySelectorAll('.redeem-btn').forEach(redeemBtn => {
-              const requiredPoints = parseInt(redeemBtn.getAttribute('data-points'));
-              if (remainingPoints >= requiredPoints) {
-                redeemBtn.disabled = false;
-                redeemBtn.classList.remove('disabled');
-              } else {
-                redeemBtn.disabled = true;
-                redeemBtn.classList.add('disabled');
-              }
-            });
-          }
-        });
-      });
-    });
-  </script>
+    }
+  });
+
+function calculateSavings() {
+  const dailyExpense = parseFloat(dailyExpenseInput.value) || 0;
+  const dailyCigarettes = parseInt(dailyCigarettesInput.value) || 0;
+  const daysQuit = parseInt(daysQuitInput.value) || 0;
+
+  if (dailyExpense === 0 || dailyCigarettes === 0 || daysQuit === 0) {
+    alert("Please fill in all fields with values greater than zero.");
+    return;
+  }
+
+  const totalSaved = dailyExpense * daysQuit;
+  const newPoints = Math.floor(totalSaved);
+
+  document.getElementById('total-saved').textContent = totalSaved.toFixed(2);
+  document.getElementById('smoke-free-days').textContent = daysQuit;
+  document.getElementById('cigarettes-avoided').textContent = dailyCigarettes * daysQuit;
+  document.getElementById('month-projection').textContent = '$' + (dailyExpense * 30).toFixed(2);
+  document.getElementById('six-month-projection').textContent = '$' + (dailyExpense * 180).toFixed(2);
+  document.getElementById('year-projection').textContent = '$' + (dailyExpense * 365).toFixed(2);
+  document.getElementById('five-year-projection').textContent = '$' + (dailyExpense * 1825).toFixed(2);
+  pointsElement.textContent = newPoints;
+
+  // 👇👇 إرسال النقاط إلى الخادم لتخزينها
+  fetch('update_points.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `points=${newPoints}`
+  });
+
+  savingsChart.data.datasets[0].data = [
+    dailyExpense,
+    dailyExpense * 7,
+    dailyExpense * 30,
+    dailyExpense * 90,
+    dailyExpense * 180,
+    dailyExpense * 365
+  ];
+  savingsChart.update();
+  updateRedeemButtons(newPoints);
+}
+
+function updateRedeemButtons(currentPoints) {
+  document.querySelectorAll('.redeem-btn').forEach(btn => {
+    const requiredPoints = parseInt(btn.getAttribute('data-points'));
+    if (currentPoints >= requiredPoints) {
+      btn.disabled = false;
+      btn.classList.remove('disabled');
+    } else {
+      btn.disabled = true;
+      btn.classList.add('disabled');
+    }
+  });
+}
+
+function handleRedemption(button) {
+  const rewardId = button.getAttribute('data-id');
+  const rewardName = button.getAttribute('data-reward');
+  const pointsCost = parseInt(button.getAttribute('data-points'));
+  const currentPoints = parseInt(pointsElement.textContent);
+
+  if (currentPoints < pointsCost) return;
+
+  fetch('redeem_reward.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `reward_id=${rewardId}`
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      alert(`You have successfully redeemed: ${rewardName}`);
+      pointsElement.textContent = data.new_points;
+      updateRedeemButtons(data.new_points);
+    } else {
+      alert(data.message || 'Redemption failed.');
+    }
+  })
+  .catch((err) => {
+    console.error(err);
+    alert("Redemption failed. Please try again later.");
+  });
+}
+
+calculateBtn.addEventListener('click', calculateSavings);
+
+document.querySelectorAll('.redeem-btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+    handleRedemption(this);
+  });
+});
+
+});
+</script>
   <script src="common.js"></script>
 </body>
 </html>

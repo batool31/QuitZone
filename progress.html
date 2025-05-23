@@ -23,8 +23,8 @@
                     <li><a href="home.html" class="nav-link">Home</a></li>
                     <li><a href="awareness.html" class="nav-link">Awareness</a></li>
                     <li><a href="progress.html" class="nav-link active">Progress</a></li>
-                    <li><a href="challenges.html" class="nav-link">Challenges</a></li>
-                    <li><a href="savings.html" class="nav-link">Savings</a></li>
+                    <li><a href="challenges.php" class="nav-link">Challenges</a></li>
+                    <li><a href="savings.php" class="nav-link">Savings</a></li>
                     <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
                     <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
                     <li><a href="login.php" class="login-btn">Login</a></li>
@@ -337,8 +337,8 @@
                         <ul>
                             <li><a href="home.html">Home</a></li>
                             <li><a href="progress.html">Progress</a></li>
-                            <li><a href="challenges.html">Challenges</a></li>
-                            <li><a href="savings.html">Savings</a></li>
+                            <li><a href="challenges.php">Challenges</a></li>
+                            <li><a href="savings.php">Savings</a></li>
                             <li><a href="success_stories.html">Success Stories</a></li>
                         </ul>
                     </div>
@@ -383,71 +383,72 @@
         });
 
         // Health improvement chart
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('healthChart').getContext('2d');
+      // Health improvement chart
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('healthChart').getContext('2d');
 
-            const healthChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Day 1', 'Day 3', 'Day 7', 'Day 14', 'Day 30', 'Day 90', 'Day 180', 'Day 365'],
-                    datasets: [
-                        {
-                            label: 'Lung Function',
-                            data: [40, 45, 52, 60, 70, 78, 85, 92],
-                            borderColor: '#37474F',
-                            backgroundColor: 'rgba(55, 71, 79, 0.1)',
-                            tension: 0.3,
-                            fill: true
-                        },
-                        {
-                            label: 'Heart Health',
-                            data: [50, 53, 58, 65, 72, 80, 88, 95],
-                            borderColor: '#546E7A',
-                            backgroundColor: 'rgba(84, 110, 122, 0.1)',
-                            tension: 0.3,
-                            fill: true
-                        },
-                        {
-                            label: 'Energy Levels',
-                            data: [30, 35, 45, 55, 65, 75, 82, 90],
-                            borderColor: '#78909C',
-                            backgroundColor: 'rgba(120, 144, 156, 0.1)',
-                            tension: 0.3,
-                            fill: true
-                        }
-                    ]
+    const healthChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['20 minutes', '12 hours', '24 hours', '1 week', '1 month', '1 year'],
+            datasets: [
+                {
+                    label: 'Lung Function',
+                    data: [30, 35, 40, 60, 85, 95],
+                    borderColor: '#37474F',
+                    backgroundColor: 'rgba(55, 71, 79, 0.1)',
+                    tension: 0.3,
+                    fill: true
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Health Improvement Metrics'
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            title: {
-                                display: true,
-                                text: 'Health Score (%)'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Time Since Quitting'
-                            }
-                        }
+                {
+                    label: 'Heart Health',
+                    data: [35, 45, 55, 70, 88, 97],
+                    borderColor: '#546E7A',
+                    backgroundColor: 'rgba(84, 110, 122, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                },
+                {
+                    label: 'Energy Levels',
+                    data: [25, 30, 35, 55, 80, 90],
+                    borderColor: '#78909C',
+                    backgroundColor: 'rgba(120, 144, 156, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Health Improvement Metrics'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: 'Health Score (%)'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Time Since Quitting'
                     }
                 }
-            });
-        });
+            }
+        }
+    });
+});
 
         // Add new goal functionality
         document.addEventListener('DOMContentLoaded', function() {

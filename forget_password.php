@@ -1,48 +1,38 @@
 <?php
-session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $email    = $_POST['email'];
-    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $newPassword = $_POST['new_password'];
 
     // الاتصال بقاعدة البيانات
     $conn = new mysqli("localhost", "root", "", "quitzone");
-
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // التحقق من وجود المستخدم
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND username = ?");
-    $stmt->bind_param("ss", $email, $username);
+    // التحقق من وجود البريد الإلكتروني
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($user = $result->fetch_assoc()) {
-        // تحقق من كلمة المرور
-        if (password_verify($password, $user['Password'])) {
-            // تسجيل الدخول ناجح - الانتقال إلى test.php
+        // تشفير كلمة المرور الجديدة
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
-          $_SESSION['user_id']=$user['ID'];
-         
-            echo "<script>alert('Login successful'); window.location.href='test.php';</script>";
-            exit();
-        } else {
-            echo "<script>alert('⚠️ Incorrect password'); window.location.href='login.php';</script>";
-            exit();
-        }
+        // تحديث كلمة المرور
+        $updateStmt = $conn->prepare("UPDATE users SET Password = ? WHERE email = ?");
+        $updateStmt->bind_param("ss", $hashedPassword, $email);
+        $updateStmt->execute();
+
+        echo "<script>alert('Password has been reset successfully.'); window.location.href='login.php';</script>";
     } else {
-        echo "<script>alert('❌ User not found'); window.location.href='login.php';</script>";
-        exit();
+        echo "<script>alert('Email not found.'); window.location.href='forget_password.php';</script>";
     }
 
     $stmt->close();
     $conn->close();
 }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,188 +71,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </header>
 
+ <section class="login-page">
+    <div class="login-container">
+      <div class="login-header">
+        <h2>Reset Password</h2>
+        <p>Enter your email and new password</p>
+      </div>
 
-      <section class="login-page">
-        <div class="login-container">
-            <div class="login-header">
-                <h2>Welcome Back</h2>
-                <p>Ready to continue your smoke-free journey? 🌱</p>
-            </div>
-
-            <form id="login-form" action="login.php" method="POST">
-                <div class="input-group">
-                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                    <input type="email" id="email" name="email" required />
-                </div>
-
-                <div class="input-group">
-                    <label for="username"><i class="fas fa-user"></i> Username</label>
-                    <input type="text" id="username" name="username" required />
-                </div>
-
-                <div class="input-group">
-                    <label for="password"><i class="fas fa-lock"></i> Password</label>
-                    <div class="password-field">
-                        <input type="password" id="password" name="password" required />
-                        <button type="button" id="toggle-password" class="toggle-password"><i class="fas fa-eye"></i></button>
-                    </div>
-                </div>
-
-                <div class="forgot-password">
-                 <a href="forget_password.php">Forgot Password?</a>
-                </div>
-
-                <button type="submit" class="login-btnn"><i class="fas fa-sign-in-alt"></i> Login</button>
-                <div class="switch-form">
-    <p>Don't have an account? <a href="register.php" class="register-link">Register here</a></p>
-</div>
-
-            </form>
+      <form action="forget_password.php" method="POST">
+        <div class="input-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" id="email" name="email" required />
         </div>
-    </section>
 
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const menuOverlay = document.querySelector('.menu-overlay');
-            
-            if (mobileMenuBtn && mobileMenu && menuOverlay) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('open');
-                    menuOverlay.classList.toggle('open');
-                    
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (icon) {
-                        if (icon.classList.contains('fa-bars')) {
-                            icon.classList.remove('fa-bars');
-                            icon.classList.add('fa-times');
-                        } else {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    }
-                });
-                
-                menuOverlay.addEventListener('click', function() {
-                    mobileMenu.classList.remove('open');
-                    menuOverlay.classList.remove('open');
-                    
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (icon) {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            }
-            
-            // Navbar scroll effect
-            const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-            
-            // Login/Register tab switching
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Hide all tab panes
-                    document.querySelectorAll('.tab-pane').forEach(pane => {
-                        pane.classList.remove('active');
-                    });
-                    
-                    // Show the selected tab pane
-                    const tab = this.getAttribute('data-tab');
-                    document.getElementById(`${tab}-tab`).classList.add('active');
-                });
-            });
-            
-            // Password visibility toggle
-            const toggleButtons = document.querySelectorAll('.toggle-password');
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const input = this.parentElement.querySelector('input');
-                    const icon = this.querySelector('i');
-                    
-                    if (input.type === 'password') {
-                        input.type = 'text';
-                        icon.classList.remove('fa-eye');
-                        icon.classList.add('fa-eye-slash');
-                    } else {
-                        input.type = 'password';
-                        icon.classList.remove('fa-eye-slash');
-                        icon.classList.add('fa-eye');
-                    }
-                });
-            });
-            
-            // Input focus effect
-            const inputs = document.querySelectorAll('.input-group input');
-            inputs.forEach(input => {
-                input.addEventListener('focus', function() {
-                    this.parentElement.classList.add('focused');
-                });
-                
-                input.addEventListener('blur', function() {
-                    if (!this.value) {
-                        this.parentElement.classList.remove('focused');
-                    }
-                });
-                
-                // Check if input has value on page load
-                if (input.value) {
-                    input.parentElement.classList.add('focused');
-                }
-            });
-            
-            // Register form submission (placeholder)
-            const registerForm = document.getElementById('register-form');
-            if (registerForm) {
-                registerForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const password = document.getElementById('reg-password').value;
-                    const confirmPassword = document.getElementById('reg-confirm-password').value;
-                    
-                    if (password !== confirmPassword) {
-                        alert('Passwords do not match.');
-                        return;
-                    }
-                    
-                    // This is a placeholder - in a real implementation, you'd submit to a server
-                    alert('Registration successful! Please log in with your new credentials.');
-                    
-                    // Switch to login tab
-                    document.querySelector('.tab-btn[data-tab="login"]').click();
-                });
-            }
-        });
-    </script>
-    
-    <style>
-        /* Additional Styles for Login Page */
-     .login-page {
+        <div class="input-group">
+          <label for="new_password"><i class="fas fa-lock"></i> New Password</label>
+          <input type="password" id="new_password" name="new_password" required />
+        </div>
+
+        <button type="submit" class="login-btnn" href="login.php">Reset Password</button>
+      </form>
+
+      <div class="switch-form">
+        <p>Back to <a href="login.php">Login</a></p>
+
+      </div>
+    </div>
+  </section>
+<style>
+    .login-page {
     background-image: url('img/happy.png'); /* Relative to the location of login.php */
     background-size: cover;
     background-repeat: no-repeat;

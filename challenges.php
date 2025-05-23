@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+include 'data.Base.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +35,8 @@
                     <li><a href="home.html" class="nav-link">Home</a></li>
                     <li><a href="awareness.html" class="nav-link">Awareness</a></li>
                     <li><a href="progress.html" class="nav-link">Progress</a></li>
-                    <li><a href="challenges.html" class="nav-link active">Challenges</a></li>
-                    <li><a href="savings.html" class="nav-link">Savings</a></li>
+                    <li><a href="challenges.php" class="nav-link active">Challenges</a></li>
+                    <li><a href="savings.php" class="nav-link">Savings</a></li>
                     <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
                     <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
                     <li><a href="login.php" class="login-btn">Login</a></li>
@@ -83,14 +93,14 @@
                     <div class="challenge-progress">
                         <div class="progress-label">
                             <span>Progress</span>
-                            <span>1/1</span>
+                            <span>0/1</span>
                         </div>
                         <div class="progress-bar-container mini">
-                            <div class="progress-bar" style="width: 100%"></div>
+                            <div class="progress-bar" style="width: 0%"></div>
                         </div>
                     </div>
                     <label class="checkbox-container">
-                        <input type="checkbox" checked>
+                        <input type="checkbox">
                         <span class="checkmark"></span>
                         Mark as completed
                     </label>
@@ -131,10 +141,10 @@
                     <div class="challenge-progress">
                         <div class="progress-label">
                             <span>Progress</span>
-                            <span>2/3</span>
+                            <span>0/3</span>
                         </div>
                         <div class="progress-bar-container mini">
-                            <div class="progress-bar" style="width: 66%"></div>
+                            <div class="progress-bar" style="width: 0%"></div>
                         </div>
                     </div>
                     <label class="checkbox-container">
@@ -155,10 +165,10 @@
                     <div class="challenge-progress">
                         <div class="progress-label">
                             <span>Progress</span>
-                            <span>3/5</span>
+                            <span>0/5</span>
                         </div>
                         <div class="progress-bar-container mini">
-                            <div class="progress-bar" style="width: 60%"></div>
+                            <div class="progress-bar" style="width: 0%"></div>
                         </div>
                     </div>
                     <label class="checkbox-container">
@@ -179,10 +189,10 @@
                     <div class="challenge-progress">
                         <div class="progress-label">
                             <span>Progress</span>
-                            <span>15/30</span>
+                            <span>0/30</span>
                         </div>
                         <div class="progress-bar-container mini">
-                            <div class="progress-bar" style="width: 50%"></div>
+                            <div class="progress-bar" style="width: 0%"></div>
                         </div>
                     </div>
                     <label class="checkbox-container">
@@ -203,10 +213,10 @@
                     <div class="challenge-progress">
                         <div class="progress-label">
                             <span>Progress</span>
-                            <span>14/30</span>
+                            <span>0/30</span>
                         </div>
                         <div class="progress-bar-container mini">
-                            <div class="progress-bar" style="width: 47%"></div>
+                            <div class="progress-bar" style="width: 0%"></div>
                         </div>
                     </div>
                     <label class="checkbox-container">
@@ -217,74 +227,63 @@
                 </div>
 
                 <!-- Completed Challenge 1 -->
-                <div class="challenge-card completed" data-aos="fade-up" data-aos-delay="800">
+               
+                <div class="challenge-card monthly" data-aos="fade-up" data-aos-delay="750">
                     <div class="challenge-header">
-                        <span class="challenge-type completed">Completed</span>
-                        <span class="challenge-points">+30 pts</span>
+                        <span class="challenge-type monthly">Monthly</span>
+                        <span class="challenge-points">+250 pts</span>
                     </div>
                     <h3 class="challenge-title">Trigger Identification</h3>
                     <p class="challenge-description">Identify and write down 5 triggers that make you want to smoke.</p>
-                    <div class="challenge-completed-banner">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Completed!</span>
+                    <div class="challenge-progress">
+                        <div class="progress-label">
+                            <span>Progress</span>
+                            <span>0/30</span>
+                        </div>
+                        <div class="progress-bar-container mini">
+                            <div class="progress-bar" style="width: 0%"></div>
+                        </div>
                     </div>
                     <label class="checkbox-container">
-                        <input type="checkbox" checked disabled>
+                        <input type="checkbox">
                         <span class="checkmark"></span>
-                        Completed on May 2, 2025
+                        Mark as completed
                     </label>
                 </div>
 
-                <!-- Completed Challenge 2 -->
-                <div class="challenge-card completed" data-aos="fade-up" data-aos-delay="850">
-                    <div class="challenge-header">
-                        <span class="challenge-type completed">Completed</span>
-                        <span class="challenge-points">+100 pts</span>
-                    </div>
-                    <h3 class="challenge-title">First Week Milestone</h3>
-                    <p class="challenge-description">Successfully complete your first 7 days without smoking.</p>
-                    <div class="challenge-completed-banner">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Completed!</span>
-                    </div>
-                    <label class="checkbox-container">
-                        <input type="checkbox" checked disabled>
-                        <span class="checkmark"></span>
-                        Completed on April 25, 2025
-                    </label>
-                </div>
             </div>
 
             <!-- Create Your Own Challenge -->
-            <div class="create-challenge-section" data-aos="fade-up" data-aos-delay="900">
-                <h2 class="subsection-title">Create Your Own Challenge</h2>
-                <p class="subsection-description">Design a personal challenge that will help you stay smoke-free</p>
-                <div class="create-challenge-form">
-                    <div class="form-group">
-                        <label for="challenge-title">Challenge Title</label>
-                        <input type="text" id="challenge-title" placeholder="E.g., No smoking during work breaks">
-                    </div>
-                    <div class="form-group">
-                        <label for="challenge-description">Description</label>
-                        <textarea id="challenge-description" placeholder="Describe your challenge and why it will help"></textarea>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label for="challenge-type">Type</label>
-                            <select id="challenge-type">
-                                <option value="daily">Daily</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="monthly">Monthly</option>
-                            </select>
-                        </div>
-                        <div class="form-group half">
-                            <label for="challenge-duration">Duration (days)</label>
-                            <input type="number" id="challenge-duration" value="1" min="1">
-                        </div>
-                    </div>
-                    <button class="create-challenge-btn">Create Challenge</button>
-                </div>
+<div class="create-challenge-section">
+    <h2 class="subsection-title">Create Your Own Challenge</h2>
+    <p class="subsection-description">Design a personal challenge that will help you stay smoke-free</p>
+    <div class="create-challenge-form">
+        <div class="form-group">
+            <label for="challenge-title">Challenge Title</label>
+            <input type="text" id="challenge-title" placeholder="E.g., No smoking during work breaks">
+        </div>
+        <div class="form-group">
+            <label for="challenge-description">Description</label>
+            <textarea id="challenge-description" placeholder="Describe your challenge and why it will help"></textarea>
+        </div>
+        <div class="form-row">
+            <div class="form-group half">
+                <label for="challenge-type">Type</label>
+                <select id="challenge-type">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
             </div>
+            <div class="form-group half">
+                <label for="challenge-duration">Duration (days)</label>
+                <input type="number" id="challenge-duration" value="1" min="1">
+            </div>
+        </div>
+        <button class="create-challenge-btn">Create Challenge</button>
+    </div>
+</div>
+
         </div>
     </section>
 
@@ -306,8 +305,8 @@
                         <ul>
                             <li><a href="home.html">Home</a></li>
                             <li><a href="progress.html">Progress</a></li>
-                            <li><a href="challenges.html">Challenges</a></li>
-                            <li><a href="savings.html">Savings</a></li>
+                            <li><a href="challenges.php">Challenges</a></li>
+                            <li><a href="savings.php">Savings</a></li>
                             <li><a href="success_stories.html">Success Stories</a></li>
                         </ul>
                     </div>
@@ -554,7 +553,10 @@
                   const type = document.getElementById('challenge-type').value;
                   const duration = document.getElementById('challenge-duration').value;
                   
+                  
                   if (title && description) {
+
+                   
                       // Create new challenge card
                       const newChallenge = document.createElement('div');
                       newChallenge.className = `challenge-card ${type}`;
@@ -686,6 +688,7 @@
               });
           }
       });
+    
   </script>
   <script src="common.js"></script>
 </body>

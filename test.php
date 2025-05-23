@@ -47,8 +47,8 @@
           <li><a href="home.html" class="nav-link">Home</a></li>
           <li><a href="awareness.html" class="nav-link">Awareness</a></li>
           <li><a href="progress.html" class="nav-link">Progress</a></li>
-          <li><a href="challenges.html" class="nav-link">Challenges</a></li>
-          <li><a href="savings.html" class="nav-link ">Savings</a></li>
+          <li><a href="challenges.php" class="nav-link">Challenges</a></li>
+          <li><a href="savings.php" class="nav-link ">Savings</a></li>
           <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
           <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
           <li><a href="home.html" class="login-btn">Logout</a></li>
@@ -81,7 +81,7 @@
         <div id="readiness-tips" style="display:none;"></div>
 
         <!-- زر Start Your Journey يذهب إلى login.html -->
-        <a id="awareness-btnn" href="login.php" class="awareness-btn" style="margin-top: 1.5rem; display: none;">
+        <a id="awareness-btnn" href="challenges.php" class="awareness-btn" style="margin-top: 1.5rem; display: none;">
             Star Your Journey
           </a>
           
@@ -344,8 +344,8 @@
                         <ul>
                             <li><a href="home.html">Home</a></li>
                             <li><a href="progress.html">Progress</a></li>
-                            <li><a href="challenges.html">Challenges</a></li>
-                            <li><a href="savings.html">Savings</a></li>
+                            <li><a href="challenges.php">Challenges</a></li>
+                            <li><a href="savings.php">Savings</a></li>
                             <li><a href="success_stories.html">Success Stories</a></li>
                         </ul>
                     </div>
