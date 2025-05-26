@@ -8,20 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 
 include 'data.Base.php';
 
-$sql = "SELECT * FROM success_stories ORDER BY id DESC";
-$result = mysqli_query($conn, $sql);
 
-while ($row = mysqli_fetch_assoc($result)) {
-    echo '<div class="story">';
-    echo '<h3>' . htmlspecialchars($row['name']) . '</h3>';
-    echo '<p>Location: ' . htmlspecialchars($row['location']) . '</p>';
-    echo '<p>Smoked for: ' . intval($row['smoker_years']) . ' years</p>';
-    echo '<p>Smoke-free for: ' . htmlspecialchars($row['smoke_free_duration']) . '</p>';
-    echo '<p>Story: ' . nl2br(htmlspecialchars($row['story'])) . '</p>';
-    echo '<p>Achievements: ' . htmlspecialchars($row['achievements']) . '</p>';
-    echo '<img src="' . htmlspecialchars($row['image_url']) . '" alt="Story Image" style="max-width:300px;">';
-    echo '</div><hr>';
-}
 ?>
 
 <!DOCTYPE html>
@@ -237,39 +224,6 @@ while ($row = mysqli_fetch_assoc($result)) {
       </div>
     </div>
     
-    <div class="load-more-container" data-aos="fade-up">
-  <button id="loadMoreBtn" class="load-more-btn">
-    <i class="fas fa-plus-circle"></i> Load More Stories
-  </button>
-</div>
-    <div class="stories" data-aos="fade-up" data-aos-delay="200">
-  <?php while ($story = mysqli_fetch_assoc($result)): ?>
-    <div class="story-card" data-category="<?php echo htmlspecialchars($story['categories']); ?>">
-      <div class="story-image">
-        <img src="<?php echo htmlspecialchars($story['image_url']); ?>" alt="<?php echo htmlspecialchars($story['name']); ?>">
-        <div class="story-badge"><?php echo htmlspecialchars($story['smoke_free_duration']); ?></div>
-      </div>
-      <div class="story-content">
-        <h2><?php echo htmlspecialchars($story['name']); ?></h2>
-        <div class="story-meta">
-          <span><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($story['location']); ?></span>
-          <span><i class="fas fa-smoking-ban"></i> Was <?php echo (int)$story['smoker_years']; ?>-year smoker</span>
-        </div>
-        <p><?php echo htmlspecialchars($story['story']); ?></p>
-        <div class="story-achievements">
-          <?php
-          $achievements = explode(',', $story['achievements']);
-          foreach ($achievements as $ach) {
-            $ach = trim($ach);
-            echo '<span class="achievement"><i class="fas fa-check"></i> ' . htmlspecialchars($ach) . '</span>';
-          }
-          ?>
-        </div>
-        <!-- يمكنك إضافة زر قراءة القصة الكاملة إذا تريد -->
-      </div>
-    </div>
-  <?php endwhile; ?>
-</div>
   </div>
 
   <section class="help-others-section" data-aos="fade-up">
@@ -780,59 +734,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         closeStoryModal();
       }
     });
-    document.addEventListener("DOMContentLoaded", () => {
-  let offset = 0;      // عدد القصص المحمّلة حالياً
-  const limit = 5;     // عدد القصص التي تُحمّل في كل طلب
-  const loadMoreBtn = document.getElementById('loadMoreBtn');
-  const container = document.getElementById('stories-container');
-
-  // دالة لتحميل القصص من السيرفر
-  function loadStories() {
-    fetch(`load_more_stories.php?offset=${offset}&limit=${limit}`)
-      .then(response => response.json())
-      .then(data => {
-        if (data.length === 0) {
-          // ما في قصص زيادة، نخفي الزر
-          loadMoreBtn.style.display = 'none';
-          return;
-        }
-
-        data.forEach(story => {
-          const storyHTML = `
-            <div class="story-card" data-category="${story.categories}">
-              <div class="story-image">
-                <img src="${story.image_url}" alt="${story.name}">
-                <div class="story-badge">${story.smoke_free_duration}</div>
-              </div>
-              <div class="story-content">
-                <h2>${story.name}</h2>
-                <div class="story-meta">
-                  <span><i class="fas fa-map-marker-alt"></i> ${story.location}</span>
-                  <span><i class="fas fa-smoking-ban"></i> Was ${story.smoker_years}-year smoker</span>
-                </div>
-                <p>${story.story}</p>
-                <div class="story-achievements">
-                  ${story.achievements.split(',').map(ach => `<span class="achievement"><i class="fas fa-check"></i> ${ach.trim()}</span>`).join('')}
-                </div>
-              </div>
-            </div>
-          `;
-          container.insertAdjacentHTML('beforeend', storyHTML);
-        });
-
-        offset += data.length;
-      })
-      .catch(err => {
-        console.error('Error loading stories:', err);
-      });
-  }
-
-  // تحميل أول دفعة من القصص عند تحميل الصفحة
-  loadStories();
-
-  // تحميل المزيد عند الضغط على الزر
-  loadMoreBtn.addEventListener('click', loadStories);
-});
+   
   </script>
   
   <style>

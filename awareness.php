@@ -53,7 +53,7 @@ include 'data.Base.php';
             <!-- Awareness Cards -->
             <div class="new-awareness-cards">
                 <!-- Card 1 -->
-                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="0" onclick="window.location.href='login.php'">
+                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="0" onclick="window.location.href='test.php'">
                     <div class="new-awareness-card-image">
                         <img src="img/quiz.png" alt="Create Plan">
                     </div>

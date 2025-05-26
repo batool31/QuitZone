@@ -91,7 +91,7 @@ try {
     <style>
     /* Add Challenge Form Styles */
     .add-challenge-section {
-        background: linear-gradient(135deg,#eb7e74,#263238);
+        background: white;
       
         border-radius: 20px;
         padding: 2rem;
@@ -114,15 +114,15 @@ try {
 
     .form-group label {
         margin-bottom: 0.5rem;
-        font-weight: 500;
-        color: #f8f9fa;
+        font-weight: 600;
+        color:#d46b60;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
         padding: 0.75rem;
-        border: none;
+       
         border-radius: 10px;
         font-size: 1rem;
         background: rgba(255, 255, 255, 0.9);
@@ -141,8 +141,8 @@ try {
     }
 
     .add-challenge-btn {
-        background: linear-gradient(135deg,rgb(243, 237, 237),#ffedea);
-        color:#263238;
+       background: linear-gradient(to right, var(--primary), var(--secondary));
+        color:white;
         border: none;
         padding: 1rem 2rem;
         border-radius: 50px;
@@ -207,7 +207,7 @@ try {
                     <li><a href="progress.php" class="nav-link">Progress</a></li>
                     <li><a href="challenges.php" class="nav-link active">Challenges</a></li>
                     <li><a href="savings.php" class="nav-link">Savings</a></li>
-                    <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
+                    <li><a href="success_stories.php" class="nav-link">Success Stories</a></li>
                     <li><a href="chatbot.php" class="nav-link">Chatbot</a></li>
                         <li><a href="login.php" class="login-btn">Logout</a></li>
                 </ul>
@@ -538,6 +538,59 @@ try {
             </div>
         </div>
     </section>
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="home.php">
+                        <span>QuitZone</span>
+                        <span class="emoji">🚭</span>
+                    </a>
+                    <p>Your partner in the journey to a smoke-free life.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Pages</h3>
+                        <ul>
+                            <li><a href="home.php">Home</a></li>
+                            <li><a href="progress.php">Progress</a></li>
+                            <li><a href="challenges.php">Challenges</a></li>
+                            <li><a href="savings.php">Savings</a></li>
+                            <li><a href="success_stories.php">Success Stories</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 QuitZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

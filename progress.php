@@ -64,9 +64,6 @@ if (isset($_POST['milestone_id'])) {
 }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,88 +75,6 @@ if (isset($_POST['milestone_id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <style>
-   .video-milestones-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.video-milestone-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.video-card {
-  background: #f9f9f9;
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-
-.video-card:hover {
-  transform: scale(1.02);
-}
-
-.video-card h3 {
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.video-card p {
-  font-size: 14px;
-  color: #666;
-}
-
-.video-thumbnail {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-/* نافذة الفيديو المنبثقة */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-}
-
-.modal-content {
-  position: relative;
-  margin: 5% auto;
-  width: 80%;
-  max-width: 800px;
-}
-
-.modal-content iframe {
-  width: 100%;
-  height: 450px;
-  border: none;
-  border-radius: 10px;
-}
-
-.close-button {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  color: #fff;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-
-</style>
 
 
 </head>
@@ -326,43 +241,53 @@ if (isset($_POST['milestone_id'])) {
         <button class="add-goal-btn" type="submit"><i class="fas fa-plus"></i></button>
     </form>
 </div>
-<div class="video-milestones-section" data-aos="fade-up">
-  <h2 class="subsection-title">Your Journey to Quit Smoking</h2>
-  <div class="video-milestone-grid">
+ <section class="progress-stats">
+<div class="container">
+      <h2 class="section-title" data-aos="fade-up">Heba's Progress</h2>
 
-    <!-- Milestone 1: Day One -->
-    <div class="video-card">
-      <h3>Day One</h3>
-      <img src="thumbs/day1.jpg" alt="Day One" class="video-thumbnail" data-video-url="https://youtu.be/pFFeeZLHL6U?t=5">
-      <p>"The first day is the beginning of everything!"</p>
+      <div class="stats-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="stats-grid">
+          <div class="stat-box" data-aos="fade-right" data-aos-delay="400">
+            <div class="decoration-circle"></div>
+            <p class="stat-label"><i class="fas fa-calendar-alt"></i> Quit Date:</p>
+            <p id="quit-date" class="stat-value">January 1, 2025</p>
+
+            <p class="stat-label"><i class="fas fa-hourglass-half"></i> Time Smoke-Free:</p>
+            <p class="stat-value">
+              <span id="days-free" class="counter" data-target="124">0</span>
+              <span class="time-unit">d </span>
+              <span class="time-unit">12h </span>
+              <span class="time-unit">45m </span>
+              <span class="time-unit">30s</span>
+            </p>
+          </div>
+
+          <div class="stat-box" data-aos="fade-left" data-aos-delay="600">
+            <div class="decoration-circle circle-alt"></div>
+            <p class="stat-label"><i class="fas fa-coins"></i> Money Saved:</p>
+            <p class="stat-value">$<span id="money-saved" class="counter" data-target="1245.50">0.00</span></p>
+
+            <p class="stat-label"><i class="fas fa-heartbeat"></i> Health Improved:</p>
+            <p id="health-benefit" class="stat-value">Lung function improved 🫁</p>
+          </div>
+        </div>
+
+       <div class="progress-section" data-aos="fade-up" data-aos-delay="800">
+  <p class="stat-label">Your Milestones:</p>
+  <div class="progress-bar-container1">
+    <div id="progress-bar" class="progress-bar" style="width: 50%">
     </div>
 
-    <!-- Milestone 2: One Week -->
-    <div class="video-card">
-      <h3>One Week</h3>
-      <img src="thumbs/week1.jpg" alt="One Week" class="video-thumbnail" data-video-url="https://www.youtube.com/watch?v=3E-sT7FWYJQ">
-      <p>Your lungs begin to clear... Breathing improves!</p>
+    <div class="milestone-markers">
+      <span class="milestone" style="left: 10%">1d</span>
+      <span class="milestone" style="left: 30%">1w</span>
+      <span class="milestone" style="left: 50%">1m</span>
+      <span class="milestone" style="left: 70%">3m</span>
+      <span class="milestone" style="left: 90%">1y</span>
     </div>
-
-    <!-- Milestone 3: One Month -->
-    <div class="video-card">
-      <h3>One Month</h3>
-      <img src="thumbs/month1.jpg" alt="One Month" class="video-thumbnail" data-video-url="https://www.youtube.com/watch?v=eNtEeS9NURs">
-      <p>Watch Motaz & Mohammad’s success story quitting smoking</p>
-    </div>
-
   </div>
 </div>
-
-<!-- Video Popup Modal -->
-<div id="videoModal" class="modal">
-  <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
-  </div>
-</div>
-
-
+  </section>
         </div>
     </section>
    
@@ -534,35 +459,80 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-       // Select all checkboxes with the class 'milestone-checkbox'
-// فتح نافذة الفيديو عند النقر على الصورة المصغرة
-document.querySelectorAll('.video-thumbnail').forEach(function(thumbnail) {
-  thumbnail.addEventListener('click', function() {
-    var videoUrl = this.getAttribute('data-video-url');
-    var videoFrame = document.getElementById('videoFrame');
-    videoFrame.src = videoUrl + "?autoplay=1";
-    document.getElementById('videoModal').style.display = 'block';
-  });
-});
+ 
+    // Counter animation function
+    function animateCounter(element, target, duration = 2000) {
+      let start = 0;
+      const increment = target / (duration / 16);
 
-// إغلاق نافذة الفيديو عند النقر على زر الإغلاق
-document.querySelector('.close-button').addEventListener('click', function() {
-  var videoFrame = document.getElementById('videoFrame');
-  videoFrame.src = "";
-  document.getElementById('videoModal').style.display = 'none';
-});
+      const updateCounter = () => {
+        start += increment;
 
-// إغلاق نافذة الفيديو عند النقر خارج المحتوى
-window.addEventListener('click', function(event) {
-  var modal = document.getElementById('videoModal');
-  if (event.target == modal) {
-    var videoFrame = document.getElementById('videoFrame');
-    videoFrame.src = "";
-    modal.style.display = 'none';
-  }
-});
+        if (start < target) {
+          if (Number.isInteger(target)) {
+            element.textContent = Math.floor(start).toLocaleString();
+          } else {
+            element.textContent = start.toFixed(2);
+          }
+          requestAnimationFrame(updateCounter);
+        } else {
+          if (Number.isInteger(target)) {
+            element.textContent = target.toLocaleString();
+          } else {
+            element.textContent = target.toFixed(2);
+          }
+        }
+      };
 
-    </script>
+      // Observe element visibility before starting animation
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            updateCounter();
+            observer.unobserve(entry.target); // Stop observing once animated
+          }
+        });
+      }, { threshold: 0.5 }); // Trigger when 50% of element is visible
+
+
+      // Start animation after a slight delay if already in view or observe
+      // Check if element is already in viewport on load
+      if (isInViewport(element)) {
+         setTimeout(() => {
+            updateCounter();
+          }, 500); // Slight delay even if in view
+      } else {
+         observer.observe(element);
+      }
+    }
+
+    // Check if element is in viewport (helper function for initial check)
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+
+    // Animate counters when they come into view
+    document.addEventListener('DOMContentLoaded', () => {
+      const counters = document.querySelectorAll('.counter');
+
+      counters.forEach(counter => {
+        const targetValue = parseFloat(counter.getAttribute('data-target'));
+        counter.textContent = '0'; // Initialize to 0
+
+        // Use the updated animateCounter with observer
+        animateCounter(counter, targetValue);
+      });
+    });
+
+</script>
+
     <script>
         // Scroll to top when page is refreshed
         window.onbeforeunload = function () {

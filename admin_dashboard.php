@@ -70,14 +70,41 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     #addStoryForm button:hover {
       background-color: #45a049;
     }
-    .main-content {
-      max-width: 1100px;
-      margin: 0 auto 40px auto;
-      padding: 0 15px;
-      color: #444;
-      font-size: 18px;
-    }
-    .main-content h2 {
+    body {
+  margin: 0;
+  height: 100vh; /* ارتفاع كامل الشاشة */
+  display: flex;
+  justify-content: center; /* وسط أفقي */
+  align-items: center;    /* وسط عمودي */
+  background-color: #f7f7f7; /* لو بدك خلفية */
+  font-family: 'Poppins', sans-serif;
+}
+
+.main-contentc {
+  max-width: 600px; /* حجم مناسب */
+  width: 90%;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center; /* لتوسيط النص */
+  color: #444;
+  font-size: 18px;
+}
+
+    .main-contentc {
+  max-width: 600px; /* حجم مناسب */
+  width: 90%;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center; /* لتوسيط النص */
+  color: #444;
+  font-size: 18px;
+}
+
+    .main-contentc h2 {
       font-size: 24px;
       margin-bottom: 10px;
     }
@@ -96,26 +123,19 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
         <ul>
           <li><a href="admin_dashboard.php" class="nav-link active">Dashboard</a></li>
           <li><a href="manage_users.php" class="nav-link">Manage Users</a></li>
+          <li><a href="login_history.php" class="nav-link">Login Logs</a></li>
+          <li><a href="reset_user_password.php" class="nav-link">Reset Password</a></li>
+           <li><a href="filter_users.php" class="nav-link">User Status</a></li>
           <li><a href="logout.php" class="login-btn">Logout</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <form id="addStoryForm" method="POST" action="add_story.php" enctype="multipart/form-data">
-    <h2>Add Success Story</h2>
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="text" name="location" placeholder="Location" required>
-    <input type="number" name="smoker_years" placeholder="Years as smoker" required>
-    <input type="text" name="smoke_free_duration" placeholder="Smoke Free Duration" required>
-    <textarea name="story" placeholder="Story" required></textarea>
-    <input type="text" name="achievements" placeholder="Achievements (comma separated)" required>
-    <input type="file" name="image" accept="image/*" required>
-    <button type="submit">Add Story</button>
-  </form>
+  
 
-  <section class="main-content">
-    <div class="container">
+  <section class="main-contentc">
+    <div class="containerc">
       <h2>Welcome Admin, <?= htmlspecialchars($_SESSION['user_name']); ?> 👨‍💼</h2>
       <p>Here you can manage users, view statistics, and control QuitZone content.</p>
     </div>

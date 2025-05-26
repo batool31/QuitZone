@@ -16,11 +16,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
+    // تعريف المتغيرات لتسجيل المحاولة
+    $loginSuccess = 0;
+    $userId = 0;
+
     if ($user = $result->fetch_assoc()) {
+        $userId = $user['ID'];  // حفظ معرف المستخدم
+
         if (password_verify($password, $user['Password'])) {
+            $loginSuccess = 1;
+
             $_SESSION['user_id'] = $user['ID'];
             $_SESSION['user_name'] = $user['username'];
             $_SESSION['role'] = $user['role'];
+
+            // تسجيل محاولة الدخول الناجحة
+            $insertStmt = $conn->prepare("INSERT INTO login_history (user_id, login_time, success) VALUES (?, NOW(), ?)");
+            $insertStmt->bind_param("ii", $userId, $loginSuccess);
+            $insertStmt->execute();
+            $insertStmt->close();
 
             // ✅ التوجيه حسب الدور
             if ($user['role'] === 'admin') {
@@ -30,10 +44,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             exit();
         } else {
+            // تسجيل محاولة الدخول الفاشلة (كلمة المرور خطأ)
+            $insertStmt = $conn->prepare("INSERT INTO login_history (user_id, login_time, success) VALUES (?, NOW(), ?)");
+            $insertStmt->bind_param("ii", $userId, $loginSuccess);
+            $insertStmt->execute();
+            $insertStmt->close();
+
             echo "<script>alert('⚠️ Incorrect password'); window.location.href='login.php';</script>";
             exit();
         }
     } else {
+        // لم يُعثر على المستخدم، سجل محاولة دخول برقم مستخدم 0
+        $insertStmt = $conn->prepare("INSERT INTO login_history (user_id, login_time, success) VALUES (?, NOW(), ?)");
+        $insertStmt->bind_param("ii", $userId, $loginSuccess);
+        $insertStmt->execute();
+        $insertStmt->close();
+
         echo "<script>alert('❌ User not found'); window.location.href='login.php';</script>";
         exit();
     }
@@ -42,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 
 
 

@@ -276,7 +276,7 @@ include 'data.Base.php';
       <div class="banner-content">
         <h2>Join thousands who have successfully quit with QuitBot</h2>
         <p>Our users report a 78% higher success rate compared to quitting without support</p>
-        <a href="#" class="cta-button">Start Your Quit Journey Today</a>
+        
       </div>
       <div class="banner-decoration">
         <div class="animated-circles">

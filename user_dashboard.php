@@ -34,12 +34,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'user') {
     </div>
   </header>
 
-  <section class="main-content">
-    <div class="container">
-      <h2>Welcome Back, <?= $_SESSION['user_name']; ?> 🌱</h2>
-      <p>Your smoke-free journey continues! Explore your progress and take on new challenges.</p>
-    </div>
-  </section>
+  <h2>Welcome Back, <?= htmlspecialchars($_SESSION['user_name']); ?> 🌱</h2>
+    <p>Your smoke-free journey continues! Explore your progress and take on new challenges.</p>
+    <div class="btn-group">
 
 </body>
 </html>

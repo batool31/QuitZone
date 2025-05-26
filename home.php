@@ -21,6 +21,88 @@ include 'data.Base.php';
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+   .video-milestones-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.video-milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.video-card {
+  background: #f9f9f9;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.video-card:hover {
+  transform: scale(1.02);
+}
+
+.video-card h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.video-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.video-thumbnail {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* نافذة الفيديو المنبثقة */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+.modal-content iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+</style>
+
 </head>
 <body>
   <header class="navbar">
@@ -62,7 +144,7 @@ include 'data.Base.php';
     </h1>
 
    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-  <a href="login.php" class="start-btn"><span>Get Started</span></a>
+  <a href="progress.php" class="start-btn"><span>Stay on Track</span></a>
   <a href="awareness.php" class="start-btn secondary"><span>Learn More</span></a>
 </div>
 
@@ -73,57 +155,7 @@ include 'data.Base.php';
   </div>
 
   </section>
-
-
-  <section class="progress-stats">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Your Smoke-Free Progress</h2>
-
-      <div class="stats-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="stats-grid">
-          <div class="stat-box" data-aos="fade-right" data-aos-delay="400">
-            <div class="decoration-circle"></div>
-            <p class="stat-label"><i class="fas fa-calendar-alt"></i> Quit Date:</p>
-            <p id="quit-date" class="stat-value">January 1, 2025</p>
-
-            <p class="stat-label"><i class="fas fa-hourglass-half"></i> Time Smoke-Free:</p>
-            <p class="stat-value">
-              <span id="days-free" class="counter" data-target="124">0</span>
-              <span class="time-unit">d </span>
-              <span class="time-unit">12h </span>
-              <span class="time-unit">45m </span>
-              <span class="time-unit">30s</span>
-            </p>
-          </div>
-
-          <div class="stat-box" data-aos="fade-left" data-aos-delay="600">
-            <div class="decoration-circle circle-alt"></div>
-            <p class="stat-label"><i class="fas fa-coins"></i> Money Saved:</p>
-            <p class="stat-value">$<span id="money-saved" class="counter" data-target="1245.50">0.00</span></p>
-
-            <p class="stat-label"><i class="fas fa-heartbeat"></i> Health Improved:</p>
-            <p id="health-benefit" class="stat-value">Lung function improved 🫁</p>
-          </div>
-        </div>
-
-       <div class="progress-section" data-aos="fade-up" data-aos-delay="800">
-  <p class="stat-label">Your Milestones:</p>
-  <div class="progress-bar-container1">
-    <div id="progress-bar" class="progress-bar" style="width: 50%">
-    </div>
-
-    <div class="milestone-markers">
-      <span class="milestone" style="left: 10%">1d</span>
-      <span class="milestone" style="left: 30%">1w</span>
-      <span class="milestone" style="left: 50%">1m</span>
-      <span class="milestone" style="left: 70%">3m</span>
-      <span class="milestone" style="left: 90%">1y</span>
-    </div>
-  </div>
-</div>
-  </section>
-
-
+  
 <section class="awareness-section">
   <h2 class="section-title" data-aos="fade-up">Why Quit Smoking?</h2>
   <div class="awareness-container">
@@ -168,84 +200,50 @@ include 'data.Base.php';
         <li>🛠️ <strong>Improve your readiness with these steps</strong></li>
       </ul>
       <div class="test-buttons">
-        <a href="login.php" class="start-btn2"><span>Take the Test</span></a>
+        <a href="test.php" class="start-btn2"><span>Take the Test</span></a>
         <a href="success_stories.php" class="start-btn2 secondary"><span>Be Inspired by Real Success Stories</span></a>
       </div>
     </div>
   </div>
 </section>
   <section class="features">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">How QuitZone Helps You Quit</h2>
-      <p class="section-description" data-aos="fade-up" data-aos-delay="200">
-        Our comprehensive tools and resources are designed to support every aspect of your quit journey
-      </p>
+      
+<div class="video-milestones-section" data-aos="fade-up">
+  <h2 class="section-title">Understand. Decide. Heal.</h2>
+  <div class="video-milestone-grid">
 
-      <div class="features-grid">
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="feature-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>Track Your Progress</h3>
-          <p>
-            Monitor your smoke-free days, health improvements, and money saved in real-time.
-          </p>
-        </div>
-
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="feature-icon">
-            <i class="fas fa-trophy"></i>
-          </div>
-          <h3>Complete Challenges</h3>
-          <p>
-            Stay motivated with daily, weekly, and monthly challenges to conquer cravings.
-          </p>
-        </div>
-
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="feature-icon">
-            <i class="fas fa-piggy-bank"></i>
-          </div>
-          <h3>Calculate Savings</h3>
-          <p>
-            See how much money you're saving and plan what to do with your newfound wealth.
-          </p>
-        </div>
-
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
-          <div class="feature-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>Community Support</h3>
-          <p>
-            Connect with fellow quitters, share experiences, and celebrate victories together.
-          </p>
-        </div>
-
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
-          <div class="feature-icon">
-            <i class="fas fa-brain"></i>
-          </div>
-          <h3>Smart AI Assistant</h3>
-          <p>
-            Get personalized advice and support when cravings strike, 24/7.
-          </p>
-        </div>
-
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
-          <div class="feature-icon">
-            <i class="fas fa-heartbeat"></i>
-          </div>
-          <h3>Health Insights</h3>
-          <p>
-            Understand how your body is healing with day-by-day health improvement data.
-          </p>
-        </div>
-      </div>
+    <!-- Milestone 1: Day One -->
+    <div class="video-card">
+      <h4>What Happens 20 Minutes After You Quit?</h4>
+      <img src="img/sh.png" alt="Day One" class="video-thumbnail" data-video-url="https://www.youtube.com/embed/pFFeeZLHL6U">
+      <p>"Your heart, your blood, your body—all respond fast. Watch how."</p>
     </div>
+
+    <!-- Milestone 2: One Week -->
+    <div class="video-card">
+      <h4>The Hidden Damage of Smoking</h4>
+      <img src="img/abu.png" alt="One Week" class="video-thumbnail" data-video-url="https://www.youtube.com/embed/DPOKaVpNO3Y">
+      <p>"A visual warning of what’s happening inside with every cigarette."</p>
+    </div>
+
+    <!-- Milestone 3: One Month -->
+    <div class="video-card">
+      <h4>Quitting for Your Family</h4>
+      <img src="img/baby.png" alt="One Month" class="video-thumbnail" data-video-url="https://www.youtube.com/embed/f_Auh61aN9Y">
+      <p>"See how your choices affect the next generation."</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Video Popup Modal -->
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
   </section>
-
-
 
   <footer class="footer">
     <div class="container">
@@ -326,77 +324,6 @@ include 'data.Base.php';
       window.scrollTo(0, 0);
     });
 
-    // Counter animation function
-    function animateCounter(element, target, duration = 2000) {
-      let start = 0;
-      const increment = target / (duration / 16);
-
-      const updateCounter = () => {
-        start += increment;
-
-        if (start < target) {
-          if (Number.isInteger(target)) {
-            element.textContent = Math.floor(start).toLocaleString();
-          } else {
-            element.textContent = start.toFixed(2);
-          }
-          requestAnimationFrame(updateCounter);
-        } else {
-          if (Number.isInteger(target)) {
-            element.textContent = target.toLocaleString();
-          } else {
-            element.textContent = target.toFixed(2);
-          }
-        }
-      };
-
-      // Observe element visibility before starting animation
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            updateCounter();
-            observer.unobserve(entry.target); // Stop observing once animated
-          }
-        });
-      }, { threshold: 0.5 }); // Trigger when 50% of element is visible
-
-
-      // Start animation after a slight delay if already in view or observe
-      // Check if element is already in viewport on load
-      if (isInViewport(element)) {
-         setTimeout(() => {
-            updateCounter();
-          }, 500); // Slight delay even if in view
-      } else {
-         observer.observe(element);
-      }
-    }
-
-    // Check if element is in viewport (helper function for initial check)
-    function isInViewport(element) {
-      const rect = element.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
-    }
-
-
-    // Animate counters when they come into view
-    document.addEventListener('DOMContentLoaded', () => {
-      const counters = document.querySelectorAll('.counter');
-
-      counters.forEach(counter => {
-        const targetValue = parseFloat(counter.getAttribute('data-target'));
-        counter.textContent = '0'; // Initialize to 0
-
-        // Use the updated animateCounter with observer
-        animateCounter(counter, targetValue);
-      });
-    });
-
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
@@ -406,7 +333,36 @@ include 'data.Base.php';
         navbar.classList.remove('scrolled');
       }
     });
+      
+document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+  thumbnail.addEventListener('click', function () {
+    const videoUrl = this.getAttribute('data-video-url') + '?autoplay=1';
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
 
+    iframe.src = videoUrl;
+    modal.style.display = 'block';
+  });
+});
+
+// Close modal
+document.querySelector('.close-button').addEventListener('click', function () {
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('videoFrame');
+  
+  iframe.src = ''; // Stop video
+  modal.style.display = 'none';
+});
+
+// Close modal when clicking outside the modal content
+window.addEventListener('click', function (e) {
+  const modal = document.getElementById('videoModal');
+  const content = document.querySelector('.modal-content');
+  if (e.target === modal) {
+    document.getElementById('videoFrame').src = '';
+    modal.style.display = 'none';
+  }
+});
   </script>
   <script src="common.js"></script>
 </body>
