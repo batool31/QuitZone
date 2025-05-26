@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+include 'data.Base.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,20 +23,20 @@
     <!-- Header -->
     <header class="navbar">
         <div class="container">
-            <a href="home.html" class="logo">
+            <a href="home.php" class="logo">
                 <span>QuitZone</span>
                 <span class="emoji">🚭</span>
             </a>
             <nav class="nav-desktop">
                 <ul>
-                    <li><a href="home.html" class="nav-link">Home</a></li>
-                    <li><a href="awareness.html" class="nav-link active">Awareness</a></li>
-                    <li><a href="progress.html" class="nav-link">Progress</a></li>
+                    <li><a href="home.php" class="nav-link">Home</a></li>
+                    <li><a href="awareness.php" class="nav-link active">Awareness</a></li>
+                    <li><a href="progress.php" class="nav-link">Progress</a></li>
                     <li><a href="challenges.php" class="nav-link">Challenges</a></li>
                     <li><a href="savings.php" class="nav-link">Savings</a></li>
-                    <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
-                    <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
-                    <li><a href="login.php" class="login-btn">Login</a></li>
+                    <li><a href="success_stories.php" class="nav-link">Success Stories</a></li>
+                    <li><a href="chatbot.php" class="nav-link">Chatbot</a></li>
+                    <li><a href="login.php" class="login-btn">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -55,7 +64,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="100" onclick="window.location.href='article1.html'">
+                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="100" onclick="window.location.href='article1.php'">
                     <div class="new-awareness-card-image">
                         <img src="img/ar.png" alt="Benefits of Quitting">
                     </div>
@@ -66,7 +75,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="200" onclick="window.location.href='article2.html'">
+                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="200" onclick="window.location.href='article2.php'">
                     <div class="new-awareness-card-image">
                         <img src="img/carving.png" alt="Manage Cravings">
                     </div>
@@ -77,7 +86,7 @@
                 </div>
 
                 <!-- Card 4 -->
-                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="300" onclick="window.location.href='article3.html'">
+                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="300" onclick="window.location.href='article3.php'">
                     <div class="new-awareness-card-image">
                         <img src="img/stress.png" alt="Coping with Stress">
                     </div>
@@ -88,7 +97,7 @@
                 </div>
 
                 <!-- Card 5 -->
-                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="400" onclick="window.location.href='article4.html'">
+                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="400" onclick="window.location.href='article4.php'">
                     <div class="new-awareness-card-image">
                         <img src="img/ctrl.png" alt="Tips for Slips">
                     </div>
@@ -99,7 +108,7 @@
                 </div>
 
                 <!-- Card 6 -->
-                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="500" onclick="window.location.href='article5.html'">
+                <div class="new-awareness-card" data-aos="zoom-in" data-aos-delay="500" onclick="window.location.href='article5.php'">
                     <div class="new-awareness-card-image">
                         <img src="img/rep.png" alt="Nicotine Replacement Therapy">
                     </div>
@@ -117,7 +126,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="home.html">
+                    <a href="home.php">
                         <span>QuitZone</span>
                         <span class="emoji">🚭</span>
                     </a>
@@ -128,11 +137,11 @@
                     <div class="footer-column">
                         <h3>Pages</h3>
                         <ul>
-                            <li><a href="home.html">Home</a></li>
-                            <li><a href="progress.html">Progress</a></li>
+                            <li><a href="home.php">Home</a></li>
+                            <li><a href="progress.php">Progress</a></li>
                             <li><a href="challenges.php">Challenges</a></li>
                             <li><a href="savings.php">Savings</a></li>
-                            <li><a href="success_stories.html">Success Stories</a></li>
+                            <li><a href="success_stories.php">Success Stories</a></li>
                         </ul>
                     </div>
 

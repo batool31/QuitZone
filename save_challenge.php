@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 require 'data.Base.php';
-
+error_log("USER ID: " . $_SESSION['user_id']);
 $data = json_decode(file_get_contents('php://input'), true);
 
 $title = trim($data['title']);
@@ -28,6 +28,9 @@ $stmt->bind_param("isssi", $user_id, $title, $description, $type, $duration);
 if ($stmt->execute()) {
     echo json_encode(['success' => true]);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Database error']);
+   echo json_encode(['success' => false, 'message' => 'Database error: ' . $stmt->error]);
+
 }
+error_log("USER ID: " . $_SESSION['user_id']);
+
 ?>

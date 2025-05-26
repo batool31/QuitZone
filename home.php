@@ -1,4 +1,12 @@
+<?php
+session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+include 'data.Base.php';
+?>
 
 
 
@@ -17,21 +25,21 @@
 <body>
   <header class="navbar">
     <div class="container">
-      <a href="home.html" class="logo">
+      <a href="home.php" class="logo">
         <span>QuitZone</span>
         <span class="emoji">🚭</span>
       </a>
 
       <nav class="nav-desktop">
         <ul>
-          <li><a href="home.html" class="nav-link active ">Home</a></li>
-          <li><a href="awareness.html" class="nav-link">Awareness</a></li>
-          <li><a href="progress.html" class="nav-link">Progress</a></li>
+          <li><a href="home.php" class="nav-link active ">Home</a></li>
+          <li><a href="awareness.php" class="nav-link">Awareness</a></li>
+          <li><a href="progress.php" class="nav-link">Progress</a></li>
           <li><a href="challenges.php" class="nav-link">Challenges</a></li>
           <li><a href="savings.php" class="nav-link">Savings</a></li>
-          <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
-          <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
-          <li><a href="login.php" class="login-btn">Login</a></li>
+          <li><a href="success_stories.php" class="nav-link">Success Stories</a></li>
+          <li><a href="chatbot.php" class="nav-link">Chatbot</a></li>
+          <li><a href="login.php" class="login-btn">Logout</a></li>
         </ul>
       </nav>
     </div>
@@ -124,7 +132,7 @@
 
       <h3>Better Health</h3>
       <p>Quitting smoking significantly reduces the risk of heart disease, stroke, and cancer.</p>
-      <a href="progress.html" class="awareness-btn">Track Your Progress</a>
+      <a href="progress.php" class="awareness-btn">Track Your Progress</a>
     </div>
 
     <div class="awareness-box" data-aos="fade-up" data-aos-delay="300">
@@ -138,7 +146,7 @@
       <img src="img/clear.png" alt="Clean Air Icon" class="awareness-icon" />
       <h3>Clean Environment</h3>
       <p>Secondhand smoke harms those around you. Quitting helps protect others too.</p>
-       <a href="awareness.html" class="awareness-btn">Learn More</a>
+       <a href="awareness.php" class="awareness-btn">Learn More</a>
     </div>
   </div>
 </section>
@@ -161,7 +169,7 @@
       </ul>
       <div class="test-buttons">
         <a href="login.php" class="start-btn2"><span>Take the Test</span></a>
-        <a href="success_stories.html" class="start-btn2 secondary"><span>Be Inspired by Real Success Stories</span></a>
+        <a href="success_stories.php" class="start-btn2 secondary"><span>Be Inspired by Real Success Stories</span></a>
       </div>
     </div>
   </div>
@@ -243,7 +251,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <a href="home.html">
+          <a href="home.php">
             <span>QuitZone</span>
             <span class="emoji">🚭</span>
           </a>
@@ -254,11 +262,11 @@
           <div class="footer-column">
             <h3>Pages</h3>
             <ul>
-              <li><a href="home.html">Home</a></li>
-              <li><a href="progress.html">Progress</a></li>
+              <li><a href="home.php">Home</a></li>
+              <li><a href="progress.php">Progress</a></li>
               <li><a href="challenges.php">Challenges</a></li>
               <li><a href="savings.php">Savings</a></li>
-              <li><a href="success_stories.html">Success Stories</a></li>
+              <li><a href="success_stories.php">Success Stories</a></li>
             </ul>
           </div>
 

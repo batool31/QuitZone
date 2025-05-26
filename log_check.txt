@@ -17,3 +17,6 @@
 {"reward_id":"1"}
 {"reward_id":"1"}
 {"reward_id":"1"}
+{"reward_id":"1"}
+{"reward_id":"2"}
+{"reward_id":"1"}

@@ -5,27 +5,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email    = $_POST['email'];
     $password = $_POST['password'];
 
-    // الاتصال بقاعدة البيانات
     $conn = new mysqli("localhost", "root", "", "quitzone");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // التحقق من وجود المستخدم
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND username = ?");
     $stmt->bind_param("ss", $email, $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($user = $result->fetch_assoc()) {
-        // تحقق من كلمة المرور
         if (password_verify($password, $user['Password'])) {
-            // تسجيل الدخول ناجح - الانتقال إلى test.php
+            $_SESSION['user_id'] = $user['ID'];
+            $_SESSION['user_name'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
 
-          $_SESSION['user_id']=$user['ID'];
-         
-            echo "<script>alert('Login successful'); window.location.href='test.php';</script>";
+            // ✅ التوجيه حسب الدور
+            if ($user['role'] === 'admin') {
+                echo "<script>alert('Welcome Admin!'); window.location.href='admin_dashboard.php';</script>";
+            } else {
+                echo "<script>alert('Login successful'); window.location.href='test.php';</script>";
+            }
             exit();
         } else {
             echo "<script>alert('⚠️ Incorrect password'); window.location.href='login.php';</script>";
@@ -60,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  <!-- Header -->
     <header class="navbar">
         <div class="container">
-            <a href="home.html" class="logo">
+            <a href="home.php" class="logo">
                 <span>QuitZone</span>
                 <span class="emoji">🚭</span>
             </a>
@@ -68,13 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Navigation Links for Desktop -->
             <nav class="nav-desktop">
                 <ul>
-                    <li><a href="home.html" class="nav-link">Home</a></li>
-                    <li><a href="awareness.html" class="nav-link">Awareness</a></li>
-                    <li><a href="progress.html" class="nav-link">Progress</a></li>
-                    <li><a href="challenges.php" class="nav-link ">Challenges</a></li>
-                    <li><a href="savings.php" class="nav-link">Savings</a></li>
-                    <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
-                    <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
+                
                     <li><a href="login.php" class="login-btn active">Login</a></li>
                 </ul>
             </nav>
@@ -661,7 +657,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="home.html">
+                    <a href="home.php">
                         <span>QuitZone</span>
                         <span class="emoji">🚭</span>
                     </a>
@@ -672,11 +668,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="footer-column">
                         <h3>Pages</h3>
                         <ul>
-                            <li><a href="home.html">Home</a></li>
-                            <li><a href="progress.html">Progress</a></li>
+                            <li><a href="home.php">Home</a></li>
+                            <li><a href="progress.php">Progress</a></li>
                             <li><a href="challenges.php">Challenges</a></li>
                             <li><a href="savings.php">Savings</a></li>
-                            <li><a href="success_stories.html">Success Stories</a></li>
+                            <li><a href="success_stories.php">Success Stories</a></li>
                         </ul>
                     </div>
                     

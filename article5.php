@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+include 'data.Base.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +21,20 @@
     <!-- Header -->
     <header class="navbar">
         <div class="container">
-            <a href="home.html" class="logo">
+            <a href="home.php" class="logo">
                 <span>QuitZone</span>
                 <span class="emoji">🚭</span>
             </a>
             <nav class="nav-desktop">
                 <ul>
-                    <li><a href="home.html" class="nav-link">Home</a></li>
-                    <li><a href="awareness.html" class="nav-link">Awareness</a></li>
-                    <li><a href="progress.html" class="nav-link">Progress</a></li>
+                    <li><a href="home.php" class="nav-link">Home</a></li>
+                    <li><a href="awareness.php" class="nav-link">Awareness</a></li>
+                    <li><a href="progress.php" class="nav-link">Progress</a></li>
                     <li><a href="challenges.php" class="nav-link">Challenges</a></li>
                     <li><a href="savings.php" class="nav-link">Savings</a></li>
-                    <li><a href="success_stories.html" class="nav-link">Success Stories</a></li>
-                    <li><a href="chatbot.html" class="nav-link">Chatbot</a></li>
-                    <li><a href="login.php" class="login-btn">Login</a></li>
+                    <li><a href="success_stories.php" class="nav-link">Success Stories</a></li>
+                    <li><a href="chatbot.php" class="nav-link">Chatbot</a></li>
+                    <li><a href="login.php" class="login-btn">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,7 +45,7 @@
         <article class="article">
             <header class="article-header">
                 <h1>Using Nicotine Replacement Therapy</h1>
-                <p class="article-lead"> Many people use quit smoking medications to help reduce  <a href="savings.php">withdrawal feelings </a>and <a href="article2.html"> cigarette cravings</a>. Quit smoking medications can double your chances of quitting for good.</p>
+                <p class="article-lead"> Many people use quit smoking medications to help reduce  <a href="savings.php">withdrawal feelings </a>and <a href="article2.php"> cigarette cravings</a>. Quit smoking medications can double your chances of quitting for good.</p>
             </header>
 
             <section class="article-content">
@@ -114,7 +123,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="home.html">
+                    <a href="home.php">
                         <span>QuitZone</span>
                         <span class="emoji">🚭</span>
                     </a>
@@ -124,11 +133,11 @@
                     <div class="footer-column">
                         <h3>Pages</h3>
                         <ul>
-                            <li><a href="home.html">Home</a></li>
-                            <li><a href="progress.html">Progress</a></li>
+                            <li><a href="home.php">Home</a></li>
+                            <li><a href="progress.php">Progress</a></li>
                             <li><a href="challenges.php">Challenges</a></li>
                             <li><a href="savings.php">Savings</a></li>
-                            <li><a href="success_stories.html">Success Stories</a></li>
+                            <li><a href="success_stories.php">Success Stories</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
