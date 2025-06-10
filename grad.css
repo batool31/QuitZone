@@ -336,17 +336,17 @@ background: url('img/lungg.png') no-repeat center center / cover;
 
 
 .hero .subtitle {
-  font-size: 2.2rem; /* Slightly larger subtitle */
+  font-size: 2.6rem; /* Slightly larger subtitle */
   font-weight: 650;
-  color: var(--accent); /* Darker color for subtitle */
+  color: rgb(245, 226, 226); /* Darker color for subtitle */
   margin-bottom: 1rem; /* Reduced margin */
   letter-spacing: 1px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
 }
 
 .highlight {
-  font-weight: 600;
-  font-size: 2rem;
+  font-weight: 610;
+  font-size: 2.3rem;
   color: var(--primary-dark); /* Use primary for highlight */
   position: relative;
   margin-top: 4rem;

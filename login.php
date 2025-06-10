@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($user['role'] === 'admin') {
                 echo "<script>alert('Welcome Admin!'); window.location.href='admin_dashboard.php';</script>";
             } else {
-                echo "<script>alert('Login successful'); window.location.href='test.php';</script>";
+                echo "<script>alert('Login successful'); window.location.href='home.php';</script>";
             }
             exit();
         } else {
@@ -86,23 +86,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <!-- Header -->
- <!-- Header -->
-    <header class="navbar">
-        <div class="container">
-            <a href="home.php" class="logo">
-                <span>QuitZone</span>
-                <span class="emoji">🚭</span>
-            </a>
-            
-            <!-- Navigation Links for Desktop -->
-            <nav class="nav-desktop">
-                <ul>
-                
-                    <li><a href="login.php" class="login-btn active">Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+ <header class="navbar">
+  <div class="container">
+      <a href="home2.php" class="logo">
+          <span>QuitZone</span>
+          <span class="emoji">🚭</span>
+      </a>
+      
+      <!-- Navigation Links for Desktop -->
+      <nav class="nav-desktop">
+          <ul>
+              <li><a href="login.php" class="login-btn">Login</a></li>
+          </ul>
+      </nav>
+  </div>
+</header>
+
 
 
       <section class="login-page">
