@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header class="navbar">
         <div class="container">
-            <a href="home.php" class="logo">
+            <a href="home2.php" class="logo">
                 <span>QuitZone</span>
                 <span class="emoji">🚭</span>
             </a>

@@ -177,30 +177,7 @@ include 'data.Base.php';
   </div>
 </section>
 
-
-<section class="interactive-test">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">🎯 Interactive Test: "Are you ready to quit?"</h2>
-    <p class="section-description" data-aos="fade-up" data-aos-delay="200">
-      Answer a few quick questions to assess your physical and psychological readiness to quit smoking.
-    </p>
-
-    <div class="test-card" data-aos="zoom-in" data-aos-delay="400">
-      <p class="test-info">
-        Based on your answers, you'll get one of the following recommendations:
-      </p>
-      <ul class="test-recommendations">
-        <li>✅ <strong>Start today</strong></li>
-        <li>🛠️ <strong>Improve your readiness with these steps</strong></li>
-      </ul>
-      <div class="test-buttons">
-        <a href="login.php" class="start-btn2"><span>Take the Test</span></a>
-        <a href="success_stories.php" class="start-btn2 secondary"><span>Be Inspired by Real Success Stories</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-  <section class="features">
+<section class="features">
       
 <div class="video-milestones-section" data-aos="fade-up">
   <h2 class="section-title">Understand. Decide. Heal.</h2>
@@ -239,6 +216,29 @@ include 'data.Base.php';
 </div>
   </section>
 
+<section class="interactive-test">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">🎯 Interactive Test: "Are you ready to quit?"</h2>
+    <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+      Answer a few quick questions to assess your physical and psychological readiness to quit smoking.
+    </p>
+
+    <div class="test-card" data-aos="zoom-in" data-aos-delay="400">
+      <p class="test-info">
+        Based on your answers, you'll get one of the following recommendations:
+      </p>
+      <ul class="test-recommendations">
+        <li>✅ <strong>Start today</strong></li>
+        <li>🛠️ <strong>Improve your readiness with these steps</strong></li>
+      </ul>
+      <div class="test-buttons">
+        <a href="login.php" class="start-btn2"><span>Take the Test</span></a>
+        <a href="success_stories.php" class="start-btn2 secondary"><span>Be Inspired by Real Success Stories</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+  
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
